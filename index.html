@@ -1,0 +1,687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BPE | Private Equity & Investments</title>
+<meta name="description" content="BPE, Unipessoal Lda. – owner-managed investment company based in Montemor-o-Novo, Portugal. Real Estate · Technology · Digital Assets · International Trade.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#005f78;        /* active nav / primary */
+  --teal-dark:#0b3a4f;   /* logo navy */
+  --green:#5cb46c;       /* pill buttons / links */
+  --green-dark:#3f9a51;
+  --head:#a3a3a3;        /* table headers */
+  --row:#ececec;         /* zebra rows */
+  --bg:#efefef;          /* page background */
+  --card:#ffffff;
+  --text:#2b2b2b;
+  --muted:#6b6b6b;
+  --line:#dcdcdc;
+  --gold:#b8975a;        /* subtle accent */
+  --radius:6px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6}
+a{color:var(--text)}
+h1,h2,h3{font-weight:400;line-height:1.2;margin:0}
+.app{display:flex;gap:20px;max-width:1360px;margin:0 auto;padding:8px 16px 40px 0;align-items:flex-start}
+
+/* ---------- Sidebar ---------- */
+.side{position:sticky;top:8px;width:230px;flex:0 0 230px}
+.side-card{background:var(--card);border-radius:0 var(--radius) var(--radius) 0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden}
+.logo{display:block;padding:22px 20px 14px;text-decoration:none}
+.logo-mark{display:flex;align-items:baseline;gap:6px;font-weight:800;font-size:38px;letter-spacing:.5px;color:var(--teal-dark);line-height:1}
+.logo-mark .b{position:relative}
+.logo-mark .b::before{content:"";position:absolute;left:-6px;top:50%;width:14px;height:4px;background:var(--teal-dark);transform:translateY(-50%)}
+.logo-mark .pe{background:linear-gradient(90deg,var(--teal),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+.logo-line{height:3px;margin-top:8px;background:linear-gradient(90deg,var(--teal-dark),var(--green))}
+.logo-sub{font-size:10.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-top:7px}
+.lang{padding:4px 20px 14px}
+.lang select{border:0;background:transparent;font:inherit;font-size:14px;color:var(--text);cursor:pointer;padding:2px 0}
+.nav{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.nav a{display:block;padding:9px 20px;text-decoration:none;font-size:15px;border-bottom:1px solid var(--line);transition:background .15s,color .15s}
+.nav a:hover{background:#f5f5f5}
+.nav a.active{background:var(--teal);color:#fff}
+.nav a.contact-link{color:var(--teal);font-weight:700}
+.side-meta{padding:16px 4px 0 4px;font-size:13px;color:var(--muted)}
+.side-meta strong{color:var(--text);font-weight:600;display:block}
+
+/* ---------- Main ---------- */
+main{flex:1;min-width:0}
+.card{background:var(--card);border-radius:var(--radius);box-shadow:0 1px 3px rgba(0,0,0,.08);padding:28px 0 8px;margin-bottom:20px}
+.pad{padding:0 32px}
+.hero{text-align:center;padding:30px 32px 10px}
+.eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700}
+.hero h1{font-size:clamp(28px,4vw,42px);margin:12px 0 10px;letter-spacing:.3px}
+.hero p.lead{font-size:18px;color:var(--muted);margin:0 auto;max-width:640px}
+.hero-visual{margin:28px 32px 0;height:240px;border-radius:var(--radius);position:relative;overflow:hidden;
+  background:
+   linear-gradient(115deg,rgba(11,58,79,.92) 0%,rgba(0,95,120,.80) 55%,rgba(92,180,108,.55) 100%),
+   repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),
+   repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),
+   #0b3a4f}
+.hero-visual svg{position:absolute;right:0;bottom:0;height:100%;width:auto;opacity:.9}
+.hero-visual .claim{position:absolute;left:32px;bottom:28px;color:#fff;max-width:60%}
+.hero-visual .claim span{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#d9c79f}
+.hero-visual .claim b{display:block;font-weight:300;font-size:clamp(18px,2.4vw,26px);margin-top:6px}
+
+.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:30px 32px 26px}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:168px;padding:6px 22px;border:2px solid var(--green);border-radius:999px;color:var(--green-dark);font-weight:700;font-size:15px;text-decoration:underline;text-underline-offset:3px;transition:background .2s,color .2s}
+.pill:hover{background:var(--green);color:#fff}
+.pill svg{width:20px;height:20px;flex:none}
+
+.sec-title{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:600;margin:6px 0 14px}
+.sec-title svg{width:30px;height:30px;flex:none;color:var(--text)}
+.sec-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.sec-head .links{display:flex;gap:28px}
+.sec-head .links a{color:var(--green-dark);font-weight:700;text-underline-offset:3px;display:inline-flex;gap:8px;align-items:center}
+.intro{color:var(--muted);max-width:820px;margin:0 0 18px}
+
+/* table style from reference */
+.tbl{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:24px}
+.tbl th{background:var(--head);color:#222;text-align:left;font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:.3px;padding:9px 10px;border-right:1px solid #fff}
+.tbl td{padding:8px 10px;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tbl tr:nth-child(even) td{background:var(--row)}
+.tbl td:first-child{font-weight:600;white-space:nowrap}
+.tbl td a{text-underline-offset:2px}
+.arrow::before{content:"↗";margin-right:3px}
+.wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+
+/* grid blocks */
+.grid{display:grid;gap:0;border:1px solid var(--line);margin-bottom:26px}
+.grid.g4{grid-template-columns:repeat(4,1fr)}
+.grid.g3{grid-template-columns:repeat(3,1fr)}
+.grid.g2{grid-template-columns:repeat(2,1fr)}
+.cell{border-right:1px solid var(--line);display:flex;flex-direction:column}
+.cell:last-child{border-right:0}
+.cell h3{background:var(--head);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;padding:9px 12px}
+.cell .body{padding:12px 12px 16px;font-size:15px;flex:1}
+.cell .body p{margin:0 0 8px}
+.cell .more{color:var(--green-dark);font-weight:700;font-size:14px;text-underline-offset:3px}
+.num{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:1px;margin-right:6px}
+
+ul.ticks{list-style:none;padding:0;margin:0 0 20px;columns:2;column-gap:32px}
+ul.ticks li{padding:4px 0 4px 22px;position:relative;break-inside:avoid;font-size:15px}
+ul.ticks li::before{content:"";position:absolute;left:2px;top:12px;width:9px;height:9px;border:2px solid var(--green);border-radius:50%}
+
+.status{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
+.status.active{background:#e3f2e6;color:var(--green-dark)}
+.status.eval{background:#f6efe1;color:#8a6a2c}
+
+.motto{border-left:3px solid var(--gold);padding:10px 16px;margin:0 0 24px;font-size:18px;font-weight:300;background:#fafafa}
+.note{font-size:13px;color:var(--muted);margin:-12px 0 24px}
+
+.strategy{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
+.strategy div{border:2px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+.strategy b{display:block;color:var(--teal);font-size:13px;letter-spacing:1.2px;text-transform:uppercase}
+.strategy h4{margin:4px 0 6px;font-size:20px;font-weight:600}
+.strategy p{margin:0;font-size:15px;color:var(--muted)}
+
+.mgmt{display:grid;grid-template-columns:200px 1fr;gap:28px;margin-bottom:24px;align-items:start}
+.portrait{aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(160deg,var(--teal-dark),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-size:54px;font-weight:300;letter-spacing:2px}
+.mgmt h3{font-size:24px;font-weight:600}
+.mgmt .role{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:4px 0 12px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;margin-bottom:24px}
+form label{display:block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:12px 0 4px}
+form input,form select,form textarea{width:100%;font:inherit;font-size:15px;padding:9px 10px;border:1px solid #c9c9c9;border-radius:4px;background:#fff;color:var(--text)}
+form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
+form textarea{min-height:120px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.btn{margin-top:16px;display:inline-block;background:var(--green);color:#fff;border:2px solid var(--green);border-radius:999px;padding:8px 30px;font:inherit;font-weight:700;cursor:pointer;transition:background .2s}
+.btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
+.form-msg{margin-top:12px;font-size:14px;color:var(--green-dark);display:none}
+.consent{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted);margin-top:12px}
+.consent input{width:auto;margin-top:4px}
+
+footer{font-size:13px;color:var(--muted);padding:0 4px}
+footer .disc{margin:0 0 8px}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* mobile top bar */
+.topbar{display:none}
+@media (max-width:1000px){
+  .grid.g4{grid-template-columns:1fr 1fr}
+  .grid.g4 .cell:nth-child(2){border-right:0}
+  .grid.g4 .cell:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .contact{grid-template-columns:1fr}
+}
+@media (max-width:860px){
+  .app{display:block;padding:0}
+  .topbar{display:flex;position:sticky;top:0;z-index:20;background:#fff;align-items:center;justify-content:space-between;padding:10px 16px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+  .topbar .logo{padding:0}
+  .topbar .logo-mark{font-size:28px}
+  .topbar .logo-line,.topbar .logo-sub{display:none}
+  .burger{border:2px solid var(--green);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-weight:700;color:var(--green-dark);cursor:pointer}
+  .side{position:fixed;inset:0 auto 0 0;width:280px;z-index:30;transform:translateX(-100%);transition:transform .25s;top:0;background:var(--bg);overflow-y:auto}
+  .side.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.25)}
+  .side-meta{padding:16px 20px}
+  .scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:25}
+  .scrim.show{display:block}
+  main{padding:12px 16px 32px}
+  .pad{padding:0 18px}
+  .hero{padding:18px 18px 4px}
+  .hero-visual{margin:22px 18px 0;height:200px}
+  .hero-visual .claim{left:18px;max-width:80%}
+  .pills{padding:24px 18px 20px;gap:10px}
+  .pill{min-width:0;flex:1 1 calc(50% - 10px);padding:6px 12px;font-size:14px}
+}
+@media (max-width:600px){
+  .grid.g4,.grid.g3,.grid.g2{grid-template-columns:1fr}
+  .cell{border-right:0;border-bottom:1px solid var(--line)}
+  .cell:last-child{border-bottom:0}
+  ul.ticks{columns:1}
+  .strategy,.mgmt,.row2{grid-template-columns:1fr}
+  .portrait{max-width:160px}
+  .sec-title{font-size:22px}
+  .hero-visual svg{opacity:.35}
+  .tbl thead tr th:not(:first-child){display:none}
+  .tbl thead th{display:block}
+  .tbl tr,.tbl td{display:block;border-right:0}
+  .tbl td:first-child{white-space:normal;padding-bottom:0;border-bottom:0;color:var(--teal)}
+  .tbl tr:nth-child(even) td{background:var(--row)}
+}
+</style>
+</head>
+<body>
+
+<!-- Mobile top bar -->
+<div class="topbar">
+  <a class="logo" href="#home" aria-label="BPE home"><div class="logo-mark"><span class="b">B</span><span class="pe">PE</span></div></a>
+  <button class="burger" id="burger" aria-controls="side" aria-expanded="false" data-i18n="menu">Menu</button>
+</div>
+<div class="scrim" id="scrim"></div>
+
+<div class="app">
+  <!-- ========== SIDEBAR ========== -->
+  <aside class="side" id="side">
+    <div class="side-card">
+      <a class="logo" href="#home" aria-label="BPE home">
+        <div class="logo-mark"><span class="b">B</span><span class="pe">PE</span></div>
+        <div class="logo-line"></div>
+        <div class="logo-sub">Private Equity &amp; Investments</div>
+      </a>
+      <div class="lang">
+        <label for="langSel" style="position:absolute;left:-9999px">Language</label>
+        <select id="langSel">
+          <option value="en">🇬🇧&nbsp; English</option>
+          <option value="de">🇩🇪&nbsp; Deutsch</option>
+          <option value="pt">🇵🇹&nbsp; Português</option>
+        </select>
+      </div>
+      <nav>
+        <ul class="nav">
+          <li><a href="#home" class="active" data-i18n="nav.home">Home</a></li>
+          <li><a href="#about" data-i18n="nav.about">About BPE</a></li>
+          <li><a href="#realestate" data-i18n="nav.re">Real Estate</a></li>
+          <li><a href="#technology" data-i18n="nav.pe">Private Equity &amp; Technology</a></li>
+          <li><a href="#digital" data-i18n="nav.da">Digital Assets</a></li>
+          <li><a href="#trade" data-i18n="nav.it">International Trade</a></li>
+          <li><a href="#management" data-i18n="nav.mg">Management</a></li>
+          <li><a href="#contact" class="contact-link" data-i18n="nav.ct">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="side-meta">
+      <span data-i18n="side.office">Registered office:</span>
+      <strong>Montemor-o-Novo, Portugal</strong>
+      <br>
+      <span data-i18n="side.est">Established:</span>
+      <strong>2022 · NIPC 517 096 420</strong>
+    </div>
+  </aside>
+
+  <!-- ========== MAIN ========== -->
+  <main>
+    <!-- HOME -->
+    <section class="card" id="home">
+      <div class="hero">
+        <div class="eyebrow">BPE | Private Equity &amp; Investments</div>
+        <h1 data-i18n="hero.h1">Investing in Value. Building the Future.</h1>
+        <p class="lead" data-i18n="hero.sub">Independent investments in real estate, technology and emerging opportunities.</p>
+      </div>
+      <div class="hero-visual" role="img" aria-label="Abstract skyline and network graphic">
+        <svg viewBox="0 0 520 240" fill="none" aria-hidden="true">
+          <g stroke="rgba(255,255,255,.55)" stroke-width="1.2">
+            <path d="M40 240V150h46v90M96 240V110h54v130M160 240V70h40v170M210 240V128h60v112M280 240V92h44v148M334 240V140h58v100M402 240V60h38v180M450 240V118h52v122"/>
+            <path d="M104 122h38M104 138h38M104 154h38M168 86h24M168 102h24M168 118h24M288 108h28M288 124h28M410 78h22M410 94h22M410 110h22" opacity=".6"/>
+          </g>
+          <g stroke="#d9c79f" stroke-width="1.2" opacity=".8">
+            <circle cx="180" cy="40" r="3" fill="#d9c79f"/><circle cx="300" cy="62" r="3" fill="#d9c79f"/><circle cx="420" cy="28" r="3" fill="#d9c79f"/><circle cx="480" cy="84" r="3" fill="#d9c79f"/>
+            <path d="M180 40L300 62L420 28L480 84M300 62L480 84"/>
+          </g>
+        </svg>
+        <div class="claim"><span data-i18n="hero.philLabel">Our philosophy</span><b>Identify Opportunities. Create Value. Build Long-Term Wealth.</b></div>
+      </div>
+
+      <div class="pills">
+        <a class="pill" href="#realestate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><span data-i18n="nav.re">Real Estate</span></a>
+        <a class="pill" href="#technology"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span data-i18n="pill.tech">Technology</span></a>
+        <a class="pill" href="#digital"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 7v10M13 7v10M9 8h5a2 2 0 010 4H9h6a2 2 0 010 4H9"/></svg><span data-i18n="nav.da">Digital Assets</span></a>
+        <a class="pill" href="#trade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span data-i18n="pill.trade">Trade</span></a>
+        <a class="pill" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v12H8l-4 4z"/></svg><span data-i18n="nav.ct">Contact</span></a>
+      </div>
+
+      <div class="pad">
+        <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg><span data-i18n="areas.title">Business Areas</span></h2>
+        <div class="grid g4 reveal">
+          <div class="cell"><h3><span class="num">01</span><span data-i18n="nav.re">Real Estate</span></h3><div class="body"><p data-i18n="areas.re">Acquisition, modernisation and active management of residential property in Portugal.</p><a class="more" href="#realestate" data-i18n="more">Learn more</a></div></div>
+          <div class="cell"><h3><span class="num">02</span><span data-i18n="areas.peT">PE &amp; Technology</span></h3><div class="body"><p data-i18n="areas.pe">Selective holdings in software, artificial intelligence and financial technology.</p><a class="more" href="#technology" data-i18n="more">Learn more</a></div></div>
+          <div class="cell"><h3><span class="num">03</span><span data-i18n="nav.da">Digital Assets</span></h3><div class="body"><p data-i18n="areas.da">Investment analysis of Bitcoin mining based on real production data.</p><a class="more" href="#digital" data-i18n="more">Learn more</a></div></div>
+          <div class="cell"><h3><span class="num">04</span><span data-i18n="nav.it">International Trade</span></h3><div class="body"><p data-i18n="areas.it">Direct international sourcing of technical products – currently under evaluation.</p><a class="more" href="#trade" data-i18n="more">Learn more</a></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="card" id="about">
+      <div class="pad">
+        <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span data-i18n="nav.about">About BPE</span></h2>
+        <p class="intro" data-i18n="about.p1">BPE, Unipessoal Lda. is an owner-managed Portuguese investment and holding company headquartered in Montemor-o-Novo, Portugal. Founded in 2022, the company is wholly owned and led by its Managing Director, Marcus Friedrich Caesar Böhm.</p>
+        <p class="intro" data-i18n="about.p2">BPE follows an entrepreneurial investment approach: building sustainable assets through targeted capital investment, operational value creation and long-term asset management. The company invests its own capital, selectively and with a long-term horizon.</p>
+        <div class="motto" data-i18n="about.motto">BPE is not a broker, a conventional developer or a retail financial service provider – it is a privately held investment company with its own capital, operational experience and an international outlook.</div>
+
+        <h3 style="font-size:20px;font-weight:600;margin:0 0 12px" data-i18n="strat.title">Investment Strategy – Four Principles</h3>
+        <div class="wrap reveal">
+        <table class="tbl">
+          <thead><tr><th data-i18n="strat.th1">Principle</th><th data-i18n="strat.th2">Approach</th></tr></thead>
+          <tbody>
+            <tr><td>1 · Value Investing</td><td data-i18n="strat.p1">We invest where economic value and market price present attractive opportunities.</td></tr>
+            <tr><td>2 · Active Value Creation</td><td data-i18n="strat.p2">Value is created actively – through renovation and modernisation in real estate, and through innovation, scaling and operational development in company holdings.</td></tr>
+            <tr><td>3 · Cash Flow &amp; Capital Growth</td><td data-i18n="strat.p3">We consider both recurring income and medium- to long-term appreciation.</td></tr>
+            <tr><td>4 · Risk Management</td><td data-i18n="strat.p4">Decisions are based on economic analysis, realistic return assumptions and an assessment of technical, regulatory and market risks.</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- REAL ESTATE -->
+    <section class="card" id="realestate">
+      <div class="pad">
+        <div class="sec-head">
+          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><span data-i18n="re.title">Real Estate Investments &amp; Development</span></h2>
+          <span class="status active" data-i18n="st.active">Active</span>
+        </div>
+        <p class="intro"><strong data-i18n="re.claim">Acquire property. Develop value. Secure income.</strong> <span data-i18n="re.p1">Real estate is a core pillar of BPE. We invest in residential property in Portugal – particularly in the Alentejo region – focusing on assets whose market value can be increased through modernisation, renovation or a change of use.</span></p>
+
+        <div class="grid g3 reveal">
+          <div class="cell"><h3><span class="num">01</span>Acquisition</h3><div class="body"><p data-i18n="re.acq">Identifying and acquiring undervalued properties, or properties requiring renovation or offering development potential.</p></div></div>
+          <div class="cell"><h3><span class="num">02</span>Renovation &amp; Modernisation</h3><div class="body"><p data-i18n="re.ren">Planning and executing comprehensive structural and technical renovation and modernisation works.</p></div></div>
+          <div class="cell"><h3><span class="num">03</span>Asset Management</h3><div class="body"><p data-i18n="re.am">On completion, each property is assessed to determine the most economically sound strategy.</p></div></div>
+        </div>
+
+        <ul class="ticks reveal">
+          <li data-i18n="re.l1">Structural and technical refurbishment of existing buildings</li>
+          <li data-i18n="re.l2">Modernisation of kitchens, bathrooms and living areas</li>
+          <li data-i18n="re.l3">Improved energy efficiency</li>
+          <li data-i18n="re.l4">Renewal of building services</li>
+          <li data-i18n="re.l5">Modern air-conditioning and building technology</li>
+          <li data-i18n="re.l6">Optimised floor plans and living concepts</li>
+          <li data-i18n="re.l7">Higher property quality and lettability</li>
+        </ul>
+
+        <div class="strategy reveal">
+          <div><b data-i18n="re.sa">Strategy A</b><h4>Buy · Renovate · Sell</h4><p data-i18n="re.saT">Acquisition, modernisation and subsequent sale – realising the value uplift as investment return.</p></div>
+          <div><b data-i18n="re.sb">Strategy B</b><h4>Buy · Renovate · Hold</h4><p data-i18n="re.sbT">Long-term ownership of the modernised property – generating recurring rental income and further appreciation.</p></div>
+        </div>
+
+        <div class="wrap reveal">
+        <table class="tbl">
+          <thead><tr><th data-i18n="re.th1">Return source</th><th data-i18n="re.th2">Description</th></tr></thead>
+          <tbody>
+            <tr><td>Capital Appreciation</td><td data-i18n="re.ca">Value growth through favourable acquisition, targeted modernisation and market development.</td></tr>
+            <tr><td>Recurring Rental Income</td><td data-i18n="re.ri">Regular income from long-term letting of our own properties.</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="note" data-i18n="re.region">Regional focus: Montemor-o-Novo, Alentejo – residential investments, apartment refurbishment and letting, including a development project comprising six residential units. Projects are delivered with local architects, contractors, technical service providers and property experts; BPE is responsible for financial planning, project management and investment decisions.</p>
+      </div>
+    </section>
+
+    <!-- PE & TECH -->
+    <section class="card" id="technology">
+      <div class="pad">
+        <div class="sec-head">
+          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span data-i18n="nav.pe">Private Equity &amp; Technology</span></h2>
+          <span class="status active" data-i18n="st.active">Active</span>
+        </div>
+        <p class="intro"><strong data-i18n="pe.claim">Investing in innovation and digital business models.</strong> <span data-i18n="pe.p1">Alongside real estate, BPE holds equity interests with a particular focus on innovative technologies – business models that use software, digitalisation and artificial intelligence to improve existing processes or open up new markets.</span></p>
+        <div class="grid g3 reveal">
+          <div class="cell"><h3>Software &amp; Enterprise Tech</h3><div class="body"><p data-i18n="pe.sw">Holdings in innovative software companies and technology-driven business models, particularly in B2B.</p></div></div>
+          <div class="cell"><h3>Artificial Intelligence</h3><div class="body"><p data-i18n="pe.ai">Analysis of opportunities in AI, automation and data-driven business processes.</p></div></div>
+          <div class="cell"><h3>Financial Technology</h3><div class="body"><p data-i18n="pe.ft">Investment and entrepreneurial experience in financial software, digital financial infrastructure and technology-based financial services.</p></div></div>
+        </div>
+        <h3 style="font-size:18px;font-weight:600;margin:0 0 8px" data-i18n="pe.compT">Areas of particular expertise</h3>
+        <ul class="ticks reveal">
+          <li data-i18n="pe.c1">Financial technology and digital business processes</li>
+          <li data-i18n="pe.c2">Algorithmic and quantitative investment strategies</li>
+          <li data-i18n="pe.c3">Software-supported trading and analytics</li>
+          <li data-i18n="pe.c4">Workflow automation</li>
+          <li data-i18n="pe.c5">Transaction cost analysis</li>
+          <li>Best Execution</li>
+          <li data-i18n="pe.c7">Digital financial infrastructure</li>
+          <li data-i18n="pe.c8">Blockchain technology and tokenisation</li>
+        </ul>
+        <div class="motto" data-i18n="pe.phil">We do not treat innovation as a short-term trend. What matters is the economic viability of the business model, its growth potential and its ability to build lasting competitive advantages.</div>
+        <p class="note" style="margin-top:-12px" data-i18n="pe.disc">BPE invests selectively. BPE is not a publicly offered investment platform and does not manage client funds.</p>
+      </div>
+    </section>
+
+    <!-- DIGITAL ASSETS -->
+    <section class="card" id="digital">
+      <div class="pad">
+        <div class="sec-head">
+          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 7v10M13 7v10M9 8h5a2 2 0 010 4H9h6a2 2 0 010 4H9"/></svg><span data-i18n="da.title">Digital Assets &amp; Bitcoin Mining</span></h2>
+          <span class="status eval" data-i18n="st.analysis">Analysis phase</span>
+        </div>
+        <p class="intro" data-i18n="da.p1">Since 2026, BPE has been analysing and testing Bitcoin mining as an additional investment segment. To this end, BPE has acquired interests in, or economic entitlements to, mining hardware and digital mining capacity – in order to assess actual profitability and technical conditions on the basis of real production data.</p>
+        <div class="wrap reveal">
+        <table class="tbl">
+          <thead><tr><th data-i18n="da.th1">Analysis focus</th><th data-i18n="da.th2">What we assess</th></tr></thead>
+          <tbody>
+            <tr><td>Mining Revenue</td><td data-i18n="da.r1">Bitcoin yield generated by the deployed computing power.</td></tr>
+            <tr><td>Operating Costs</td><td data-i18n="da.r2">Ongoing costs – in particular energy, infrastructure, operation and maintenance.</td></tr>
+            <tr><td>Return on Investment</td><td data-i18n="da.r3">Payback period and return on capital under different market conditions.</td></tr>
+            <tr><td>Technology &amp; Efficiency</td><td data-i18n="da.r4">Comparison of mining technologies by hash rate, energy efficiency and economics.</td></tr>
+            <tr><td>Market Risk</td><td data-i18n="da.r5">Bitcoin price, mining difficulty, network hash rate and changing mining rewards.</td></tr>
+          </tbody>
+        </table>
+        </div>
+        <p class="note" data-i18n="da.disc">This segment currently serves BPE's own investment analysis. BPE does not offer public mining investments or guaranteed-return products.</p>
+      </div>
+    </section>
+
+    <!-- TRADE -->
+    <section class="card" id="trade">
+      <div class="pad">
+        <div class="sec-head">
+          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span data-i18n="it.title">International Sourcing &amp; Trading</span></h2>
+          <span class="status eval" data-i18n="st.eval">In evaluation</span>
+        </div>
+        <p class="intro" data-i18n="it.p1">BPE is exploring the development of an international trading activity: sourcing selected technical products and building materials directly from manufacturers in China for import into Portugal and the wider European market – using direct purchasing, optimised supply chains and efficient distribution.</p>
+        <div class="grid g2 reveal">
+          <div class="cell"><h3 data-i18n="it.projT">Current evaluation project</h3><div class="body"><p data-i18n="it.proj">Modern split air-conditioning systems, including units using the natural refrigerant R290 – assessing quality, energy efficiency, EU conformity and certification, logistics, customs and the Portuguese market.</p></div></div>
+          <div class="cell"><h3 data-i18n="it.modelT">Business model</h3><div class="body"><p><strong>Source · Import · Distribute</strong></p><p data-i18n="it.model">Identifying suitable, high-quality products that can be offered at competitive prices through direct international sourcing, working with local installation specialists.</p></div></div>
+        </div>
+        <p class="note" data-i18n="it.disc">This business area is currently in its economic and regulatory evaluation phase and is not yet operational. A future extension to further technical products and building materials is conceivable.</p>
+      </div>
+    </section>
+
+    <!-- MANAGEMENT -->
+    <section class="card" id="management">
+      <div class="pad">
+        <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><span data-i18n="nav.mg">Management</span></h2>
+        <div class="mgmt reveal">
+          <div class="portrait" aria-hidden="true">MB</div>
+          <div>
+            <h3>Marcus Friedrich Caesar Böhm</h3>
+            <div class="role">Founder · Owner · Managing Director</div>
+            <p data-i18n="mg.p1">Marcus Böhm is a German entrepreneur and investor with many years of international experience in corporate leadership, financial technology, strategic business development and investments – with entrepreneurial activities in Germany, Switzerland, Greece and Portugal.</p>
+            <p data-i18n="mg.p2">He has extensive experience in the FinTech sector, including as CEO of a Swiss financial technology company. Through BPE, he aims to identify investment opportunities early, assess them on a sound economic basis and develop them into assets of lasting value.</p>
+            <div class="motto" style="margin-bottom:0">Investing in Real Assets, Innovation and Sustainable Value Creation.</div>
+          </div>
+        </div>
+
+        <h3 style="font-size:20px;font-weight:600;margin:6px 0 12px" data-i18n="geo.title">Geographic Focus</h3>
+        <div class="wrap reveal">
+        <table class="tbl">
+          <thead><tr><th data-i18n="geo.th1">Country</th><th data-i18n="geo.th2">Focus</th></tr></thead>
+          <tbody>
+            <tr><td>Portugal</td><td data-i18n="geo.pt">Headquarters · real estate investment · project development · letting · evaluation of trading opportunities</td></tr>
+            <tr><td data-i18n="geo.deN">Germany</td><td data-i18n="geo.de">Entrepreneurial networks · technology · finance · investment contacts</td></tr>
+            <tr><td data-i18n="geo.chN">Switzerland</td><td data-i18n="geo.ch">Financial technology · company holdings · international investment activities</td></tr>
+            <tr><td data-i18n="geo.grN">Greece</td><td data-i18n="geo.gr">Technology development · software · entrepreneurial partnerships</td></tr>
+            <tr><td data-i18n="geo.cnN">China</td><td data-i18n="geo.cn">Analysis of sourcing markets · manufacturer contacts · potential future import relationships</td></tr>
+          </tbody>
+        </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="card" id="contact">
+      <div class="pad">
+        <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v12H8l-4 4z"/></svg><span data-i18n="nav.ct">Contact</span></h2>
+        <p class="intro" data-i18n="ct.p1">We welcome enquiries from entrepreneurs and investment partners, property sellers and developers, technology companies and founders, manufacturers and suppliers, as well as banks and institutional partners.</p>
+        <div class="contact">
+          <form id="contactForm" novalidate>
+            <div class="row2">
+              <div><label for="f-name" data-i18n="ct.name">Name</label><input id="f-name" name="name" required autocomplete="name"></div>
+              <div><label for="f-company" data-i18n="ct.company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
+            </div>
+            <div class="row2">
+              <div><label for="f-email" data-i18n="ct.email">E-mail</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
+              <div><label for="f-topic" data-i18n="ct.topic">Subject</label>
+                <select id="f-topic" name="topic">
+                  <option data-i18n="nav.re">Real Estate</option>
+                  <option data-i18n="nav.pe">Private Equity &amp; Technology</option>
+                  <option data-i18n="nav.da">Digital Assets</option>
+                  <option data-i18n="nav.it">International Trade</option>
+                  <option data-i18n="ct.other">Other enquiry</option>
+                </select></div>
+            </div>
+            <label for="f-msg" data-i18n="ct.msg">Message</label>
+            <textarea id="f-msg" name="message" required></textarea>
+            <label class="consent"><input type="checkbox" required id="f-consent"> <span data-i18n="ct.consent">I agree that my details may be used to process my enquiry.</span></label>
+            <button class="btn" type="submit" data-i18n="ct.send">Send enquiry</button>
+            <div class="form-msg" id="formMsg" data-i18n="ct.thanks">Thank you – your enquiry has been noted. We will get back to you shortly.</div>
+          </form>
+
+          <div class="wrap">
+          <table class="tbl">
+            <thead><tr><th colspan="2" data-i18n="ct.data">Company Details</th></tr></thead>
+            <tbody>
+              <tr><td data-i18n="ct.co">Company</td><td>BPE, Unipessoal Lda.</td></tr>
+              <tr><td data-i18n="ct.legal">Legal form</td><td>Sociedade Unipessoal por Quotas</td></tr>
+              <tr><td data-i18n="ct.md">Managing Director</td><td>Marcus Friedrich Caesar Böhm</td></tr>
+              <tr><td data-i18n="ct.addr">Registered office</td><td>Quinta de São Jorge<br>Porto das Lãs, Estrada Municipal 537<br>7050-203 Montemor-o-Novo<br>Portugal</td></tr>
+              <tr><td>NIPC</td><td>517 096 420</td></tr>
+              <tr><td data-i18n="ct.found">Founded</td><td>2022</td></tr>
+            </tbody>
+          </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p class="disc" data-i18n="foot.disc">BPE, Unipessoal Lda. invests exclusively its own capital. Nothing on this website constitutes an offer of financial products, investment advice or a solicitation to invest. BPE does not manage client funds.</p>
+      <p>© <span id="yr">2026</span> BPE, Unipessoal Lda. · Montemor-o-Novo, Portugal · <a href="#contact" data-i18n="foot.imp">Legal notice</a> · <a href="#contact" data-i18n="foot.priv">Privacy</a></p>
+    </footer>
+  </main>
+</div>
+
+<script>
+const I18N = {
+ de:{
+  "menu":"Menü","nav.home":"Startseite","nav.about":"Über BPE","nav.re":"Immobilien","nav.pe":"Private Equity & Technologie","nav.da":"Digital Assets","nav.it":"Internationaler Handel","nav.mg":"Management","nav.ct":"Kontakt",
+  "side.office":"Sitz der Gesellschaft:","side.est":"Gegründet:",
+  "hero.h1":"In Werte investieren. Die Zukunft gestalten.","hero.sub":"Unabhängige Investments in Immobilien, Technologie und neue Chancen.","hero.philLabel":"Unsere Philosophie",
+  "pill.tech":"Technologie","pill.trade":"Handel",
+  "areas.title":"Geschäftsbereiche","areas.peT":"PE & Technologie",
+  "areas.re":"Erwerb, Modernisierung und aktives Management von Wohnimmobilien in Portugal.",
+  "areas.pe":"Selektive Beteiligungen in Software, künstlicher Intelligenz und Finanztechnologie.",
+  "areas.da":"Investmentanalyse des Bitcoin-Minings auf Basis realer Produktionsdaten.",
+  "areas.it":"Direkte internationale Beschaffung technischer Produkte – derzeit in Prüfung.",
+  "more":"Mehr erfahren",
+  "about.p1":"Die BPE, Unipessoal Lda. ist eine inhabergeführte portugiesische Investment- und Beteiligungsgesellschaft mit Sitz in Montemor-o-Novo, Portugal. Das 2022 gegründete Unternehmen befindet sich zu 100 % im Eigentum ihres Geschäftsführers Marcus Friedrich Caesar Böhm.",
+  "about.p2":"BPE verfolgt einen unternehmerischen Investmentansatz: den Aufbau nachhaltiger Vermögenswerte durch gezielte Kapitalinvestitionen, operative Wertschöpfung und langfristiges Asset Management. Die Gesellschaft investiert eigenes Kapital – selektiv und langfristig.",
+  "about.motto":"BPE ist weder Makler noch klassischer Bauträger oder Finanzdienstleister für Privatkunden – sondern eine privat geführte Investmentgesellschaft mit eigenem Kapital, operativer Erfahrung und internationaler Ausrichtung.",
+  "strat.title":"Investmentstrategie – vier Grundprinzipien","strat.th1":"Prinzip","strat.th2":"Ansatz",
+  "strat.p1":"Wir investieren dort, wo wirtschaftlicher Wert und Marktpreis attraktive Chancen bieten.",
+  "strat.p2":"Wert entsteht aktiv – durch Sanierung und Modernisierung bei Immobilien sowie durch Innovation, Skalierung und operative Entwicklung bei Beteiligungen.",
+  "strat.p3":"Wir berücksichtigen sowohl laufende Erträge als auch mittel- und langfristige Wertsteigerungen.",
+  "strat.p4":"Entscheidungen beruhen auf wirtschaftlichen Analysen, realistischen Ertragsannahmen und der Bewertung technischer, regulatorischer und marktbedingter Risiken.",
+  "st.active":"Aktiv","st.analysis":"Analysephase","st.eval":"In Prüfung",
+  "re.title":"Immobilieninvestments & Projektentwicklung","re.claim":"Immobilien erwerben. Werte entwickeln. Erträge sichern.",
+  "re.p1":"Immobilien bilden einen wesentlichen Schwerpunkt der BPE. Wir investieren in Wohnimmobilien in Portugal – insbesondere im Alentejo – mit Fokus auf Objekte, deren Marktwert durch Modernisierung, Sanierung oder veränderte Nutzung gesteigert werden kann.",
+  "re.acq":"Identifikation und Erwerb unterbewerteter, sanierungsbedürftiger oder entwicklungsfähiger Immobilien.",
+  "re.ren":"Planung und Durchführung umfassender baulicher und technischer Renovierungs- und Modernisierungsmaßnahmen.",
+  "re.am":"Nach Fertigstellung wird für jedes Objekt die wirtschaftlich sinnvollste Verwertungsstrategie festgelegt.",
+  "re.l1":"Bauliche und technische Sanierung bestehender Gebäude","re.l2":"Modernisierung von Küchen, Bädern und Wohnbereichen","re.l3":"Verbesserung der Energieeffizienz","re.l4":"Erneuerung der technischen Gebäudeausstattung","re.l5":"Moderne Klimatisierungs- und Haustechnik","re.l6":"Optimierte Grundrisse und Wohnkonzepte","re.l7":"Höhere Immobilienqualität und Vermietbarkeit",
+  "re.sa":"Strategie A","re.sb":"Strategie B",
+  "re.saT":"Ankauf, Modernisierung und anschließender Verkauf – die realisierte Wertsteigerung als Investitionsertrag.",
+  "re.sbT":"Langfristiges Halten der modernisierten Immobilie – für kontinuierliche Mieteinnahmen und weitere Wertsteigerung.",
+  "re.th1":"Ertragsquelle","re.th2":"Beschreibung",
+  "re.ca":"Wertsteigerung durch günstigen Einkauf, gezielte Modernisierung und Marktentwicklung.",
+  "re.ri":"Regelmäßige Einnahmen aus der langfristigen Vermietung eigener Immobilien.",
+  "re.region":"Regionaler Fokus: Montemor-o-Novo, Alentejo – Investments in Wohnimmobilien, Sanierung und Vermietung von Apartments, darunter ein Entwicklungsprojekt mit sechs Wohneinheiten. Die Umsetzung erfolgt mit lokalen Architekten, Bauunternehmen, technischen Dienstleistern und Immobilienexperten; BPE verantwortet wirtschaftliche Planung, Projektsteuerung und Investitionsentscheidungen.",
+  "pe.claim":"Investitionen in Innovation und digitale Geschäftsmodelle.",
+  "pe.p1":"Neben Immobilien hält BPE Unternehmensbeteiligungen mit besonderem Fokus auf innovative Technologien – Geschäftsmodelle, die mittels Software, Digitalisierung und künstlicher Intelligenz bestehende Prozesse verbessern oder neue Märkte erschließen.",
+  "pe.sw":"Beteiligungen an innovativen Softwareunternehmen und technologischen Geschäftsmodellen, insbesondere im B2B-Bereich.",
+  "pe.ai":"Analyse von Investitionsmöglichkeiten in KI, Automatisierung und datenbasierten Unternehmensprozessen.",
+  "pe.ft":"Investitionen und unternehmerische Erfahrung in Finanzsoftware, digitaler Finanzinfrastruktur und technologiebasierten Finanzdienstleistungen.",
+  "pe.compT":"Besondere Kompetenzfelder",
+  "pe.c1":"Finanztechnologie und digitale Geschäftsprozesse","pe.c2":"Algorithmische und quantitative Investmentstrategien","pe.c3":"Softwaregestützte Handels- und Analyseprozesse","pe.c4":"Workflow-Automatisierung","pe.c5":"Transaktionskostenanalyse","pe.c7":"Digitale Finanzinfrastruktur","pe.c8":"Blockchain-Technologie und Tokenisierung",
+  "pe.phil":"Technologische Innovation ist für uns kein kurzfristiger Trend. Entscheidend sind die wirtschaftliche Tragfähigkeit des Geschäftsmodells, das Wachstumspotenzial und die Fähigkeit, nachhaltige Wettbewerbsvorteile aufzubauen.",
+  "pe.disc":"BPE investiert selektiv. BPE ist keine öffentlich angebotene Investmentplattform und verwaltet keine Kundengelder.",
+  "da.title":"Digital Assets & Bitcoin-Mining",
+  "da.p1":"Seit 2026 analysiert und erprobt BPE Bitcoin-Mining als zusätzliches Investmentsegment. Dazu wurden Beteiligungen bzw. wirtschaftliche Ansprüche an Mining-Hardware und digitalen Mining-Kapazitäten erworben – um Rentabilität und technische Rahmenbedingungen anhand realer Produktionsdaten zu untersuchen.",
+  "da.th1":"Analyseschwerpunkt","da.th2":"Was wir bewerten",
+  "da.r1":"Durch die eingesetzte Rechenleistung erwirtschaftete Bitcoin-Erträge.","da.r2":"Laufende Kosten – insbesondere Energie, Infrastruktur, Betrieb und Wartung.","da.r3":"Amortisationsdauer und Kapitalrendite unter verschiedenen Marktbedingungen.","da.r4":"Vergleich von Mining-Technologien nach Rechenleistung, Energieeffizienz und Wirtschaftlichkeit.","da.r5":"Bitcoin-Preis, Mining-Difficulty, Netzwerk-Hashrate und Veränderungen der Mining-Erträge.",
+  "da.disc":"Dieser Bereich dient derzeit der eigenen Investitionsanalyse. BPE bietet keine öffentlichen Mining-Investments und keine garantierten Renditeprodukte an.",
+  "it.title":"Internationale Beschaffung & Handel",
+  "it.p1":"BPE prüft den Aufbau eines internationalen Handelsgeschäfts: die direkte Beschaffung ausgewählter technischer Produkte und Baumaterialien bei Herstellern in China für den Import nach Portugal und in den europäischen Markt – durch Direkteinkauf, optimierte Lieferketten und effiziente Vertriebsstrukturen.",
+  "it.projT":"Aktuelles Prüfprojekt","it.proj":"Moderne Split-Klimaanlagen, u. a. mit dem natürlichen Kältemittel R290 – Prüfung von Qualität, Energieeffizienz, EU-Konformität und Zertifizierung, Logistik, Zoll und portugiesischem Markt.",
+  "it.modelT":"Geschäftsmodell","it.model":"Identifikation geeigneter, hochwertiger Produkte, die über direkte internationale Beschaffung zu wettbewerbsfähigen Preisen angeboten werden können – in Zusammenarbeit mit lokalen Fachbetrieben.",
+  "it.disc":"Dieser Geschäftsbereich befindet sich in der wirtschaftlichen und regulatorischen Evaluierungsphase und ist noch nicht operativ. Ein späterer Ausbau auf weitere technische Produkte und Baumaterialien ist denkbar.",
+  "mg.p1":"Marcus Böhm ist ein deutscher Unternehmer und Investor mit langjähriger internationaler Erfahrung in Unternehmensführung, Finanztechnologie, strategischer Unternehmensentwicklung und Investments – mit unternehmerischen Aktivitäten in Deutschland, der Schweiz, Griechenland und Portugal.",
+  "mg.p2":"Er verfügt über langjährige Erfahrung im FinTech-Umfeld, unter anderem als CEO eines Schweizer Finanztechnologieunternehmens. Mit BPE verfolgt er das Ziel, Investitionsmöglichkeiten frühzeitig zu erkennen, wirtschaftlich fundiert zu bewerten und daraus werthaltige Vermögenswerte zu entwickeln.",
+  "geo.title":"Geografischer Fokus","geo.th1":"Land","geo.th2":"Schwerpunkt",
+  "geo.pt":"Hauptsitz · Immobilieninvestitionen · Projektentwicklung · Vermietung · Prüfung von Handelsmöglichkeiten",
+  "geo.deN":"Deutschland","geo.de":"Unternehmerische Netzwerke · Technologie · Finanzwirtschaft · Investitionskontakte",
+  "geo.chN":"Schweiz","geo.ch":"Finanztechnologie · Unternehmensbeteiligungen · internationale Investmentaktivitäten",
+  "geo.grN":"Griechenland","geo.gr":"Technologieentwicklung · Software · unternehmerische Kooperationen",
+  "geo.cnN":"China","geo.cn":"Analyse von Beschaffungsmärkten · Herstellerkontakte · mögliche künftige Importbeziehungen",
+  "ct.p1":"Wir freuen uns über Anfragen von Unternehmern und Investmentpartnern, Immobilienverkäufern und Projektentwicklern, Technologieunternehmen und Gründern, Herstellern und Lieferanten sowie Banken und institutionellen Partnern.",
+  "ct.name":"Name","ct.company":"Unternehmen","ct.email":"E-Mail","ct.topic":"Betreff","ct.other":"Sonstige Anfrage","ct.msg":"Nachricht",
+  "ct.consent":"Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden.","ct.send":"Anfrage senden",
+  "ct.thanks":"Vielen Dank – Ihre Anfrage wurde erfasst. Wir melden uns in Kürze.",
+  "ct.data":"Unternehmensdaten","ct.co":"Gesellschaft","ct.legal":"Rechtsform","ct.md":"Geschäftsführer","ct.addr":"Sitz","ct.found":"Gegründet",
+  "foot.disc":"Die BPE, Unipessoal Lda. investiert ausschließlich eigenes Kapital. Die Inhalte dieser Website stellen weder ein Angebot von Finanzprodukten noch eine Anlageberatung oder Aufforderung zur Investition dar. BPE verwaltet keine Kundengelder.",
+  "foot.imp":"Impressum","foot.priv":"Datenschutz"
+ },
+ pt:{
+  "menu":"Menu","nav.home":"Início","nav.about":"Sobre a BPE","nav.re":"Imobiliário","nav.pe":"Private Equity & Tecnologia","nav.da":"Ativos Digitais","nav.it":"Comércio Internacional","nav.mg":"Gestão","nav.ct":"Contacto",
+  "side.office":"Sede social:","side.est":"Constituída:",
+  "hero.h1":"Investir em valor. Construir o futuro.","hero.sub":"Investimentos independentes em imobiliário, tecnologia e oportunidades emergentes.","hero.philLabel":"A nossa filosofia",
+  "pill.tech":"Tecnologia","pill.trade":"Comércio",
+  "areas.title":"Áreas de Negócio","areas.peT":"PE & Tecnologia",
+  "areas.re":"Aquisição, modernização e gestão ativa de imóveis residenciais em Portugal.",
+  "areas.pe":"Participações seletivas em software, inteligência artificial e tecnologia financeira.",
+  "areas.da":"Análise de investimento em mineração de Bitcoin com base em dados reais de produção.",
+  "areas.it":"Aprovisionamento internacional direto de produtos técnicos – atualmente em avaliação.",
+  "more":"Saber mais",
+  "about.p1":"A BPE, Unipessoal Lda. é uma sociedade portuguesa de investimento e participações, gerida pelo seu proprietário, com sede em Montemor-o-Novo, Portugal. Constituída em 2022, é detida a 100 % pelo seu gerente, Marcus Friedrich Caesar Böhm.",
+  "about.p2":"A BPE segue uma abordagem de investimento empresarial: criar património sustentável através de investimento de capital direcionado, criação de valor operacional e gestão de ativos a longo prazo. A sociedade investe capital próprio, de forma seletiva e com horizonte de longo prazo.",
+  "about.motto":"A BPE não é uma mediadora imobiliária, nem um promotor convencional, nem um prestador de serviços financeiros a particulares – é uma sociedade de investimento privada, com capital próprio, experiência operacional e orientação internacional.",
+  "strat.title":"Estratégia de Investimento – Quatro Princípios","strat.th1":"Princípio","strat.th2":"Abordagem",
+  "strat.p1":"Investimos onde o valor económico e o preço de mercado oferecem oportunidades atrativas.",
+  "strat.p2":"O valor é criado ativamente – através de reabilitação e modernização no imobiliário, e de inovação, escala e desenvolvimento operacional nas participações.",
+  "strat.p3":"Consideramos tanto os rendimentos recorrentes como a valorização a médio e longo prazo.",
+  "strat.p4":"As decisões baseiam-se em análises económicas, pressupostos de rendimento realistas e na avaliação de riscos técnicos, regulatórios e de mercado.",
+  "st.active":"Ativo","st.analysis":"Fase de análise","st.eval":"Em avaliação",
+  "re.title":"Investimento e Desenvolvimento Imobiliário","re.claim":"Adquirir imóveis. Desenvolver valor. Assegurar rendimentos.",
+  "re.p1":"O imobiliário é um pilar central da BPE. Investimos em imóveis residenciais em Portugal – em particular no Alentejo – com foco em ativos cujo valor de mercado pode ser aumentado através de modernização, reabilitação ou alteração de uso.",
+  "re.acq":"Identificação e aquisição de imóveis subavaliados, a necessitar de reabilitação ou com potencial de desenvolvimento.",
+  "re.ren":"Planeamento e execução de obras abrangentes de reabilitação e modernização estrutural e técnica.",
+  "re.am":"Após a conclusão, define-se para cada imóvel a estratégia de valorização economicamente mais adequada.",
+  "re.l1":"Reabilitação estrutural e técnica de edifícios existentes","re.l2":"Modernização de cozinhas, casas de banho e zonas de estar","re.l3":"Melhoria da eficiência energética","re.l4":"Renovação das instalações técnicas","re.l5":"Climatização e tecnologia doméstica modernas","re.l6":"Otimização de plantas e conceitos habitacionais","re.l7":"Maior qualidade e atratividade para arrendamento",
+  "re.sa":"Estratégia A","re.sb":"Estratégia B",
+  "re.saT":"Aquisição, modernização e posterior venda – realizando a valorização como retorno do investimento.",
+  "re.sbT":"Detenção a longo prazo do imóvel modernizado – gerando rendas recorrentes e valorização adicional.",
+  "re.th1":"Fonte de rendimento","re.th2":"Descrição",
+  "re.ca":"Valorização através de aquisição vantajosa, modernização direcionada e evolução do mercado.",
+  "re.ri":"Rendimentos regulares do arrendamento de longo prazo de imóveis próprios.",
+  "re.region":"Foco regional: Montemor-o-Novo, Alentejo – investimentos em imóveis residenciais, reabilitação e arrendamento de apartamentos, incluindo um projeto de desenvolvimento com seis frações habitacionais. Os projetos são executados com arquitetos, construtores, prestadores técnicos e especialistas imobiliários locais; a BPE assegura o planeamento económico, a gestão de projeto e as decisões de investimento.",
+  "pe.claim":"Investir em inovação e modelos de negócio digitais.",
+  "pe.p1":"Para além do imobiliário, a BPE detém participações empresariais com especial foco em tecnologias inovadoras – modelos de negócio que, através de software, digitalização e inteligência artificial, melhoram processos existentes ou abrem novos mercados.",
+  "pe.sw":"Participações em empresas de software inovadoras e modelos de negócio tecnológicos, sobretudo B2B.",
+  "pe.ai":"Análise de oportunidades em IA, automação e processos empresariais baseados em dados.",
+  "pe.ft":"Investimento e experiência empresarial em software financeiro, infraestrutura financeira digital e serviços financeiros de base tecnológica.",
+  "pe.compT":"Áreas de especial competência",
+  "pe.c1":"Tecnologia financeira e processos de negócio digitais","pe.c2":"Estratégias de investimento algorítmicas e quantitativas","pe.c3":"Processos de negociação e análise suportados por software","pe.c4":"Automação de fluxos de trabalho","pe.c5":"Análise de custos de transação","pe.c7":"Infraestrutura financeira digital","pe.c8":"Tecnologia blockchain e tokenização",
+  "pe.phil":"Não encaramos a inovação tecnológica como uma tendência de curto prazo. O decisivo é a viabilidade económica do modelo de negócio, o potencial de crescimento e a capacidade de construir vantagens competitivas duradouras.",
+  "pe.disc":"A BPE investe de forma seletiva. A BPE não é uma plataforma de investimento oferecida ao público e não gere fundos de clientes.",
+  "da.title":"Ativos Digitais & Mineração de Bitcoin",
+  "da.p1":"Desde 2026, a BPE analisa e testa a mineração de Bitcoin como segmento de investimento adicional. Para o efeito, adquiriu participações ou direitos económicos sobre hardware de mineração e capacidade de mineração digital – para avaliar a rentabilidade e as condições técnicas com base em dados reais de produção.",
+  "da.th1":"Foco de análise","da.th2":"O que avaliamos",
+  "da.r1":"Rendimento em Bitcoin gerado pela capacidade de computação utilizada.","da.r2":"Custos correntes – sobretudo energia, infraestrutura, operação e manutenção.","da.r3":"Prazo de recuperação e rentabilidade do capital em diferentes condições de mercado.","da.r4":"Comparação de tecnologias de mineração por capacidade, eficiência energética e rentabilidade.","da.r5":"Preço do Bitcoin, dificuldade de mineração, hashrate da rede e evolução das recompensas.",
+  "da.disc":"Esta área serve atualmente a análise de investimento própria da BPE. A BPE não oferece investimentos públicos em mineração nem produtos com rendimento garantido.",
+  "it.title":"Aprovisionamento & Comércio Internacional",
+  "it.p1":"A BPE estuda o desenvolvimento de uma atividade de comércio internacional: aquisição direta de produtos técnicos e materiais de construção selecionados a fabricantes na China, para importação para Portugal e o mercado europeu – através de compra direta, cadeias de abastecimento otimizadas e distribuição eficiente.",
+  "it.projT":"Projeto atualmente em avaliação","it.proj":"Sistemas modernos de ar condicionado split, incluindo unidades com o refrigerante natural R290 – avaliação de qualidade, eficiência energética, conformidade e certificação UE, logística, alfândega e mercado português.",
+  "it.modelT":"Modelo de negócio","it.model":"Identificar produtos adequados e de qualidade que possam ser oferecidos a preços competitivos através de aprovisionamento internacional direto, em colaboração com instaladores locais.",
+  "it.disc":"Esta área de negócio encontra-se em fase de avaliação económica e regulatória e ainda não está operacional. Uma futura extensão a outros produtos técnicos e materiais de construção é possível.",
+  "mg.p1":"Marcus Böhm é um empresário e investidor alemão com longa experiência internacional em gestão empresarial, tecnologia financeira, desenvolvimento estratégico e investimentos – com atividade empresarial na Alemanha, Suíça, Grécia e Portugal.",
+  "mg.p2":"Tem vasta experiência no setor FinTech, incluindo como CEO de uma empresa suíça de tecnologia financeira. Com a BPE, pretende identificar oportunidades de investimento cedo, avaliá-las com rigor económico e transformá-las em ativos de valor duradouro.",
+  "geo.title":"Foco Geográfico","geo.th1":"País","geo.th2":"Foco",
+  "geo.pt":"Sede · investimento imobiliário · desenvolvimento de projetos · arrendamento · avaliação de oportunidades comerciais",
+  "geo.deN":"Alemanha","geo.de":"Redes empresariais · tecnologia · setor financeiro · contactos de investimento",
+  "geo.chN":"Suíça","geo.ch":"Tecnologia financeira · participações empresariais · atividades de investimento internacionais",
+  "geo.grN":"Grécia","geo.gr":"Desenvolvimento tecnológico · software · parcerias empresariais",
+  "geo.cnN":"China","geo.cn":"Análise de mercados de aprovisionamento · contactos com fabricantes · possíveis relações de importação futuras",
+  "ct.p1":"Recebemos com interesse contactos de empresários e parceiros de investimento, vendedores de imóveis e promotores, empresas tecnológicas e fundadores, fabricantes e fornecedores, bem como bancos e parceiros institucionais.",
+  "ct.name":"Nome","ct.company":"Empresa","ct.email":"E-mail","ct.topic":"Assunto","ct.other":"Outro pedido","ct.msg":"Mensagem",
+  "ct.consent":"Concordo que os meus dados sejam utilizados para tratar o meu pedido.","ct.send":"Enviar pedido",
+  "ct.thanks":"Obrigado – o seu pedido foi registado. Entraremos em contacto brevemente.",
+  "ct.data":"Dados da Empresa","ct.co":"Sociedade","ct.legal":"Forma jurídica","ct.md":"Gerente","ct.addr":"Sede social","ct.found":"Constituição",
+  "foot.disc":"A BPE, Unipessoal Lda. investe exclusivamente capital próprio. O conteúdo deste website não constitui oferta de produtos financeiros, aconselhamento de investimento nem solicitação para investir. A BPE não gere fundos de clientes.",
+  "foot.imp":"Informação legal","foot.priv":"Privacidade"
+ }
+};
+
+// capture English defaults from the markup
+const nodes=[...document.querySelectorAll('[data-i18n]')];
+const EN={}; nodes.forEach(n=>{EN[n.dataset.i18n] ??= n.textContent;});
+I18N.en=EN;
+
+function setLang(l){
+  const d=I18N[l]||EN;
+  nodes.forEach(n=>{const k=n.dataset.i18n; n.textContent=d[k]??EN[k];});
+  document.documentElement.lang=l;
+  document.getElementById('langSel').value=l;
+  try{localStorage.setItem('bpe-lang',l)}catch(e){}
+}
+document.getElementById('langSel').addEventListener('change',e=>setLang(e.target.value));
+let saved='en'; try{saved=localStorage.getItem('bpe-lang')||(navigator.language||'en').slice(0,2)}catch(e){}
+setLang(I18N[saved]?saved:'en');
+
+// mobile menu
+const side=document.getElementById('side'),scrim=document.getElementById('scrim'),burger=document.getElementById('burger');
+function toggle(open){side.classList.toggle('open',open);scrim.classList.toggle('show',open);burger.setAttribute('aria-expanded',open)}
+burger.addEventListener('click',()=>toggle(!side.classList.contains('open')));
+scrim.addEventListener('click',()=>toggle(false));
+document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>toggle(false)));
+
+// active nav on scroll
+const links=[...document.querySelectorAll('.nav a')];
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+
+// reveal
+const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>rv.observe(el));
+
+// contact form (front-end only – connect to your mail service / backend)
+document.getElementById('contactForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  if(!f.checkValidity()){f.reportValidity();return;}
+  document.getElementById('formMsg').style.display='block';
+  f.reset();
+});
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
