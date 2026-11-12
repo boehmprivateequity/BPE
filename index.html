@@ -9,10 +9,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --teal:#005f78;        /* active nav / primary */
-  --teal-dark:#0b3a4f;   /* logo navy */
-  --green:#5cb46c;       /* pill buttons / links */
-  --green-dark:#3f9a51;
+  --teal:#9b1c1f;        /* active nav / primary (deep red) */
+  --teal-dark:#5a0f12;   /* logo burgundy */
+  --green:#c8102e;       /* pill buttons / links (signal red) */
+  --green-dark:#a00d25;
   --head:#a3a3a3;        /* table headers */
   --row:#ececec;         /* zebra rows */
   --bg:#efefef;          /* page background */
@@ -60,10 +60,10 @@ main{flex:1;min-width:0}
 .hero p.lead{font-size:18px;color:var(--muted);margin:0 auto;max-width:640px}
 .hero-visual{margin:28px 32px 0;height:240px;border-radius:var(--radius);position:relative;overflow:hidden;
   background:
-   linear-gradient(115deg,rgba(11,58,79,.92) 0%,rgba(0,95,120,.80) 55%,rgba(92,180,108,.55) 100%),
+   linear-gradient(115deg,rgba(90,15,18,.94) 0%,rgba(155,28,31,.84) 55%,rgba(200,16,46,.60) 100%),
    repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),
    repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),
-   #0b3a4f}
+   #5a0f12}
 .hero-visual svg{position:absolute;right:0;bottom:0;height:100%;width:auto;opacity:.9}
 .hero-visual .claim{position:absolute;left:32px;bottom:28px;color:#fff;max-width:60%}
 .hero-visual .claim span{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#d9c79f}
@@ -109,7 +109,7 @@ ul.ticks li{padding:4px 0 4px 22px;position:relative;break-inside:avoid;font-siz
 ul.ticks li::before{content:"";position:absolute;left:2px;top:12px;width:9px;height:9px;border:2px solid var(--green);border-radius:50%}
 
 .status{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
-.status.active{background:#e3f2e6;color:var(--green-dark)}
+.status.active{background:#fbe4e7;color:var(--green-dark)}
 .status.eval{background:#f6efe1;color:#8a6a2c}
 
 .motto{border-left:3px solid var(--gold);padding:10px 16px;margin:0 0 24px;font-size:18px;font-weight:300;background:#fafafa}
