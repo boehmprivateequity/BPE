@@ -9,18 +9,18 @@
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --teal:#9b1c1f;        /* active nav / primary (deep red) */
-  --teal-dark:#5a0f12;   /* logo burgundy */
-  --green:#c8102e;       /* pill buttons / links (signal red) */
-  --green-dark:#a00d25;
-  --head:#a3a3a3;        /* table headers */
-  --row:#ececec;         /* zebra rows */
-  --bg:#efefef;          /* page background */
+  --teal:#3d77a8;        /* active nav / primary (steel blue) */
+  --teal-dark:#5d6b78;   /* logo dark silver */
+  --green:#6aa9dc;       /* pill buttons / light blue */
+  --green-dark:#2f6c9e;
+  --head:#c5ccd3;        /* table headers */
+  --row:#f1f4f7;         /* zebra rows */
+  --bg:#e8ecf0;          /* page background */
   --card:#ffffff;
   --text:#2b2b2b;
   --muted:#6b6b6b;
-  --line:#dcdcdc;
-  --gold:#b8975a;        /* subtle accent */
+  --line:#d7dde3;
+  --gold:#8a97a5;        /* silver accent */
   --radius:6px;
 }
 *{box-sizing:border-box}
@@ -44,7 +44,7 @@ h1,h2,h3{font-weight:400;line-height:1.2;margin:0}
 .lang select{border:0;background:transparent;font:inherit;font-size:14px;color:var(--text);cursor:pointer;padding:2px 0}
 .nav{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .nav a{display:block;padding:9px 20px;text-decoration:none;font-size:15px;border-bottom:1px solid var(--line);transition:background .15s,color .15s}
-.nav a:hover{background:#f5f5f5}
+.nav a:hover{background:#eef3f8}
 .nav a.active{background:var(--teal);color:#fff}
 .nav a.contact-link{color:var(--teal);font-weight:700}
 .side-meta{padding:16px 4px 0 4px;font-size:13px;color:var(--muted)}
@@ -60,18 +60,18 @@ main{flex:1;min-width:0}
 .hero p.lead{font-size:18px;color:var(--muted);margin:0 auto;max-width:640px}
 .hero-visual{margin:28px 32px 0;height:240px;border-radius:var(--radius);position:relative;overflow:hidden;
   background:
-   linear-gradient(115deg,rgba(90,15,18,.94) 0%,rgba(155,28,31,.84) 55%,rgba(200,16,46,.60) 100%),
+   linear-gradient(115deg,rgba(93,107,120,.94) 0%,rgba(61,119,168,.82) 55%,rgba(150,200,238,.65) 100%),
    repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),
    repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),
-   #5a0f12}
+   #5d6b78}
 .hero-visual svg{position:absolute;right:0;bottom:0;height:100%;width:auto;opacity:.9}
 .hero-visual .claim{position:absolute;left:32px;bottom:28px;color:#fff;max-width:60%}
-.hero-visual .claim span{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#d9c79f}
+.hero-visual .claim span{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#e3eef8}
 .hero-visual .claim b{display:block;font-weight:300;font-size:clamp(18px,2.4vw,26px);margin-top:6px}
 
 .pills{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:30px 32px 26px}
 .pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:168px;padding:6px 22px;border:2px solid var(--green);border-radius:999px;color:var(--green-dark);font-weight:700;font-size:15px;text-decoration:underline;text-underline-offset:3px;transition:background .2s,color .2s}
-.pill:hover{background:var(--green);color:#fff}
+.pill:hover{background:var(--teal);border-color:var(--teal);color:#fff}
 .pill svg{width:20px;height:20px;flex:none}
 
 .sec-title{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:600;margin:6px 0 14px}
@@ -109,8 +109,8 @@ ul.ticks li{padding:4px 0 4px 22px;position:relative;break-inside:avoid;font-siz
 ul.ticks li::before{content:"";position:absolute;left:2px;top:12px;width:9px;height:9px;border:2px solid var(--green);border-radius:50%}
 
 .status{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
-.status.active{background:#fbe4e7;color:var(--green-dark)}
-.status.eval{background:#f6efe1;color:#8a6a2c}
+.status.active{background:#e2eef9;color:var(--green-dark)}
+.status.eval{background:#eceff2;color:#55616d}
 
 .motto{border-left:3px solid var(--gold);padding:10px 16px;margin:0 0 24px;font-size:18px;font-weight:300;background:#fafafa}
 .note{font-size:13px;color:var(--muted);margin:-12px 0 24px}
@@ -136,7 +136,7 @@ form input,form select,form textarea{width:100%;font:inherit;font-size:15px;padd
 form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
 form textarea{min-height:120px;resize:vertical}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.btn{margin-top:16px;display:inline-block;background:var(--green);color:#fff;border:2px solid var(--green);border-radius:999px;padding:8px 30px;font:inherit;font-weight:700;cursor:pointer;transition:background .2s}
+.btn{margin-top:16px;display:inline-block;background:var(--teal);color:#fff;border:2px solid var(--teal);border-radius:999px;padding:8px 30px;font:inherit;font-weight:700;cursor:pointer;transition:background .2s}
 .btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
 .form-msg{margin-top:12px;font-size:14px;color:var(--green-dark);display:none}
 .consent{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted);margin-top:12px}
@@ -257,8 +257,8 @@ footer .disc{margin:0 0 8px}
             <path d="M40 240V150h46v90M96 240V110h54v130M160 240V70h40v170M210 240V128h60v112M280 240V92h44v148M334 240V140h58v100M402 240V60h38v180M450 240V118h52v122"/>
             <path d="M104 122h38M104 138h38M104 154h38M168 86h24M168 102h24M168 118h24M288 108h28M288 124h28M410 78h22M410 94h22M410 110h22" opacity=".6"/>
           </g>
-          <g stroke="#d9c79f" stroke-width="1.2" opacity=".8">
-            <circle cx="180" cy="40" r="3" fill="#d9c79f"/><circle cx="300" cy="62" r="3" fill="#d9c79f"/><circle cx="420" cy="28" r="3" fill="#d9c79f"/><circle cx="480" cy="84" r="3" fill="#d9c79f"/>
+          <g stroke="#e3eef8" stroke-width="1.2" opacity=".8">
+            <circle cx="180" cy="40" r="3" fill="#e3eef8"/><circle cx="300" cy="62" r="3" fill="#e3eef8"/><circle cx="420" cy="28" r="3" fill="#e3eef8"/><circle cx="480" cy="84" r="3" fill="#e3eef8"/>
             <path d="M180 40L300 62L420 28L480 84M300 62L480 84"/>
           </g>
         </svg>
