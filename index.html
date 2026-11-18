@@ -122,7 +122,10 @@ ul.ticks li::before{content:"";position:absolute;left:2px;top:12px;width:9px;hei
 .strategy p{margin:0;font-size:15px;color:var(--muted)}
 
 .mgmt{display:grid;grid-template-columns:200px 1fr;gap:28px;margin-bottom:24px;align-items:start}
-.portrait{aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(160deg,var(--teal-dark),var(--teal));display:flex;align-items:center;justify-content:center;color:#fff;font-size:54px;font-weight:300;letter-spacing:2px}
+.portrait{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:var(--radius);background:var(--row)}
+.photo{margin:0 0 18px}
+.photo img{display:block;width:100%;height:auto;max-height:460px;object-fit:cover;border-radius:var(--radius);background:var(--row)}
+.sub-title{font-size:20px;font-weight:600;margin:6px 0 10px;display:flex;align-items:center}
 .mgmt h3{font-size:24px;font-weight:600}
 .mgmt .role{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:4px 0 12px}
 
@@ -223,7 +226,6 @@ footer .disc{margin:0 0 8px}
           <li><a href="#home" class="active" data-i18n="nav.home">Home</a></li>
           <li><a href="#about" data-i18n="nav.about">About BPE</a></li>
           <li><a href="#realestate" data-i18n="nav.re">Real Estate</a></li>
-          <li><a href="#technology" data-i18n="nav.pe">Private Equity &amp; Technology</a></li>
           <li><a href="#digital" data-i18n="nav.da">Digital Assets</a></li>
           <li><a href="#trade" data-i18n="nav.it">International Trade</a></li>
           <li><a href="#management" data-i18n="nav.mg">Management</a></li>
@@ -247,7 +249,7 @@ footer .disc{margin:0 0 8px}
       <div class="hero">
         <div class="eyebrow">BPE | Private Equity &amp; Investments</div>
         <h1 data-i18n="hero.h1">Investing in Value. Building the Future.</h1>
-        <p class="lead" data-i18n="hero.sub">Independent investments in real estate, technology and emerging opportunities.</p>
+        <p class="lead" data-i18n="hero.sub">Independent investments in real estate, digital assets and emerging opportunities.</p>
       </div>
       <div class="hero-visual" role="img" aria-label="Abstract skyline and network graphic">
         <svg viewBox="0 0 520 240" fill="none" aria-hidden="true">
@@ -265,7 +267,6 @@ footer .disc{margin:0 0 8px}
 
       <div class="pills">
         <a class="pill" href="#realestate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><span data-i18n="nav.re">Real Estate</span></a>
-        <a class="pill" href="#technology"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span data-i18n="pill.tech">Technology</span></a>
         <a class="pill" href="#digital"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 7v10M13 7v10M9 8h5a2 2 0 010 4H9h6a2 2 0 010 4H9"/></svg><span data-i18n="nav.da">Digital Assets</span></a>
         <a class="pill" href="#trade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span data-i18n="pill.trade">Trade</span></a>
         <a class="pill" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v12H8l-4 4z"/></svg><span data-i18n="nav.ct">Contact</span></a>
@@ -273,11 +274,10 @@ footer .disc{margin:0 0 8px}
 
       <div class="pad">
         <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg><span data-i18n="areas.title">Business Areas</span></h2>
-        <div class="grid g4 reveal">
+        <div class="grid g3 reveal">
           <div class="cell"><h3><span class="num">01</span><span data-i18n="nav.re">Real Estate</span></h3><div class="body"><p data-i18n="areas.re">Acquisition, modernisation and active management of residential property in Portugal.</p><a class="more" href="#realestate" data-i18n="more">Learn more</a></div></div>
-          <div class="cell"><h3><span class="num">02</span><span data-i18n="areas.peT">PE &amp; Technology</span></h3><div class="body"><p data-i18n="areas.pe">Selective holdings in software, artificial intelligence and financial technology.</p><a class="more" href="#technology" data-i18n="more">Learn more</a></div></div>
-          <div class="cell"><h3><span class="num">03</span><span data-i18n="nav.da">Digital Assets</span></h3><div class="body"><p data-i18n="areas.da">Investment analysis of Bitcoin mining based on real production data.</p><a class="more" href="#digital" data-i18n="more">Learn more</a></div></div>
-          <div class="cell"><h3><span class="num">04</span><span data-i18n="nav.it">International Trade</span></h3><div class="body"><p data-i18n="areas.it">Direct international sourcing of technical products – currently under evaluation.</p><a class="more" href="#trade" data-i18n="more">Learn more</a></div></div>
+          <div class="cell"><h3><span class="num">02</span><span data-i18n="nav.da">Digital Assets</span></h3><div class="body"><p data-i18n="areas.da">Tokenisation of real assets and Bitcoin mining – analysed on the basis of real data.</p><a class="more" href="#digital" data-i18n="more">Learn more</a></div></div>
+          <div class="cell"><h3><span class="num">03</span><span data-i18n="nav.it">International Trade</span></h3><div class="body"><p data-i18n="areas.it">Direct international sourcing of technical products – currently under evaluation.</p><a class="more" href="#trade" data-i18n="more">Learn more</a></div></div>
         </div>
       </div>
     </section>
@@ -348,42 +348,30 @@ footer .disc{margin:0 0 8px}
       </div>
     </section>
 
-    <!-- PE & TECH -->
-    <section class="card" id="technology">
-      <div class="pad">
-        <div class="sec-head">
-          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg><span data-i18n="nav.pe">Private Equity &amp; Technology</span></h2>
-          <span class="status active" data-i18n="st.active">Active</span>
-        </div>
-        <p class="intro"><strong data-i18n="pe.claim">Investing in innovation and digital business models.</strong> <span data-i18n="pe.p1">Alongside real estate, BPE holds equity interests with a particular focus on innovative technologies – business models that use software, digitalisation and artificial intelligence to improve existing processes or open up new markets.</span></p>
-        <div class="grid g3 reveal">
-          <div class="cell"><h3>Software &amp; Enterprise Tech</h3><div class="body"><p data-i18n="pe.sw">Holdings in innovative software companies and technology-driven business models, particularly in B2B.</p></div></div>
-          <div class="cell"><h3>Artificial Intelligence</h3><div class="body"><p data-i18n="pe.ai">Analysis of opportunities in AI, automation and data-driven business processes.</p></div></div>
-          <div class="cell"><h3>Financial Technology</h3><div class="body"><p data-i18n="pe.ft">Investment and entrepreneurial experience in financial software, digital financial infrastructure and technology-based financial services.</p></div></div>
-        </div>
-        <h3 style="font-size:18px;font-weight:600;margin:0 0 8px" data-i18n="pe.compT">Areas of particular expertise</h3>
-        <ul class="ticks reveal">
-          <li data-i18n="pe.c1">Financial technology and digital business processes</li>
-          <li data-i18n="pe.c2">Algorithmic and quantitative investment strategies</li>
-          <li data-i18n="pe.c3">Software-supported trading and analytics</li>
-          <li data-i18n="pe.c4">Workflow automation</li>
-          <li data-i18n="pe.c5">Transaction cost analysis</li>
-          <li>Best Execution</li>
-          <li data-i18n="pe.c7">Digital financial infrastructure</li>
-          <li data-i18n="pe.c8">Blockchain technology and tokenisation</li>
-        </ul>
-        <div class="motto" data-i18n="pe.phil">We do not treat innovation as a short-term trend. What matters is the economic viability of the business model, its growth potential and its ability to build lasting competitive advantages.</div>
-        <p class="note" style="margin-top:-12px" data-i18n="pe.disc">BPE invests selectively. BPE is not a publicly offered investment platform and does not manage client funds.</p>
-      </div>
-    </section>
-
     <!-- DIGITAL ASSETS -->
     <section class="card" id="digital">
       <div class="pad">
         <div class="sec-head">
-          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 7v10M13 7v10M9 8h5a2 2 0 010 4H9h6a2 2 0 010 4H9"/></svg><span data-i18n="da.title">Digital Assets &amp; Bitcoin Mining</span></h2>
+          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 7v10M13 7v10M9 8h5a2 2 0 010 4H9h6a2 2 0 010 4H9"/></svg><span data-i18n="da.title">Digital Assets: Tokenisation &amp; Bitcoin Mining</span></h2>
           <span class="status eval" data-i18n="st.analysis">Analysis phase</span>
         </div>
+        <p class="intro" data-i18n="da.intro">BPE focuses on two areas of digital assets: the tokenisation of real assets on the blockchain and Bitcoin mining as digital production infrastructure.</p>
+
+        <!-- Tokenisation -->
+        <h3 class="sub-title"><span class="num">A</span><span data-i18n="tk.title">Tokenisation of Real Assets</span></h3>
+        <p class="intro" data-i18n="tk.p1">Tokenisation means representing a real asset – such as a property – or the rights to it as a digital token on a blockchain. This can make ownership structures more transparent, simplify transfers and open up new forms of financing and fractional participation. BPE analyses how its experience in real estate and financial technology can be combined in this field.</p>
+        <div class="grid g3 reveal">
+          <div class="cell"><h3>Asset Tokenisation</h3><div class="body"><p data-i18n="tk.c1">Digital representation of real assets and ownership rights on the blockchain.</p></div></div>
+          <div class="cell"><h3>Regulation</h3><div class="body"><p data-i18n="tk.c2">Assessment of legal and regulatory requirements in the EU, including crypto-asset and securities regulation.</p></div></div>
+          <div class="cell"><h3>Technology &amp; Security</h3><div class="body"><p data-i18n="tk.c3">Evaluation of blockchain platforms, smart contracts, custody and security standards.</p></div></div>
+        </div>
+        <p class="note" data-i18n="tk.disc">This area is in its analysis phase. BPE does not currently issue or offer tokens to the public.</p>
+
+        <!-- Bitcoin mining -->
+        <h3 class="sub-title"><span class="num">B</span>Bitcoin Mining</h3>
+        <figure class="photo reveal">
+          <img src="images/btc-mining.webp" alt="Marcus Böhm in front of a Bitcoin mining container" loading="lazy" width="1448" height="1086">
+        </figure>
         <p class="intro" data-i18n="da.p1">Since 2026, BPE has been analysing and testing Bitcoin mining as an additional investment segment. To this end, BPE has acquired interests in, or economic entitlements to, mining hardware and digital mining capacity – in order to assess actual profitability and technical conditions on the basis of real production data.</p>
         <div class="wrap reveal">
         <table class="tbl">
@@ -422,7 +410,7 @@ footer .disc{margin:0 0 8px}
       <div class="pad">
         <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><span data-i18n="nav.mg">Management</span></h2>
         <div class="mgmt reveal">
-          <div class="portrait" aria-hidden="true">MB</div>
+          <img class="portrait" src="images/marcus-boehm.webp" alt="Marcus Friedrich Caesar Böhm" loading="lazy" width="1186" height="1326">
           <div>
             <h3>Marcus Friedrich Caesar Böhm</h3>
             <div class="role">Founder · Owner · Managing Director</div>
@@ -464,7 +452,6 @@ footer .disc{margin:0 0 8px}
               <div><label for="f-topic" data-i18n="ct.topic">Subject</label>
                 <select id="f-topic" name="topic">
                   <option data-i18n="nav.re">Real Estate</option>
-                  <option data-i18n="nav.pe">Private Equity &amp; Technology</option>
                   <option data-i18n="nav.da">Digital Assets</option>
                   <option data-i18n="nav.it">International Trade</option>
                   <option data-i18n="ct.other">Other enquiry</option>
@@ -506,12 +493,12 @@ const I18N = {
  de:{
   "menu":"Menü","nav.home":"Startseite","nav.about":"Über BPE","nav.re":"Immobilien","nav.pe":"Private Equity & Technologie","nav.da":"Digital Assets","nav.it":"Internationaler Handel","nav.mg":"Management","nav.ct":"Kontakt",
   "side.office":"Sitz der Gesellschaft:","side.est":"Gegründet:",
-  "hero.h1":"In Werte investieren. Die Zukunft gestalten.","hero.sub":"Unabhängige Investments in Immobilien, Technologie und neue Chancen.","hero.philLabel":"Unsere Philosophie",
+  "hero.h1":"In Werte investieren. Die Zukunft gestalten.","hero.sub":"Unabhängige Investments in Immobilien, Digital Assets und neue Chancen.","hero.philLabel":"Unsere Philosophie",
   "pill.tech":"Technologie","pill.trade":"Handel",
   "areas.title":"Geschäftsbereiche","areas.peT":"PE & Technologie",
   "areas.re":"Erwerb, Modernisierung und aktives Management von Wohnimmobilien in Portugal.",
   "areas.pe":"Selektive Beteiligungen in Software, künstlicher Intelligenz und Finanztechnologie.",
-  "areas.da":"Investmentanalyse des Bitcoin-Minings auf Basis realer Produktionsdaten.",
+  "areas.da":"Tokenisierung realer Vermögenswerte und Bitcoin-Mining – analysiert auf Basis realer Daten.",
   "areas.it":"Direkte internationale Beschaffung technischer Produkte – derzeit in Prüfung.",
   "more":"Mehr erfahren",
   "about.p1":"Die BPE, Unipessoal Lda. ist eine inhabergeführte portugiesische Investment- und Beteiligungsgesellschaft mit Sitz in Montemor-o-Novo, Portugal. Das 2022 gegründete Unternehmen befindet sich zu 100 % im Eigentum ihres Geschäftsführers Marcus Friedrich Caesar Böhm.",
@@ -545,7 +532,14 @@ const I18N = {
   "pe.c1":"Finanztechnologie und digitale Geschäftsprozesse","pe.c2":"Algorithmische und quantitative Investmentstrategien","pe.c3":"Softwaregestützte Handels- und Analyseprozesse","pe.c4":"Workflow-Automatisierung","pe.c5":"Transaktionskostenanalyse","pe.c7":"Digitale Finanzinfrastruktur","pe.c8":"Blockchain-Technologie und Tokenisierung",
   "pe.phil":"Technologische Innovation ist für uns kein kurzfristiger Trend. Entscheidend sind die wirtschaftliche Tragfähigkeit des Geschäftsmodells, das Wachstumspotenzial und die Fähigkeit, nachhaltige Wettbewerbsvorteile aufzubauen.",
   "pe.disc":"BPE investiert selektiv. BPE ist keine öffentlich angebotene Investmentplattform und verwaltet keine Kundengelder.",
-  "da.title":"Digital Assets & Bitcoin-Mining",
+  "da.title":"Digital Assets: Tokenisierung & Bitcoin-Mining",
+  "da.intro":"BPE konzentriert sich im Bereich Digital Assets auf zwei Themen: die Tokenisierung realer Vermögenswerte auf der Blockchain und Bitcoin-Mining als digitale Produktionsinfrastruktur.",
+  "tk.title":"Tokenisierung realer Vermögenswerte",
+  "tk.p1":"Tokenisierung bedeutet, einen realen Vermögenswert – etwa eine Immobilie – oder die Rechte daran als digitalen Token auf einer Blockchain abzubilden. Das kann Eigentumsstrukturen transparenter machen, Übertragungen vereinfachen und neue Formen der Finanzierung und anteiligen Beteiligung ermöglichen. BPE analysiert, wie sich die eigene Erfahrung in Immobilien und Finanztechnologie in diesem Feld verbinden lässt.",
+  "tk.c1":"Digitale Abbildung realer Vermögenswerte und Eigentumsrechte auf der Blockchain.",
+  "tk.c2":"Prüfung der rechtlichen und regulatorischen Anforderungen in der EU, einschließlich Krypto- und Wertpapierrecht.",
+  "tk.c3":"Bewertung von Blockchain-Plattformen, Smart Contracts, Verwahrung und Sicherheitsstandards.",
+  "tk.disc":"Dieser Bereich befindet sich in der Analysephase. BPE gibt derzeit keine Token aus und bietet keine Token öffentlich an.",
   "da.p1":"Seit 2026 analysiert und erprobt BPE Bitcoin-Mining als zusätzliches Investmentsegment. Dazu wurden Beteiligungen bzw. wirtschaftliche Ansprüche an Mining-Hardware und digitalen Mining-Kapazitäten erworben – um Rentabilität und technische Rahmenbedingungen anhand realer Produktionsdaten zu untersuchen.",
   "da.th1":"Analyseschwerpunkt","da.th2":"Was wir bewerten",
   "da.r1":"Durch die eingesetzte Rechenleistung erwirtschaftete Bitcoin-Erträge.","da.r2":"Laufende Kosten – insbesondere Energie, Infrastruktur, Betrieb und Wartung.","da.r3":"Amortisationsdauer und Kapitalrendite unter verschiedenen Marktbedingungen.","da.r4":"Vergleich von Mining-Technologien nach Rechenleistung, Energieeffizienz und Wirtschaftlichkeit.","da.r5":"Bitcoin-Preis, Mining-Difficulty, Netzwerk-Hashrate und Veränderungen der Mining-Erträge.",
@@ -574,12 +568,12 @@ const I18N = {
  pt:{
   "menu":"Menu","nav.home":"Início","nav.about":"Sobre a BPE","nav.re":"Imobiliário","nav.pe":"Private Equity & Tecnologia","nav.da":"Ativos Digitais","nav.it":"Comércio Internacional","nav.mg":"Gestão","nav.ct":"Contacto",
   "side.office":"Sede social:","side.est":"Constituída:",
-  "hero.h1":"Investir em valor. Construir o futuro.","hero.sub":"Investimentos independentes em imobiliário, tecnologia e oportunidades emergentes.","hero.philLabel":"A nossa filosofia",
+  "hero.h1":"Investir em valor. Construir o futuro.","hero.sub":"Investimentos independentes em imobiliário, ativos digitais e oportunidades emergentes.","hero.philLabel":"A nossa filosofia",
   "pill.tech":"Tecnologia","pill.trade":"Comércio",
   "areas.title":"Áreas de Negócio","areas.peT":"PE & Tecnologia",
   "areas.re":"Aquisição, modernização e gestão ativa de imóveis residenciais em Portugal.",
   "areas.pe":"Participações seletivas em software, inteligência artificial e tecnologia financeira.",
-  "areas.da":"Análise de investimento em mineração de Bitcoin com base em dados reais de produção.",
+  "areas.da":"Tokenização de ativos reais e mineração de Bitcoin – analisadas com base em dados reais.",
   "areas.it":"Aprovisionamento internacional direto de produtos técnicos – atualmente em avaliação.",
   "more":"Saber mais",
   "about.p1":"A BPE, Unipessoal Lda. é uma sociedade portuguesa de investimento e participações, gerida pelo seu proprietário, com sede em Montemor-o-Novo, Portugal. Constituída em 2022, é detida a 100 % pelo seu gerente, Marcus Friedrich Caesar Böhm.",
@@ -613,7 +607,14 @@ const I18N = {
   "pe.c1":"Tecnologia financeira e processos de negócio digitais","pe.c2":"Estratégias de investimento algorítmicas e quantitativas","pe.c3":"Processos de negociação e análise suportados por software","pe.c4":"Automação de fluxos de trabalho","pe.c5":"Análise de custos de transação","pe.c7":"Infraestrutura financeira digital","pe.c8":"Tecnologia blockchain e tokenização",
   "pe.phil":"Não encaramos a inovação tecnológica como uma tendência de curto prazo. O decisivo é a viabilidade económica do modelo de negócio, o potencial de crescimento e a capacidade de construir vantagens competitivas duradouras.",
   "pe.disc":"A BPE investe de forma seletiva. A BPE não é uma plataforma de investimento oferecida ao público e não gere fundos de clientes.",
-  "da.title":"Ativos Digitais & Mineração de Bitcoin",
+  "da.title":"Ativos Digitais: Tokenização & Mineração de Bitcoin",
+  "da.intro":"Na área de ativos digitais, a BPE concentra-se em dois temas: a tokenização de ativos reais em blockchain e a mineração de Bitcoin como infraestrutura de produção digital.",
+  "tk.title":"Tokenização de Ativos Reais",
+  "tk.p1":"Tokenizar significa representar um ativo real – por exemplo, um imóvel – ou os direitos sobre ele como um token digital numa blockchain. Isto pode tornar as estruturas de propriedade mais transparentes, simplificar transferências e abrir novas formas de financiamento e participação fracionada. A BPE analisa como combinar neste campo a sua experiência em imobiliário e tecnologia financeira.",
+  "tk.c1":"Representação digital de ativos reais e direitos de propriedade em blockchain.",
+  "tk.c2":"Avaliação dos requisitos legais e regulatórios na UE, incluindo a regulamentação de criptoativos e valores mobiliários.",
+  "tk.c3":"Avaliação de plataformas blockchain, smart contracts, custódia e normas de segurança.",
+  "tk.disc":"Esta área encontra-se em fase de análise. A BPE não emite nem oferece atualmente tokens ao público.",
   "da.p1":"Desde 2026, a BPE analisa e testa a mineração de Bitcoin como segmento de investimento adicional. Para o efeito, adquiriu participações ou direitos económicos sobre hardware de mineração e capacidade de mineração digital – para avaliar a rentabilidade e as condições técnicas com base em dados reais de produção.",
   "da.th1":"Foco de análise","da.th2":"O que avaliamos",
   "da.r1":"Rendimento em Bitcoin gerado pela capacidade de computação utilizada.","da.r2":"Custos correntes – sobretudo energia, infraestrutura, operação e manutenção.","da.r3":"Prazo de recuperação e rentabilidade do capital em diferentes condições de mercado.","da.r4":"Comparação de tecnologias de mineração por capacidade, eficiência energética e rentabilidade.","da.r5":"Preço do Bitcoin, dificuldade de mineração, hashrate da rede e evolução das recompensas.",
