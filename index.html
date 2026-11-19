@@ -153,6 +153,26 @@ form textarea{min-height:120px;resize:vertical}
 footer{font-size:13px;color:var(--muted);padding:0 4px}
 footer .disc{margin:0 0 8px}
 
+/* ---------- Real estate process (ruin → smart home) ---------- */
+.bpe-process{background:#EEF5FC;border-radius:20px;padding:32px;margin:0 0 26px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;color:#0F3D66}
+.bpe-step{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:14px}
+.bpe-head{display:flex;align-items:center;gap:12px;min-height:56px}
+.bpe-num{flex:none;width:40px;height:40px;border-radius:50%;background:#2F7DD1;color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
+.bpe-title{font-size:20px;font-weight:700;line-height:1.15;hyphens:auto;overflow-wrap:break-word}
+.bpe-sub{font-size:14px;font-weight:600;color:#4A6A88;margin-top:3px;line-height:1.3}
+.bpe-card{background:#fff;border:1px solid #D3E4F4;border-radius:18px;aspect-ratio:312/360;display:flex;align-items:center;justify-content:center;padding:16px}
+.bpe-card svg{width:100%;height:auto}
+.bpe-arrow{flex:none;align-self:center;margin-top:60px}
+@media (max-width:1200px){
+  .bpe-process{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  .bpe-arrow{display:none}
+  .bpe-card{aspect-ratio:auto}
+}
+@media (max-width:600px){
+  .bpe-process{grid-template-columns:1fr;padding:20px;gap:10px}
+  .bpe-arrow{display:block;justify-self:center;margin:0;transform:rotate(90deg)}
+}
+
 /* ---------- Bitcoin infographic ---------- */
 .bx{--bx-bg:#0e141b;--bx-card:#18202a;--bx-tile:#111820;--bx-text:#f2f4f7;--bx-muted:#9aa4b0;--bx-or:#f7931a;--bx-neg:#f08a7e;
   background:var(--bx-bg);color:var(--bx-text);border-radius:10px;padding:28px;margin:8px 0 28px;line-height:1.35}
@@ -390,6 +410,107 @@ footer .disc{margin:0 0 8px}
           <span class="status active" data-i18n="st.active">Active</span>
         </div>
         <p class="intro"><strong data-i18n="re.claim">Acquire property. Develop value. Secure income.</strong> <span data-i18n="re.p1">Real estate is a core pillar of BPE. We invest in residential property in Portugal – particularly in the Alentejo region – focusing on assets whose market value can be increased through modernisation, renovation or a change of use.</span></p>
+
+        <!-- Process graphic: from ruin to smart home -->
+        <h3 class="sub-title" data-i18n="rp.title">From Ruin to Smart Home</h3>
+        <div class="bpe-process reveal" role="group" data-i18n-aria="rp.aria" aria-label="Our approach in four steps: ruin, planning, shell construction, turnkey">
+          <div class="bpe-step">
+            <div class="bpe-head"><span class="bpe-num">1</span><div><div class="bpe-title" data-i18n="rp.t1">Ruin</div><div class="bpe-sub" data-i18n="rp.s1">Property with potential</div></div></div>
+            <div class="bpe-card"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="14" y="190" width="232" height="6" rx="3" fill="#BBD7F2" />
+<polygon points="40,190 40,96 66,72 82,86 96,74 112,94 118,190" fill="#DCE9F6" stroke="#0F3D66" stroke-width="3" />
+<polygon points="132,190 132,112 148,98 160,118 174,100 194,126 208,116 208,190" fill="#DCE9F6" stroke="#0F3D66" stroke-width="3" />
+<polygon points="78,56 176,98 172,106 74,64" fill="#8DB8E3" stroke="#0F3D66" stroke-width="3" />
+<rect x="56" y="118" width="32" height="32" fill="#0F3D66" fill-opacity="0.12" stroke="#0F3D66" stroke-width="3" />
+<polyline points="56,150 70,132 80,140 88,124" stroke="#0F3D66" stroke-width="2.5" />
+<rect x="150" y="140" width="34" height="50" fill="#0F3D66" fill-opacity="0.12" stroke="#0F3D66" stroke-width="3" />
+<polyline points="104,108 96,124 104,138 97,154" stroke="#2F7DD1" stroke-width="2.5" />
+<polyline points="180,130 188,144 182,156" stroke="#2F7DD1" stroke-width="2.5" />
+<polygon points="212,190 222,176 236,180 240,190" fill="#BBD7F2" stroke="#0F3D66" stroke-width="2.5" />
+<polygon points="22,190 28,180 38,184 38,190" fill="#BBD7F2" stroke="#0F3D66" stroke-width="2.5" />
+<rect x="120" y="180" width="10" height="10" fill="#BBD7F2" stroke="#0F3D66" stroke-width="2" />
+<path d="M226 176 C 224 164, 230 156, 232 150 M230 166 C 236 160, 242 160, 244 156" stroke="#2F7DD1" stroke-width="2.5" />
+</svg></div>
+          </div>
+          <div class="bpe-arrow" aria-hidden="true"><svg width="56" height="36" viewBox="0 0 64 40" fill="none"><path d="M4 20 H54 M40 6 L56 20 L40 34" stroke="#2F7DD1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="bpe-step">
+            <div class="bpe-head"><span class="bpe-num">2</span><div><div class="bpe-title" data-i18n="rp.t2">Planning</div><div class="bpe-sub" data-i18n="rp.s2">with architects</div></div></div>
+            <div class="bpe-card"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="26" y="34" width="196" height="150" rx="10" fill="#2F7DD1" />
+<g stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="1">
+<path d="M26 64 H222 M26 94 H222 M26 124 H222 M26 154 H222 M56 34 V184 M86 34 V184 M116 34 V184 M146 34 V184 M176 34 V184 M206 34 V184" />
+</g>
+<g stroke="#FFFFFF" stroke-width="3">
+<polyline points="62,112 112,70 162,112" />
+<rect x="72" y="112" width="80" height="52" />
+<rect x="84" y="124" width="20" height="18" />
+<rect x="118" y="132" width="22" height="32" />
+<path d="M178 112 V164" stroke-dasharray="4 5" />
+<path d="M172 112 H184 M172 164 H184" />
+<path d="M72 176 H152" stroke-dasharray="4 5" />
+</g>
+<g transform="rotate(-38 196 150)">
+<rect x="150" y="142" width="96" height="16" rx="3" fill="#BBD7F2" stroke="#0F3D66" stroke-width="3" />
+<polygon points="246,142 262,150 246,158" fill="#DCE9F6" stroke="#0F3D66" stroke-width="3" />
+<rect x="140" y="142" width="12" height="16" rx="2" fill="#0F3D66" />
+</g>
+<rect x="18" y="190" width="150" height="16" rx="3" fill="#DCE9F6" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M34 190 V198 M50 190 V196 M66 190 V198 M82 190 V196 M98 190 V198 M114 190 V196 M130 190 V198 M146 190 V196" stroke="#0F3D66" stroke-width="2" />
+</svg></div>
+          </div>
+          <div class="bpe-arrow" aria-hidden="true"><svg width="56" height="36" viewBox="0 0 64 40" fill="none"><path d="M4 20 H54 M40 6 L56 20 L40 34" stroke="#2F7DD1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="bpe-step">
+            <div class="bpe-head"><span class="bpe-num">3</span><div><div class="bpe-title" data-i18n="rp.t3">Shell construction</div><div class="bpe-sub" data-i18n="rp.s3">by the building contractor</div></div></div>
+            <div class="bpe-card"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="14" y="190" width="232" height="6" rx="3" fill="#BBD7F2" />
+<path d="M26 190 V22 H172" stroke="#0F3D66" stroke-width="3.5" />
+<path d="M26 40 L44 22" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M150 22 V48" stroke="#2F7DD1" stroke-width="2" />
+<path d="M144 48 H156 V54 C 156 60, 148 60, 148 56" stroke="#0F3D66" stroke-width="2.5" />
+<rect x="58" y="104" width="136" height="86" fill="#DCE9F6" stroke="#0F3D66" stroke-width="3" />
+<g stroke="#8DB8E3" stroke-width="1.5">
+<path d="M58 121 H194 M58 138 H194 M58 155 H194 M58 172 H194" />
+<path d="M80 104 V121 M110 104 V121 M140 104 V121 M170 104 V121 M95 121 V138 M125 121 V138 M155 121 V138 M185 121 V138 M80 138 V155 M170 138 V155 M95 155 V172 M185 155 V172 M80 172 V190 M170 172 V190" />
+</g>
+<rect x="74" y="126" width="34" height="34" fill="#FFFFFF" stroke="#0F3D66" stroke-width="3" />
+<rect x="140" y="140" width="32" height="50" fill="#FFFFFF" stroke="#0F3D66" stroke-width="3" />
+<polyline points="50,104 126,60 202,104" stroke="#0F3D66" stroke-width="3" />
+<path d="M126 60 V104 M88 82 L106 104 M164 82 L146 104 M50 104 H202" stroke="#2F7DD1" stroke-width="2.5" />
+<path d="M212 190 V88 M240 190 V88 M206 104 H246 M206 140 H246 M206 172 H246 M212 140 L240 104 M212 172 L240 140" stroke="#2F7DD1" stroke-width="2.5" />
+</svg></div>
+          </div>
+          <div class="bpe-arrow" aria-hidden="true"><svg width="56" height="36" viewBox="0 0 64 40" fill="none"><path d="M4 20 H54 M40 6 L56 20 L40 34" stroke="#2F7DD1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="bpe-step">
+            <div class="bpe-head"><span class="bpe-num">4</span><div><div class="bpe-title" data-i18n="rp.t4">Turnkey</div><div class="bpe-sub" data-i18n="rp.s4">modern &amp; smart</div></div></div>
+            <div class="bpe-card"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="14" y="190" width="232" height="6" rx="3" fill="#BBD7F2" />
+<path d="M150 34 C 158 26, 170 26, 178 34 M156 42 C 160 38, 168 38, 172 42" stroke="#2F7DD1" stroke-width="3" />
+<circle cx="164" cy="49" r="3.5" fill="#2F7DD1" />
+<polygon points="114,66 138,52 168,52 144,66" fill="#2F7DD1" stroke="#0F3D66" stroke-width="2.5" />
+<polygon points="152,66 176,52 206,52 182,66" fill="#2F7DD1" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M126 59 H156 M164 59 H194" stroke="#BBD7F2" stroke-width="1.5" />
+<rect x="34" y="104" width="96" height="86" fill="#FFFFFF" stroke="#0F3D66" stroke-width="3" />
+<rect x="108" y="70" width="114" height="120" fill="#FFFFFF" stroke="#0F3D66" stroke-width="3" />
+<path d="M28 104 H134 M102 70 H228" stroke="#0F3D66" stroke-width="4" />
+<rect x="46" y="118" width="54" height="40" fill="#8DB8E3" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M73 118 V158" stroke="#0F3D66" stroke-width="2" />
+<rect x="122" y="84" width="86" height="44" fill="#8DB8E3" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M151 84 V128 M180 84 V128" stroke="#0F3D66" stroke-width="2" />
+<rect x="122" y="140" width="50" height="50" fill="#8DB8E3" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M147 140 V190" stroke="#0F3D66" stroke-width="2" />
+<rect x="186" y="146" width="20" height="26" rx="4" fill="#DCE9F6" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M198 152 L192 160 H200 L194 168" stroke="#2F7DD1" stroke-width="2.5" />
+<rect x="236" y="150" width="12" height="40" rx="3" fill="#2F7DD1" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M236 166 C 228 168, 228 180, 222 188" stroke="#0F3D66" stroke-width="2.5" />
+<circle cx="22" cy="152" r="16" fill="#BBD7F2" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M22 168 V190" stroke="#0F3D66" stroke-width="3" />
+<g transform="translate(46 166)">
+<rect x="0" y="0" width="22" height="16" rx="3" fill="#FFFFFF" stroke="#2F7DD1" stroke-width="2" />
+<path d="M5 8 H9 L11 4 L13 12 L15 8 H17" stroke="#2F7DD1" stroke-width="1.8" />
+</g>
+</svg></div>
+          </div>
+        </div>
 
         <div class="grid g3 reveal">
           <div class="cell"><h3><span class="num">01</span>Acquisition</h3><div class="body"><p data-i18n="re.acq">Identifying and acquiring undervalued properties, or properties requiring renovation or offering development potential.</p></div></div>
@@ -748,6 +869,8 @@ const I18N = {
   "ct.data":"Unternehmensdaten","ct.co":"Gesellschaft","ct.legal":"Rechtsform","ct.md":"Geschäftsführer","ct.addr":"Sitz","ct.found":"Gegründet",
   "foot.disc":"Die BPE Lda. investiert ausschließlich eigenes Kapital. Die Inhalte dieser Website stellen weder ein Angebot von Finanzprodukten noch eine Anlageberatung oder Aufforderung zur Investition dar. BPE verwaltet keine Kundengelder.",
   "foot.imp":"Impressum","foot.priv":"Datenschutz","geo.ptN":"Portugal",
+  "rp.title":"Von der Ruine zum Smart Home","rp.aria":"Unser Vorgehen in vier Schritten: Ruine, Planung, Rohbau, Schlüsselfertig",
+  "rp.t1":"Ruine","rp.s1":"Objekt mit Potenzial","rp.t2":"Planung","rp.s2":"mit Architekten","rp.t3":"Rohbau","rp.s3":"durch den Bauunternehmer","rp.t4":"Schlüsselfertig","rp.s4":"modern & smart",
   "bx.title":"Bitcoin – das digitale Gold","bx.sub":"Knappes Geld als Software. Und sie steht erst am Anfang.","bx.asof":"Stand 19.11.2026",
   "bx.f1t":"Limitiert","bx.f1d":"Maximal 21 Mio. – nie mehr","bx.f2t":"Geschlossenes System","bx.f2d":"Regeln im Code, Mining sichert","bx.f3t":"Bankenunabhängig","bx.f3d":"Direkt, weltweit, rund um die Uhr","bx.f4t":"Wertmaßstab","bx.f4d":"Eine Einheit, die nicht verwässert",
   "bx.c1t":"Dollar wird gedruckt","bx.c1m2":"US-Geldmenge M2, Bio. $","bx.c1since":"Geldmenge seit 1971","bx.c1pp":"Kaufkraft 1 $","bx.c1ppv":"−87 %","bx.c1btc":"Bitcoin, für immer","bx.c1btcv":"21 Mio.",
@@ -833,6 +956,8 @@ const I18N = {
   "ct.data":"Dados da Empresa","ct.co":"Sociedade","ct.legal":"Forma jurídica","ct.md":"Gerente","ct.addr":"Sede social","ct.found":"Constituição",
   "foot.disc":"A BPE Lda. investe exclusivamente capital próprio. O conteúdo deste website não constitui oferta de produtos financeiros, aconselhamento de investimento nem solicitação para investir. A BPE não gere fundos de clientes.",
   "foot.imp":"Informação legal","foot.priv":"Privacidade","geo.ptN":"Portugal",
+  "rp.title":"Da ruína à casa inteligente","rp.aria":"A nossa abordagem em quatro etapas: ruína, projeto, obra em tosco, chave na mão",
+  "rp.t1":"Ruína","rp.s1":"Imóvel com potencial","rp.t2":"Projeto","rp.s2":"com arquitetos","rp.t3":"Obra em tosco","rp.s3":"pelo empreiteiro","rp.t4":"Chave na mão","rp.s4":"moderno & inteligente",
   "bx.title":"Bitcoin – o ouro digital","bx.sub":"Dinheiro escasso em forma de software. E ainda agora está a começar.","bx.asof":"Atualizado a 19.11.2026",
   "bx.f1t":"Limitada","bx.f1d":"Máximo de 21 milhões – nunca mais","bx.f2t":"Sistema fechado","bx.f2d":"Regras no código, protegido pela mineração","bx.f3t":"Independente dos bancos","bx.f3d":"Direta, global, 24 horas por dia","bx.f4t":"Medida de valor","bx.f4d":"Uma unidade que não se dilui",
   "bx.c1t":"O dólar está a ser impresso","bx.c1m2":"Massa monetária M2 dos EUA, biliões de $","bx.c1since":"Massa monetária desde 1971","bx.c1pp":"Poder de compra de 1 $","bx.c1ppv":"−87 %","bx.c1btc":"Bitcoin, para sempre","bx.c1btcv":"21 milhões",
@@ -908,6 +1033,8 @@ const I18N = {
   "ct.data":"会社概要","ct.co":"会社名","ct.legal":"法人形態","ct.md":"代表取締役","ct.addr":"本店所在地","ct.found":"設立",
   "foot.disc":"BPE Lda.は自己資本のみで投資を行っています。本ウェブサイトの内容は、金融商品の募集、投資助言、または投資の勧誘を構成するものではありません。BPEは顧客資産の運用を行っていません。",
   "foot.imp":"法的情報","foot.priv":"プライバシー",
+  "rp.title":"廃屋からスマートホームへ","rp.aria":"4つのステップによる私たちの取り組み：廃屋、設計、躯体工事、完成・引き渡し",
+  "rp.t1":"廃屋","rp.s1":"ポテンシャルのある物件","rp.t2":"設計","rp.s2":"建築家と共に","rp.t3":"躯体工事","rp.s3":"施工会社による","rp.t4":"完成・引き渡し","rp.s4":"モダン & スマート",
   "bx.title":"ビットコイン ― デジタル・ゴールド","bx.sub":"ソフトウェアとしての希少な通貨。そして、まだ始まったばかり。","bx.asof":"2026年11月19日時点",
   "bx.f1t":"発行上限","bx.f1d":"最大2,100万枚 ― それ以上は発行されない","bx.f2t":"閉じたシステム","bx.f2d":"ルールはコードに、安全はマイニングが担保","bx.f3t":"銀行から独立","bx.f3d":"直接、世界中で、24時間","bx.f4t":"価値の尺度","bx.f4d":"希薄化しない単位",
   "bx.c1t":"刷られ続けるドル","bx.c1m2":"米国マネーサプライM2（兆ドル）","bx.c1since":"1971年以降のマネーサプライ","bx.c1pp":"1ドルの購買力","bx.c1ppv":"−87%","bx.c1btc":"ビットコインは永遠に","bx.c1btcv":"2,100万",
@@ -983,6 +1110,8 @@ const I18N = {
   "ct.data":"公司信息","ct.co":"公司名称","ct.legal":"法律形式","ct.md":"董事总经理","ct.addr":"注册地址","ct.found":"成立时间",
   "foot.disc":"BPE Lda. 仅以自有资本进行投资。本网站内容不构成金融产品的要约、投资建议或投资招揽。BPE 不管理客户资金。",
   "foot.imp":"法律声明","foot.priv":"隐私政策",
+  "rp.title":"从旧房到智能住宅","rp.aria":"我们的四步流程：旧房、规划设计、主体施工、交钥匙",
+  "rp.t1":"旧房","rp.s1":"具有潜力的物业","rp.t2":"规划设计","rp.s2":"与建筑师合作","rp.t3":"主体施工","rp.s3":"由建筑承包商完成","rp.t4":"交钥匙","rp.s4":"现代 & 智能",
   "bx.title":"比特币——数字黄金","bx.sub":"以软件形式存在的稀缺货币，而这一切才刚刚开始。","bx.asof":"截至2026年11月19日",
   "bx.f1t":"总量有限","bx.f1d":"最多2100万枚——永不增发","bx.f2t":"封闭系统","bx.f2d":"规则写入代码，挖矿保障安全","bx.f3t":"独立于银行","bx.f3d":"直接、全球、全天候","bx.f4t":"价值尺度","bx.f4d":"不会被稀释的计量单位",
   "bx.c1t":"美元不断被印出","bx.c1m2":"美国M2货币供应量（万亿美元）","bx.c1since":"1971年以来货币供应量","bx.c1pp":"1美元购买力","bx.c1ppv":"−87%","bx.c1btc":"比特币，永远","bx.c1btcv":"2100万",
@@ -1003,6 +1132,8 @@ const I18N = {
 const nodes=[...document.querySelectorAll('[data-i18n]')];
 const EN={}; nodes.forEach(n=>{EN[n.dataset.i18n] ??= n.textContent;});
 I18N.en=EN;
+const ariaNodes=[...document.querySelectorAll('[data-i18n-aria]')];
+const EN_ARIA={}; ariaNodes.forEach(n=>{EN_ARIA[n.dataset.i18nAria]=n.getAttribute('aria-label');});
 
 function setLang(l){
   const d=I18N[l]||EN;
@@ -1010,6 +1141,7 @@ function setLang(l){
   document.documentElement.lang=l;
   const nf=d=>new Intl.NumberFormat(l==='zh'?'zh-CN':l,{minimumFractionDigits:d,maximumFractionDigits:d});
   document.querySelectorAll('[data-num]').forEach(e=>{e.textContent=nf(+(e.dataset.dec||0)).format(+e.dataset.num)});
+  ariaNodes.forEach(n=>{const k=n.dataset.i18nAria; n.setAttribute('aria-label',d[k]??EN_ARIA[k]);});
   langBtns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
   try{localStorage.setItem('bpe-lang',l)}catch(e){}
 }
