@@ -40,8 +40,16 @@ h1,h2,h3{font-weight:400;line-height:1.2;margin:0}
 .logo-mark .pe{background:linear-gradient(90deg,var(--teal),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
 .logo-line{height:3px;margin-top:8px;background:linear-gradient(90deg,var(--teal-dark),var(--green))}
 .logo-sub{font-size:10.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-top:7px}
-.lang{padding:4px 20px 14px}
-.lang select{border:0;background:transparent;font:inherit;font-size:14px;color:var(--text);cursor:pointer;padding:2px 0}
+/* language switch (top) */
+.langbar{display:flex;justify-content:flex-end;margin:0 0 12px}
+.lang-switch{display:inline-flex;gap:2px;padding:3px;background:#3a4653;border:1px solid #55626f;border-radius:999px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.lang-switch button{border:0;background:transparent;color:#c3ccd5;font:inherit;font-size:13px;font-weight:700;letter-spacing:.6px;padding:5px 12px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s}
+.lang-switch button:hover{color:#fff;background:rgba(255,255,255,.08)}
+.lang-switch button[aria-pressed="true"]{background:var(--teal);color:#fff}
+.lang-switch button:focus-visible{outline:2px solid var(--green);outline-offset:1px}
+html:lang(ja) body{font-family:"Nunito Sans","Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif}
+html:lang(zh) body{font-family:"Nunito Sans","PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif}
+html:lang(ja) .eyebrow,html:lang(zh) .eyebrow{letter-spacing:1.5px}
 .nav{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .nav a{display:block;padding:9px 20px;text-decoration:none;font-size:15px;border-bottom:1px solid var(--line);transition:background .15s,color .15s}
 .nav a:hover{background:#eef3f8}
@@ -171,6 +179,7 @@ footer .disc{margin:0 0 8px}
   .scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:25}
   .scrim.show{display:block}
   main{padding:12px 16px 32px}
+  .langbar{justify-content:center}
   .pad{padding:0 18px}
   .hero{padding:18px 18px 4px}
   .hero-visual{margin:22px 18px 0;height:200px}
@@ -213,14 +222,6 @@ footer .disc{margin:0 0 8px}
         <div class="logo-line"></div>
         <div class="logo-sub">Private Equity</div>
       </a>
-      <div class="lang">
-        <label for="langSel" style="position:absolute;left:-9999px">Language</label>
-        <select id="langSel">
-          <option value="en">🇬🇧&nbsp; English</option>
-          <option value="de">🇩🇪&nbsp; Deutsch</option>
-          <option value="pt">🇵🇹&nbsp; Português</option>
-        </select>
-      </div>
       <nav>
         <ul class="nav">
           <li><a href="#home" class="active" data-i18n="nav.home">Home</a></li>
@@ -244,6 +245,17 @@ footer .disc{margin:0 0 8px}
 
   <!-- ========== MAIN ========== -->
   <main>
+    <!-- LANGUAGE SWITCH -->
+    <div class="langbar">
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="de" title="Deutsch" lang="de">DE</button>
+        <button type="button" data-lang="en" title="English" lang="en">EN</button>
+        <button type="button" data-lang="pt" title="Português" lang="pt">PT</button>
+        <button type="button" data-lang="ja" title="日本語" lang="ja">JP</button>
+        <button type="button" data-lang="zh" title="中文" lang="zh">CN</button>
+      </div>
+    </div>
+
     <!-- HOME -->
     <section class="card" id="home">
       <div class="hero">
@@ -425,7 +437,7 @@ footer .disc{margin:0 0 8px}
         <table class="tbl">
           <thead><tr><th data-i18n="geo.th1">Country</th><th data-i18n="geo.th2">Focus</th></tr></thead>
           <tbody>
-            <tr><td>Portugal</td><td data-i18n="geo.pt">Headquarters · real estate investment · project development · letting · evaluation of trading opportunities</td></tr>
+            <tr><td data-i18n="geo.ptN">Portugal</td><td data-i18n="geo.pt">Headquarters · real estate investment · project development · letting · evaluation of trading opportunities</td></tr>
             <tr><td data-i18n="geo.deN">Germany</td><td data-i18n="geo.de">Entrepreneurial networks · technology · finance · investment contacts</td></tr>
             <tr><td data-i18n="geo.chN">Switzerland</td><td data-i18n="geo.ch">Financial technology · company holdings · international investment activities</td></tr>
             <tr><td data-i18n="geo.grN">Greece</td><td data-i18n="geo.gr">Technology development · software · entrepreneurial partnerships</td></tr>
@@ -563,7 +575,7 @@ const I18N = {
   "ct.thanks":"Vielen Dank – Ihre Anfrage wurde erfasst. Wir melden uns in Kürze.",
   "ct.data":"Unternehmensdaten","ct.co":"Gesellschaft","ct.legal":"Rechtsform","ct.md":"Geschäftsführer","ct.addr":"Sitz","ct.found":"Gegründet",
   "foot.disc":"Die BPE Lda. investiert ausschließlich eigenes Kapital. Die Inhalte dieser Website stellen weder ein Angebot von Finanzprodukten noch eine Anlageberatung oder Aufforderung zur Investition dar. BPE verwaltet keine Kundengelder.",
-  "foot.imp":"Impressum","foot.priv":"Datenschutz"
+  "foot.imp":"Impressum","foot.priv":"Datenschutz","geo.ptN":"Portugal"
  },
  pt:{
   "menu":"Menu","nav.home":"Início","nav.about":"Sobre a BPE","nav.re":"Imobiliário","nav.pe":"Private Equity & Tecnologia","nav.da":"Ativos Digitais","nav.it":"Comércio Internacional","nav.mg":"Gestão","nav.ct":"Contacto",
@@ -638,7 +650,137 @@ const I18N = {
   "ct.thanks":"Obrigado – o seu pedido foi registado. Entraremos em contacto brevemente.",
   "ct.data":"Dados da Empresa","ct.co":"Sociedade","ct.legal":"Forma jurídica","ct.md":"Gerente","ct.addr":"Sede social","ct.found":"Constituição",
   "foot.disc":"A BPE Lda. investe exclusivamente capital próprio. O conteúdo deste website não constitui oferta de produtos financeiros, aconselhamento de investimento nem solicitação para investir. A BPE não gere fundos de clientes.",
-  "foot.imp":"Informação legal","foot.priv":"Privacidade"
+  "foot.imp":"Informação legal","foot.priv":"Privacidade","geo.ptN":"Portugal"
+ },
+ ja:{
+  "menu":"メニュー","nav.home":"ホーム","nav.about":"BPEについて","nav.re":"不動産","nav.da":"デジタル資産","nav.it":"国際貿易","nav.mg":"経営陣","nav.ct":"お問い合わせ",
+  "side.office":"登記上の本店所在地:","side.est":"設立:",
+  "hero.h1":"価値に投資し、未来を築く。","hero.sub":"不動産、デジタル資産、そして新たな機会への独立した投資。","hero.philLabel":"私たちの理念",
+  "pill.trade":"貿易",
+  "areas.title":"事業分野",
+  "areas.re":"ポルトガルにおける住宅不動産の取得、改修、およびアクティブな資産運用。",
+  "areas.da":"実物資産のトークン化とビットコイン・マイニング ― 実データに基づく分析。",
+  "areas.it":"技術製品の国際的な直接調達 ― 現在検討中。",
+  "more":"詳しく見る",
+  "about.p1":"BPE Lda.は、ポルトガル・モンテモール・オ・ノヴォに本拠を置く、オーナー経営のポルトガルの投資・持株会社です。2022年に設立され、代表取締役マルクス・ベーム（Marcus Boehm）が100％出資し、経営を担っています。",
+  "about.p2":"BPEは起業家的な投資アプローチを採用しています。的を絞った資本投下、事業面での価値創造、長期的なアセットマネジメントを通じて、持続可能な資産を構築します。自己資本のみを、厳選して長期的な視点で投資します。",
+  "about.motto":"BPEは仲介業者でも、一般的なデベロッパーでも、個人向け金融サービス業者でもありません。自己資本、実務経験、そして国際的な視野を備えた非公開の投資会社です。",
+  "strat.title":"投資戦略 ― 4つの基本原則","strat.th1":"原則","strat.th2":"アプローチ",
+  "strat.p1":"経済的価値と市場価格の間に魅力的な機会がある分野に投資します。",
+  "strat.p2":"価値は能動的に創出します。不動産では改修・近代化を通じて、事業投資ではイノベーション、規模拡大、事業開発を通じて価値を高めます。",
+  "strat.p3":"継続的な収益と中長期的な資産価値の向上の両方を重視します。",
+  "strat.p4":"投資判断は、経済分析、現実的な収益想定、ならびに技術的・規制上・市場上のリスク評価に基づいて行います。",
+  "st.active":"稼働中","st.analysis":"分析段階","st.eval":"検討中",
+  "re.title":"不動産投資・開発","re.claim":"不動産を取得し、価値を高め、収益を確保する。",
+  "re.p1":"不動産はBPEの中核事業です。ポルトガル、特にアレンテージョ地方の住宅不動産に投資し、近代化、改修、または用途変更によって市場価値を高められる物件に注力しています。",
+  "re.acq":"割安な物件、改修が必要な物件、または開発余地のある物件の発掘と取得。",
+  "re.ren":"建物構造および設備面での包括的な改修・近代化工事の計画と実施。",
+  "re.am":"工事完了後、物件ごとに経済的に最適な活用戦略を決定します。",
+  "re.l1":"既存建物の構造・設備の改修","re.l2":"キッチン、浴室、居住空間の近代化","re.l3":"エネルギー効率の向上","re.l4":"建築設備の更新","re.l5":"最新の空調・住宅設備の導入","re.l6":"間取りと住空間コンセプトの最適化","re.l7":"物件品質と賃貸適性の向上",
+  "re.sa":"戦略A","re.sb":"戦略B",
+  "re.saT":"取得、近代化、その後の売却 ― 実現した価値上昇を投資収益とします。",
+  "re.sbT":"近代化した物件を長期保有 ― 継続的な賃料収入とさらなる価値上昇を目指します。",
+  "re.th1":"収益源","re.th2":"内容",
+  "re.ca":"有利な取得、的確な近代化、市場の発展による資産価値の上昇。",
+  "re.ri":"自社保有物件の長期賃貸による定期的な収入。",
+  "re.region":"地域的重点：アレンテージョ地方モンテモール・オ・ノヴォ ― 住宅不動産への投資、アパートの改修と賃貸。6戸の住宅で構成される開発プロジェクトを含みます。プロジェクトは地元の建築家、建設会社、技術サービス事業者、不動産専門家と連携して実施し、BPEは事業計画、プロジェクト管理、投資判断を担います。",
+  "da.title":"デジタル資産：トークン化とビットコイン・マイニング",
+  "da.intro":"BPEはデジタル資産の分野で2つのテーマに注力しています。ブロックチェーン上での実物資産のトークン化と、デジタル生産インフラとしてのビットコイン・マイニングです。",
+  "tk.title":"実物資産のトークン化",
+  "tk.p1":"トークン化とは、不動産などの実物資産、またはその権利を、ブロックチェーン上のデジタルトークンとして表現することです。これにより所有構造の透明性が高まり、移転が簡素化され、新たな資金調達や小口参加の形が生まれる可能性があります。BPEは、不動産とフィンテックにおける自らの経験をこの分野でどのように組み合わせられるかを分析しています。",
+  "tk.c1":"実物資産と所有権のブロックチェーン上でのデジタル表現。",
+  "tk.c2":"暗号資産規制や証券規制を含む、EUにおける法的・規制上の要件の検討。",
+  "tk.c3":"ブロックチェーン基盤、スマートコントラクト、カストディ、セキュリティ基準の評価。",
+  "tk.disc":"この分野は分析段階にあります。BPEは現在、トークンの発行や一般向けの提供を行っていません。",
+  "da.p1":"BPEは2026年より、新たな投資分野としてビットコイン・マイニングの分析と試験運用を行っています。そのためにマイニング機器およびデジタル・マイニング能力に対する持分または経済的権利を取得し、実際の生産データに基づいて収益性と技術的条件を検証しています。",
+  "da.th1":"分析の重点","da.th2":"評価内容",
+  "da.r1":"投入した計算能力によって得られるビットコイン収益。","da.r2":"運営コスト ― 特にエネルギー、インフラ、運用、保守。","da.r3":"さまざまな市場環境における投資回収期間と資本収益率。","da.r4":"ハッシュレート、エネルギー効率、経済性によるマイニング技術の比較。","da.r5":"ビットコイン価格、マイニング難易度、ネットワーク・ハッシュレート、マイニング報酬の変動。",
+  "da.disc":"この分野は現在、BPE自身の投資分析を目的としています。BPEは一般向けのマイニング投資や元本・利回り保証型の商品を提供していません。",
+  "it.title":"国際調達・貿易",
+  "it.p1":"BPEは国際貿易事業の立ち上げを検討しています。厳選した技術製品や建築資材を中国のメーカーから直接調達し、ポルトガルおよび欧州市場へ輸入するもので、直接購買、最適化されたサプライチェーン、効率的な流通を活用します。",
+  "it.projT":"現在検討中のプロジェクト","it.proj":"自然冷媒R290を使用する機種を含む最新のスプリット型エアコン ― 品質、エネルギー効率、EU適合性と認証、物流、通関、ポルトガル市場について検討しています。",
+  "it.modelT":"ビジネスモデル","it.model":"国際的な直接調達により競争力のある価格で提供できる、適切で高品質な製品を見極め、地元の施工専門業者と連携します。",
+  "it.disc":"この事業分野は現在、経済面および規制面の評価段階にあり、まだ稼働していません。将来的には他の技術製品や建築資材への拡大も考えられます。",
+  "mg.p1":"マルクス・ベームは、企業経営、フィンテック、戦略的事業開発、投資の分野で長年の国際経験を持つドイツ人の起業家・投資家です。ドイツ、スイス、ギリシャ、ポルトガルで事業活動を行ってきました。",
+  "mg.p2":"スイスのフィンテック企業のCEOを務めるなど、フィンテック分野で豊富な経験を有しています。BPEを通じて、投資機会をいち早く見いだし、経済的に確かな評価を行い、長期的に価値ある資産へと育てることを目指しています。",
+  "geo.title":"地理的重点","geo.th1":"国","geo.th2":"重点分野",
+  "geo.ptN":"ポルトガル","geo.pt":"本社 · 不動産投資 · プロジェクト開発 · 賃貸 · 貿易機会の検討",
+  "geo.deN":"ドイツ","geo.de":"起業家ネットワーク · テクノロジー · 金融 · 投資関係のつながり",
+  "geo.chN":"スイス","geo.ch":"フィンテック · 事業投資 · 国際的な投資活動",
+  "geo.grN":"ギリシャ","geo.gr":"技術開発 · ソフトウェア · 事業提携",
+  "geo.cnN":"中国","geo.cn":"調達市場の分析 · メーカーとの関係 · 将来の輸入関係の可能性",
+  "ct.p1":"起業家や投資パートナー、不動産の売主やデベロッパー、テクノロジー企業や創業者、メーカーやサプライヤー、そして銀行や機関投資家の皆様からのお問い合わせをお待ちしております。",
+  "ct.name":"お名前","ct.company":"会社名","ct.email":"メールアドレス","ct.topic":"件名","ct.other":"その他のお問い合わせ","ct.msg":"メッセージ",
+  "ct.consent":"お問い合わせへの対応のために、入力した情報が利用されることに同意します。","ct.send":"送信する",
+  "ct.thanks":"お問い合わせありがとうございます。内容を承りました。追ってご連絡いたします。",
+  "ct.data":"会社概要","ct.co":"会社名","ct.legal":"法人形態","ct.md":"代表取締役","ct.addr":"本店所在地","ct.found":"設立",
+  "foot.disc":"BPE Lda.は自己資本のみで投資を行っています。本ウェブサイトの内容は、金融商品の募集、投資助言、または投資の勧誘を構成するものではありません。BPEは顧客資産の運用を行っていません。",
+  "foot.imp":"法的情報","foot.priv":"プライバシー"
+ },
+ zh:{
+  "menu":"菜单","nav.home":"首页","nav.about":"关于BPE","nav.re":"房地产","nav.da":"数字资产","nav.it":"国际贸易","nav.mg":"管理层","nav.ct":"联系我们",
+  "side.office":"注册地址：","side.est":"成立：",
+  "hero.h1":"投资价值，构建未来。","hero.sub":"独立投资于房地产、数字资产及新兴机遇。","hero.philLabel":"我们的理念",
+  "pill.trade":"贸易",
+  "areas.title":"业务领域",
+  "areas.re":"在葡萄牙收购、翻新并积极管理住宅物业。",
+  "areas.da":"实物资产代币化与比特币挖矿——基于真实数据进行分析。",
+  "areas.it":"技术产品的国际直接采购——目前处于评估阶段。",
+  "more":"了解更多",
+  "about.p1":"BPE Lda. 是一家由所有者亲自管理的葡萄牙投资及控股公司，总部位于葡萄牙蒙特莫尔-诺沃（Montemor-o-Novo）。公司成立于2022年，由董事总经理 Marcus Boehm 100%持有并管理。",
+  "about.p2":"BPE 奉行企业家式的投资理念：通过有针对性的资本投入、运营层面的价值创造以及长期资产管理，打造可持续的资产。公司以自有资本进行投资，精挑细选，着眼长远。",
+  "about.motto":"BPE 既不是中介机构，也不是传统开发商或面向个人客户的金融服务机构，而是一家拥有自有资本、实操经验和国际视野的私人投资公司。",
+  "strat.title":"投资策略——四项基本原则","strat.th1":"原则","strat.th2":"方法",
+  "strat.p1":"我们投资于经济价值与市场价格之间存在吸引力机会的领域。",
+  "strat.p2":"价值通过主动方式创造——在房地产领域通过翻新与现代化改造，在企业投资领域通过创新、规模化和运营发展。",
+  "strat.p3":"我们同时关注持续性收益与中长期资产增值。",
+  "strat.p4":"投资决策基于经济分析、合理的收益假设，以及对技术、监管和市场风险的评估。",
+  "st.active":"运营中","st.analysis":"分析阶段","st.eval":"评估中",
+  "re.title":"房地产投资与开发","re.claim":"收购物业，提升价值，确保收益。",
+  "re.p1":"房地产是 BPE 的核心业务。我们投资于葡萄牙的住宅物业，尤其是阿连特茹（Alentejo）地区，重点关注可通过现代化改造、翻新或变更用途来提升市场价值的物业。",
+  "re.acq":"发掘并收购被低估、需要翻新或具有开发潜力的物业。",
+  "re.ren":"规划并实施全面的建筑结构及技术设施翻新与现代化改造工程。",
+  "re.am":"工程完成后，针对每处物业确定经济上最合理的运营策略。",
+  "re.l1":"既有建筑的结构与技术翻新","re.l2":"厨房、浴室及起居空间的现代化改造","re.l3":"提升能源效率","re.l4":"更新建筑设备设施","re.l5":"现代化空调及楼宇技术","re.l6":"优化户型与居住理念","re.l7":"提升物业品质与出租吸引力",
+  "re.sa":"策略A","re.sb":"策略B",
+  "re.saT":"收购、现代化改造后出售——将实现的增值作为投资回报。",
+  "re.sbT":"长期持有改造后的物业——获取持续租金收入及进一步增值。",
+  "re.th1":"收益来源","re.th2":"说明",
+  "re.ca":"通过有利的收购价格、有针对性的现代化改造和市场发展实现资产增值。",
+  "re.ri":"来自自有物业长期出租的稳定收入。",
+  "re.region":"区域重点：阿连特茹地区蒙特莫尔-诺沃——住宅物业投资、公寓翻新与出租，其中包括一个由六套住宅单元组成的开发项目。项目与当地建筑师、建筑公司、技术服务商及房地产专家合作实施；BPE 负责经济规划、项目管理和投资决策。",
+  "da.title":"数字资产：代币化与比特币挖矿",
+  "da.intro":"在数字资产领域，BPE 专注于两个主题：在区块链上实现实物资产代币化，以及作为数字生产基础设施的比特币挖矿。",
+  "tk.title":"实物资产代币化",
+  "tk.p1":"代币化是指将实物资产（例如房产）或其相关权利，以数字代币的形式记录在区块链上。这可以提高所有权结构的透明度、简化转让流程，并开辟新的融资方式和份额化参与形式。BPE 正在分析如何在这一领域结合自身在房地产和金融科技方面的经验。",
+  "tk.c1":"在区块链上以数字形式呈现实物资产及所有权。",
+  "tk.c2":"评估欧盟的法律与监管要求，包括加密资产及证券监管。",
+  "tk.c3":"评估区块链平台、智能合约、资产托管及安全标准。",
+  "tk.disc":"该领域目前处于分析阶段。BPE 目前不发行代币，也不向公众提供代币。",
+  "da.p1":"自2026年起，BPE 开始分析并试行比特币挖矿，将其作为新增投资领域。为此，BPE 已取得矿机硬件及数字算力的权益或经济权利，以便基于真实生产数据评估实际盈利能力和技术条件。",
+  "da.th1":"分析重点","da.th2":"评估内容",
+  "da.r1":"所投入算力产生的比特币收益。","da.r2":"运营成本——尤其是能源、基础设施、运营及维护。","da.r3":"不同市场条件下的投资回收期与资本回报率。","da.r4":"按算力、能效和经济性比较不同挖矿技术。","da.r5":"比特币价格、挖矿难度、全网算力及挖矿奖励的变化。",
+  "da.disc":"该业务目前用于 BPE 自身的投资分析。BPE 不提供面向公众的挖矿投资，也不提供保证收益的产品。",
+  "it.title":"国际采购与贸易",
+  "it.p1":"BPE 正在探索开展国际贸易业务：直接向中国制造商采购精选的技术产品和建筑材料，进口至葡萄牙及欧洲市场——依托直接采购、优化的供应链和高效的分销体系。",
+  "it.projT":"当前评估项目","it.proj":"现代分体式空调系统，包括采用天然制冷剂 R290 的机型——评估质量、能效、欧盟合规与认证、物流、海关以及葡萄牙市场。",
+  "it.modelT":"商业模式","it.model":"甄选合适的优质产品，通过国际直接采购以具有竞争力的价格提供，并与当地安装专业公司合作。",
+  "it.disc":"该业务目前处于经济与监管评估阶段，尚未正式运营。未来可能扩展至其他技术产品和建筑材料。",
+  "mg.p1":"Marcus Boehm 是一位德国企业家和投资人，在企业管理、金融科技、战略业务发展和投资领域拥有多年国际经验，曾在德国、瑞士、希腊和葡萄牙开展创业活动。",
+  "mg.p2":"他在金融科技领域经验丰富，曾担任一家瑞士金融科技公司的首席执行官。通过 BPE，他致力于及早发现投资机会，以扎实的经济分析进行评估，并将其发展为具有持久价值的资产。",
+  "geo.title":"地域重点","geo.th1":"国家","geo.th2":"重点",
+  "geo.ptN":"葡萄牙","geo.pt":"总部 · 房地产投资 · 项目开发 · 租赁 · 贸易机会评估",
+  "geo.deN":"德国","geo.de":"创业网络 · 科技 · 金融 · 投资人脉",
+  "geo.chN":"瑞士","geo.ch":"金融科技 · 企业投资 · 国际投资活动",
+  "geo.grN":"希腊","geo.gr":"技术开发 · 软件 · 商业合作",
+  "geo.cnN":"中国","geo.cn":"采购市场分析 · 制造商联系 · 未来潜在的进口合作",
+  "ct.p1":"我们欢迎企业家与投资伙伴、物业卖方与开发商、科技公司与创始人、制造商与供应商，以及银行和机构合作伙伴与我们联系。",
+  "ct.name":"姓名","ct.company":"公司","ct.email":"电子邮箱","ct.topic":"主题","ct.other":"其他咨询","ct.msg":"留言",
+  "ct.consent":"我同意我的信息被用于处理本次咨询。","ct.send":"提交咨询",
+  "ct.thanks":"感谢您的咨询，我们已收到您的信息，将尽快与您联系。",
+  "ct.data":"公司信息","ct.co":"公司名称","ct.legal":"法律形式","ct.md":"董事总经理","ct.addr":"注册地址","ct.found":"成立时间",
+  "foot.disc":"BPE Lda. 仅以自有资本进行投资。本网站内容不构成金融产品的要约、投资建议或投资招揽。BPE 不管理客户资金。",
+  "foot.imp":"法律声明","foot.priv":"隐私政策"
  }
 };
 
@@ -651,10 +793,11 @@ function setLang(l){
   const d=I18N[l]||EN;
   nodes.forEach(n=>{const k=n.dataset.i18n; n.textContent=d[k]??EN[k];});
   document.documentElement.lang=l;
-  document.getElementById('langSel').value=l;
+  langBtns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
   try{localStorage.setItem('bpe-lang',l)}catch(e){}
 }
-document.getElementById('langSel').addEventListener('change',e=>setLang(e.target.value));
+const langBtns=[...document.querySelectorAll('.lang-switch button')];
+langBtns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 let saved='en'; try{saved=localStorage.getItem('bpe-lang')||(navigator.language||'en').slice(0,2)}catch(e){}
 setLang(I18N[saved]?saved:'en');
 
