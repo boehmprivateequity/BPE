@@ -153,6 +153,14 @@ form textarea{min-height:120px;resize:vertical}
 footer{font-size:13px;color:var(--muted);padding:0 4px}
 footer .disc{margin:0 0 8px}
 
+/* renovation list + discreet on-site photo */
+.reno{display:grid;grid-template-columns:1fr 180px;gap:28px;align-items:start;margin-bottom:20px}
+.reno ul.ticks{margin:0}
+.reno-photo{margin:0}
+.reno-photo img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 38%;border-radius:var(--radius);filter:saturate(.85);background:var(--row)}
+.reno-photo figcaption{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.35}
+@media (max-width:600px){.reno{grid-template-columns:1fr;gap:14px}.reno-photo{max-width:220px}}
+
 /* ---------- Real estate process (ruin → smart home) ---------- */
 .bpe-process{background:#EEF5FC;border-radius:20px;padding:32px;margin:0 0 26px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;color:#0F3D66}
 .bpe-step{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:14px}
@@ -518,15 +526,21 @@ footer .disc{margin:0 0 8px}
           <div class="cell"><h3><span class="num">03</span>Asset Management</h3><div class="body"><p data-i18n="re.am">On completion, each property is assessed to determine the most economically sound strategy.</p></div></div>
         </div>
 
-        <ul class="ticks reveal">
-          <li data-i18n="re.l1">Structural and technical refurbishment of existing buildings</li>
-          <li data-i18n="re.l2">Modernisation of kitchens, bathrooms and living areas</li>
-          <li data-i18n="re.l3">Improved energy efficiency</li>
-          <li data-i18n="re.l4">Renewal of building services</li>
-          <li data-i18n="re.l5">Modern air-conditioning and building technology</li>
-          <li data-i18n="re.l6">Optimised floor plans and living concepts</li>
-          <li data-i18n="re.l7">Higher property quality and lettability</li>
-        </ul>
+        <div class="reno reveal">
+          <ul class="ticks">
+            <li data-i18n="re.l1">Structural and technical refurbishment of existing buildings</li>
+            <li data-i18n="re.l2">Modernisation of kitchens, bathrooms and living areas</li>
+            <li data-i18n="re.l3">Improved energy efficiency</li>
+            <li data-i18n="re.l4">Renewal of building services</li>
+            <li data-i18n="re.l5">Modern air-conditioning and building technology</li>
+            <li data-i18n="re.l6">Optimised floor plans and living concepts</li>
+            <li data-i18n="re.l7">Higher property quality and lettability</li>
+          </ul>
+          <figure class="reno-photo">
+            <img src="images/renovation-vor-ort.jpg" alt="" loading="lazy" width="900" height="1600">
+            <figcaption data-i18n="re.photo">On site: coordinating the renovation</figcaption>
+          </figure>
+        </div>
 
         <div class="strategy reveal">
           <div><b data-i18n="re.sa">Strategy A</b><h4>Buy · Renovate · Sell</h4><p data-i18n="re.saT">Acquisition, modernisation and subsequent sale – realising the value uplift as investment return.</p></div>
@@ -869,6 +883,7 @@ const I18N = {
   "ct.data":"Unternehmensdaten","ct.co":"Gesellschaft","ct.legal":"Rechtsform","ct.md":"Geschäftsführer","ct.addr":"Sitz","ct.found":"Gegründet",
   "foot.disc":"Die BPE Lda. investiert ausschließlich eigenes Kapital. Die Inhalte dieser Website stellen weder ein Angebot von Finanzprodukten noch eine Anlageberatung oder Aufforderung zur Investition dar. BPE verwaltet keine Kundengelder.",
   "foot.imp":"Impressum","foot.priv":"Datenschutz","geo.ptN":"Portugal",
+  "re.photo":"Vor Ort: Abstimmung zur Sanierung",
   "rp.title":"Von der Ruine zum Smart Home","rp.aria":"Unser Vorgehen in vier Schritten: Ruine, Planung, Rohbau, Schlüsselfertig",
   "rp.t1":"Ruine","rp.s1":"Objekt mit Potenzial","rp.t2":"Planung","rp.s2":"mit Architekten","rp.t3":"Rohbau","rp.s3":"durch den Bauunternehmer","rp.t4":"Schlüsselfertig","rp.s4":"modern & smart",
   "bx.title":"Bitcoin – das digitale Gold","bx.sub":"Knappes Geld als Software. Und sie steht erst am Anfang.","bx.asof":"Stand 19.11.2026",
@@ -956,6 +971,7 @@ const I18N = {
   "ct.data":"Dados da Empresa","ct.co":"Sociedade","ct.legal":"Forma jurídica","ct.md":"Gerente","ct.addr":"Sede social","ct.found":"Constituição",
   "foot.disc":"A BPE Lda. investe exclusivamente capital próprio. O conteúdo deste website não constitui oferta de produtos financeiros, aconselhamento de investimento nem solicitação para investir. A BPE não gere fundos de clientes.",
   "foot.imp":"Informação legal","foot.priv":"Privacidade","geo.ptN":"Portugal",
+  "re.photo":"No local: coordenação da reabilitação",
   "rp.title":"Da ruína à casa inteligente","rp.aria":"A nossa abordagem em quatro etapas: ruína, projeto, obra em tosco, chave na mão",
   "rp.t1":"Ruína","rp.s1":"Imóvel com potencial","rp.t2":"Projeto","rp.s2":"com arquitetos","rp.t3":"Obra em tosco","rp.s3":"pelo empreiteiro","rp.t4":"Chave na mão","rp.s4":"moderno & inteligente",
   "bx.title":"Bitcoin – o ouro digital","bx.sub":"Dinheiro escasso em forma de software. E ainda agora está a começar.","bx.asof":"Atualizado a 19.11.2026",
@@ -1033,6 +1049,7 @@ const I18N = {
   "ct.data":"会社概要","ct.co":"会社名","ct.legal":"法人形態","ct.md":"代表取締役","ct.addr":"本店所在地","ct.found":"設立",
   "foot.disc":"BPE Lda.は自己資本のみで投資を行っています。本ウェブサイトの内容は、金融商品の募集、投資助言、または投資の勧誘を構成するものではありません。BPEは顧客資産の運用を行っていません。",
   "foot.imp":"法的情報","foot.priv":"プライバシー",
+  "re.photo":"現場にて：改修工事の打ち合わせ",
   "rp.title":"廃屋からスマートホームへ","rp.aria":"4つのステップによる私たちの取り組み：廃屋、設計、躯体工事、完成・引き渡し",
   "rp.t1":"廃屋","rp.s1":"ポテンシャルのある物件","rp.t2":"設計","rp.s2":"建築家と共に","rp.t3":"躯体工事","rp.s3":"施工会社による","rp.t4":"完成・引き渡し","rp.s4":"モダン & スマート",
   "bx.title":"ビットコイン ― デジタル・ゴールド","bx.sub":"ソフトウェアとしての希少な通貨。そして、まだ始まったばかり。","bx.asof":"2026年11月19日時点",
@@ -1110,6 +1127,7 @@ const I18N = {
   "ct.data":"公司信息","ct.co":"公司名称","ct.legal":"法律形式","ct.md":"董事总经理","ct.addr":"注册地址","ct.found":"成立时间",
   "foot.disc":"BPE Lda. 仅以自有资本进行投资。本网站内容不构成金融产品的要约、投资建议或投资招揽。BPE 不管理客户资金。",
   "foot.imp":"法律声明","foot.priv":"隐私政策",
+  "re.photo":"现场：翻新工程沟通协调",
   "rp.title":"从旧房到智能住宅","rp.aria":"我们的四步流程：旧房、规划设计、主体施工、交钥匙",
   "rp.t1":"旧房","rp.s1":"具有潜力的物业","rp.t2":"规划设计","rp.s2":"与建筑师合作","rp.t3":"主体施工","rp.s3":"由建筑承包商完成","rp.t4":"交钥匙","rp.s4":"现代 & 智能",
   "bx.title":"比特币——数字黄金","bx.sub":"以软件形式存在的稀缺货币，而这一切才刚刚开始。","bx.asof":"截至2026年11月19日",
