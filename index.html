@@ -9,7 +9,7 @@
 <meta name="google-site-verification" content="2Ce1JnSbgMaLChePgt42Ze51J1RO_eBoGGGaDBfdro0">
 <link rel="canonical" href="https://bpe.boehm.vc/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
-<meta name="theme-color" content="#3d77a8">
+<meta name="theme-color" content="#ffffff">
 
 <!-- Social sharing (LinkedIn, WhatsApp, Facebook, X) -->
 <meta property="og:type" content="website">
@@ -73,191 +73,265 @@
   ]
 }
 </script>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Font loads without blocking the first paint -->
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" media="print" onload="this.media='all'">
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap"></noscript>
 <style>
+/* Layout: one idea per band, large type, wide margins; the house in the stage is the only showpiece. */
 :root{
-  --teal:#3d77a8;        /* active nav / primary (steel blue) */
-  --teal-dark:#5d6b78;   /* logo dark silver */
-  --green:#6aa9dc;       /* pill buttons / light blue */
-  --green-dark:#2f6c9e;
-  --head:#c5ccd3;        /* table headers */
-  --row:#f1f4f7;         /* zebra rows */
-  --bg:#e8ecf0;          /* page background */
-  --card:#ffffff;
-  --text:#2b2b2b;
-  --muted:#5f6670;       /* darker for readable contrast */
-  --line:#d7dde3;
-  --gold:#66727f;        /* silver accent (WCAG AA contrast on white) */
-  --radius:6px;
+  --paper:#ffffff; --silver:#f1f4f7; --ice:#e4eff9; --line:#d5dce3;
+  --ink:#17212b; --muted:#56626e; --blue:#2f6c9e; --blue-dark:#245680; --deep:#12344f; --on-deep:#c9dcec;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI Variable Display","Segoe UI",system-ui,Roboto,"Helvetica Neue",sans-serif;
+  --t-hero:clamp(2.5rem,6.4vw,5rem); --t-h2:clamp(1.9rem,4vw,3rem); --t-h3:1.5rem; --t-lead:clamp(1.15rem,1.7vw,1.4rem); --t-body:1.0625rem; --t-small:.875rem;
+  --gap:clamp(20px,2.4vw,32px); --band:clamp(72px,11vw,152px); --wide:1120px; --r-l:28px; --r-m:18px;
+  --ease:cubic-bezier(.22,.8,.24,1);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:"Nunito Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.6}
-a{color:var(--text)}
-h1,h2,h3{font-weight:400;line-height:1.2;margin:0}
-.app{display:flex;gap:20px;max-width:1360px;margin:0 auto;padding:8px 16px 40px 0;align-items:flex-start}
+html{scroll-behavior:smooth;scroll-padding-top:56px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font:400 var(--t-body)/1.55 var(--font);-webkit-font-smoothing:antialiased;color-scheme:light}
+h1,h2,h3,p,ul,figure{margin:0}
+h1,h2,h3{font-weight:600;line-height:1.08;letter-spacing:-.022em;text-wrap:balance;hyphens:auto}
+h3{letter-spacing:-.012em;line-height:1.2}
+p{text-wrap:pretty}
+[data-lines]{white-space:pre-line}
+html:lang(ja) h1,html:lang(ja) h2,html:lang(zh) h1,html:lang(zh) h2{letter-spacing:0;line-height:1.25;word-break:auto-phrase}
+html:lang(ja) body{font-family:"Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif}
+html:lang(zh) body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif}
+img,svg{display:block;max-width:100%}
+a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:8px}
+.wrap{max-width:var(--wide);margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:#fff;padding:12px 18px;border-radius:12px;z-index:20}
+.skip:focus{top:10px}
 
-/* ---------- Sidebar ---------- */
-.side{position:sticky;top:8px;width:230px;flex:0 0 230px}
-.side-card{background:var(--card);border-radius:0 var(--radius) var(--radius) 0;box-shadow:0 1px 3px rgba(0,0,0,.08);overflow:hidden}
-.logo{display:block;padding:22px 20px 14px;text-decoration:none}
-.logo-mark{display:flex;align-items:baseline;gap:6px;font-weight:800;font-size:38px;letter-spacing:.5px;color:var(--teal-dark);line-height:1}
-.logo-mark .b{position:relative}
-.logo-mark .b::before{content:"";position:absolute;left:-6px;top:50%;width:14px;height:4px;background:var(--teal-dark);transform:translateY(-50%)}
-.logo-mark .pe{background:linear-gradient(90deg,var(--teal),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
-.logo-line{height:3px;margin-top:8px;background:linear-gradient(90deg,var(--teal-dark),var(--green))}
-.logo-sub{font-size:10.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--muted);margin-top:7px}
-/* language switch (top) */
-.langbar{display:flex;justify-content:flex-end;margin:0 0 12px}
-.lang-switch{display:inline-flex;gap:2px;padding:3px;background:#3a4653;border:1px solid #55626f;border-radius:999px;box-shadow:0 1px 3px rgba(0,0,0,.12)}
-.lang-switch button{border:0;background:transparent;color:#c3ccd5;font:inherit;font-size:13px;font-weight:700;letter-spacing:.6px;padding:5px 12px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s}
-.lang-switch button:hover{color:#fff;background:rgba(255,255,255,.08)}
-.lang-switch button[aria-pressed="true"]{background:var(--teal);color:#fff}
-.lang-switch button:focus-visible{outline:2px solid var(--green);outline-offset:1px}
-html:lang(ja) body{font-family:"Nunito Sans","Hiragino Sans","Yu Gothic UI","Meiryo",system-ui,sans-serif}
-html:lang(zh) body{font-family:"Nunito Sans","PingFang SC","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif}
-html:lang(ja) .eyebrow,html:lang(zh) .eyebrow{letter-spacing:1.5px}
-.nav{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.nav a{display:block;padding:9px 20px;text-decoration:none;font-size:15px;border-bottom:1px solid var(--line);transition:background .15s,color .15s}
-.nav a:hover{background:#eef3f8}
-.nav a.active{background:var(--teal);color:#fff}
-.nav a.contact-link{color:var(--teal);font-weight:700}
-.side-meta{padding:16px 4px 0 4px;font-size:13px;color:var(--muted)}
-.side-meta strong{color:var(--text);font-weight:600;display:block}
+/* header */
+.bar{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.86);-webkit-backdrop-filter:saturate(1.6) blur(18px);backdrop-filter:saturate(1.6) blur(18px);border-bottom:1px solid rgba(23,33,43,.09)}
+.bar .wrap{display:flex;align-items:center;gap:16px;min-height:56px}
+.brand{font-weight:700;font-size:1.25rem;letter-spacing:.01em;color:var(--ink);text-decoration:none;display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+.back{margin-left:auto;color:var(--muted);text-decoration:none;font-size:var(--t-small);display:inline-flex;align-items:center;min-height:44px;min-width:44px}
+.langs{display:flex}
+.langs button{min-width:44px;min-height:44px;border:0;background:none;font:inherit;font-size:var(--t-small);font-weight:600;color:var(--muted);cursor:pointer;position:relative;padding:0}
+.langs button[aria-pressed="true"]{color:var(--ink)}
+.langs button[aria-pressed="true"]::after{content:"";position:absolute;left:12px;right:12px;bottom:8px;height:2px;border-radius:2px;background:var(--blue)}
 
-/* ---------- Main ---------- */
-main{flex:1;min-width:0}
-.card{background:var(--card);border-radius:var(--radius);box-shadow:0 1px 3px rgba(0,0,0,.08);padding:28px 0 8px;margin-bottom:20px}
-.pad{padding:0 32px}
-.hero{text-align:center;padding:30px 32px 10px}
-.eyebrow{font-size:12px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);font-weight:700}
-.hero h1{font-size:clamp(28px,4vw,42px);margin:12px 0 10px;letter-spacing:.3px}
-.hero p.lead{font-size:18px;color:var(--muted);margin:0 auto;max-width:640px}
-.hero-visual{margin:28px 32px 0;height:240px;border-radius:var(--radius);position:relative;overflow:hidden;
-  background:
-   linear-gradient(115deg,rgba(93,107,120,.94) 0%,rgba(61,119,168,.82) 55%,rgba(150,200,238,.65) 100%),
-   repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),
-   repeating-linear-gradient(0deg,rgba(255,255,255,.06) 0 1px,transparent 1px 64px),
-   #5d6b78}
-.hero-visual svg{position:absolute;right:0;bottom:0;height:100%;width:auto;opacity:.9}
-.hero-visual .claim{position:absolute;left:32px;bottom:28px;color:#fff;max-width:60%}
-.hero-visual .claim span{display:block;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#e3eef8}
-.hero-visual .claim b{display:block;font-weight:300;font-size:clamp(18px,2.4vw,26px);margin-top:6px}
+/* opening */
+.open{padding-block:clamp(64px,10vw,128px) clamp(48px,7vw,88px);text-align:center}
+.open .kicker{font-size:var(--t-lead);font-weight:600;color:var(--blue);margin-bottom:14px}
+.open h1{font-size:var(--t-hero);max-width:22ch;margin:0 auto}
+html:lang(ja) .open h1,html:lang(zh) .open h1{max-width:20em;font-size:clamp(2rem,5vw,3.8rem)}
+.open .lead{font-size:var(--t-lead);line-height:1.5;color:var(--muted);max-width:58ch;margin:28px auto 0}
+.acts{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:12px 28px;margin-top:36px}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:999px;background:var(--blue);color:#fff;text-decoration:none;font-weight:600;transition:background-color .2s,transform .16s var(--ease)}
+.btn:active{transform:scale(.97)}
+.go{display:inline-flex;align-items:center;min-height:48px;color:var(--blue);text-decoration:none;font-weight:600}
+.go::after{content:"";width:.5em;height:.5em;border:solid currentColor;border-width:0 2px 2px 0;transform:rotate(45deg);margin:-.25em 0 0 .55em}
+@media (hover:hover){.btn:hover{background:var(--blue-dark)}.go:hover,.back:hover{text-decoration:underline;text-underline-offset:4px}.langs button:hover{color:var(--ink)}}
 
-.pills{display:flex;flex-wrap:wrap;justify-content:center;gap:16px;padding:30px 32px 26px}
-.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-width:168px;padding:6px 22px;border:2px solid var(--green);border-radius:999px;color:var(--green-dark);font-weight:700;font-size:15px;text-decoration:underline;text-underline-offset:3px;transition:background .2s,color .2s}
-.pill:hover{background:var(--teal);border-color:var(--teal);color:#fff}
-.pill svg{width:20px;height:20px;flex:none}
+/* process stage */
+.process h2,.work h2,.ways h2{font-size:var(--t-h2)}
+.process h2{text-align:center;margin-bottom:clamp(28px,4vw,48px)}
+.stage{background:var(--ice);border-radius:var(--r-l);display:grid;gap:24px;padding:clamp(20px,4vw,48px)}
+.stage svg{width:100%;max-width:560px;height:auto;margin:0 auto}
+.js .stage{display:grid;place-items:center}
+.js .stage .pane{grid-area:1/1;width:100%;opacity:0;visibility:hidden;transform:translateY(10px) scale(.985);transition:opacity .45s var(--ease),transform .45s var(--ease),visibility 0s .45s}
+.js .stage .pane.on{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gap);margin-top:24px}
+.steps button{font:inherit;display:flex;flex-direction:column;align-items:flex-start;justify-content:flex-start;text-align:left;background:none;border:0;border-top:3px solid var(--line);padding:16px 0 8px;min-height:44px;cursor:pointer;color:var(--muted);transition:color .2s,border-color .2s}
+.steps button b{display:block;font-size:1.25rem;font-weight:600;line-height:1.25;letter-spacing:-.01em;hyphens:auto}
+.steps button span{display:block;margin-top:4px;font-size:.9375rem;line-height:1.4}
+.steps button[aria-selected="true"]{color:var(--ink);border-color:var(--blue)}
+@media (hover:hover){.steps button:hover{color:var(--ink)}}
 
-.sec-title{display:flex;align-items:center;gap:10px;font-size:26px;font-weight:600;margin:6px 0 14px}
-.sec-title svg{width:30px;height:30px;flex:none;color:var(--text)}
-.sec-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.sec-head .links{display:flex;gap:28px}
-.sec-head .links a{color:var(--green-dark);font-weight:700;text-underline-offset:3px;display:inline-flex;gap:8px;align-items:center}
-.intro{color:var(--muted);max-width:820px;margin:0 0 18px}
+/* three tasks */
+.tasks{padding-block:var(--band);display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(28px,4vw,56px)}
+.tasks h3{font-size:var(--t-h3);margin-bottom:10px}
+.tasks p{color:var(--muted)}
 
-/* table style from reference */
-.tbl{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:24px}
-.tbl th{background:var(--head);color:#222;text-align:left;font-weight:600;text-transform:uppercase;font-size:14px;letter-spacing:.3px;padding:9px 10px;border-right:1px solid #fff}
-.tbl td{padding:8px 10px;vertical-align:top;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
-.tbl tr:nth-child(even) td{background:var(--row)}
-.tbl td:first-child{font-weight:600;white-space:nowrap}
-.tbl td a{text-underline-offset:2px}
-.arrow::before{content:"↗";margin-right:3px}
-.wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+/* photo + work list */
+.work{background:var(--silver);padding-block:var(--band)}
+.work .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,88px);align-items:center}
+.work img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:50% 46%;border-radius:var(--r-l);outline:1px solid rgba(23,33,43,.08);outline-offset:-1px}
+.work figcaption{font-size:var(--t-small);color:var(--muted);margin-top:12px}
+.work ul{list-style:none;padding:0;margin-top:28px}
+.work li{padding:15px 0;border-top:1px solid var(--line);font-size:1.125rem;line-height:1.4}
 
-/* grid blocks */
-.grid{display:grid;gap:0;border:1px solid var(--line);margin-bottom:26px}
-.grid.g4{grid-template-columns:repeat(4,1fr)}
-.grid.g3{grid-template-columns:repeat(3,1fr)}
-.grid.g2{grid-template-columns:repeat(2,1fr)}
-.cell{border-right:1px solid var(--line);display:flex;flex-direction:column}
-.cell:last-child{border-right:0}
-.cell h3{background:var(--head);font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:.3px;padding:9px 12px}
-.cell .body{padding:12px 12px 16px;font-size:15px;flex:1}
-.cell .body p{margin:0 0 8px}
-.cell .more{color:var(--green-dark);font-weight:700;font-size:14px;text-underline-offset:3px}
-.num{font-size:12px;color:var(--gold);font-weight:800;letter-spacing:1px;margin-right:6px}
-.cell h3 .num{color:#3b4652}
+/* two ways */
+.ways{padding-block:var(--band)}
+.ways .pair{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.way{border-radius:var(--r-l);padding:clamp(28px,4vw,52px);display:flex;flex-direction:column;background:var(--silver)}
+.way .tag{font-weight:600;color:var(--blue);margin-bottom:10px}
+.way h2{font-size:clamp(1.7rem,3vw,2.5rem);margin-bottom:16px}
+.way p{color:var(--muted);font-size:1.125rem}
+.way .yield{margin-top:auto;padding-top:36px}
+.way .yield b{display:block;color:var(--ink);font-weight:600;margin-bottom:4px}
+.way .yield p{font-size:var(--t-body)}
+.way.dark{background:var(--deep);color:#fff}
+.way.dark .tag,.way.dark p{color:var(--on-deep)}
+.way.dark .yield b{color:#fff}
 
-ul.ticks{list-style:none;padding:0;margin:0 0 20px;columns:2;column-gap:32px}
-ul.ticks li{padding:4px 0 4px 22px;position:relative;break-inside:avoid;font-size:15px}
-ul.ticks li::before{content:"";position:absolute;left:2px;top:12px;width:9px;height:9px;border:2px solid var(--green);border-radius:50%}
+/* region */
+.region{padding-bottom:var(--band)}
+.region .wrap{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.six{font-size:clamp(7rem,17vw,13rem);font-weight:600;line-height:.8;letter-spacing:-.05em;color:var(--blue)}
+.six small{display:block;font-size:1.125rem;font-weight:600;line-height:1.35;letter-spacing:0;color:var(--ink);margin-top:24px;max-width:11em}
+.region p{font-size:var(--t-lead);line-height:1.5;color:var(--muted);max-width:56ch}
 
-.status{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;padding:3px 10px;border-radius:999px;margin-left:8px;vertical-align:middle}
-.status.active{background:#e2eef9;color:var(--green-dark)}
-.status.eval{background:#eceff2;color:#55616d}
+@media (max-width:760px){
+  .steps{grid-template-columns:1fr 1fr;gap:12px 20px}
+  .tasks,.work .wrap,.ways .pair,.region .wrap{grid-template-columns:minmax(0,1fr)}
+  .work figure{order:2}
+  .back{display:none}.langs{margin-left:auto}
+}
+@media (max-width:340px){.langs button{min-width:38px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 
-.motto{border-left:3px solid var(--gold);padding:10px 16px;margin:0 0 24px;font-size:18px;font-weight:300;background:#fafafa}
-.note{font-size:13px;color:var(--muted);margin:-12px 0 24px}
+/* ---------- full site additions ---------- */
+h2.big{font-size:var(--t-hero)}
+h2.mid{font-size:var(--t-h2)}
+.lead{font-size:var(--t-lead);line-height:1.5;color:var(--muted)}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:var(--t-small);font-weight:600;color:var(--muted)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;border:2px solid var(--muted)}
+.status.on{color:var(--blue-dark)}
+.status.on::before{background:var(--blue);border-color:var(--blue)}
+.fine{font-size:.9375rem;color:var(--muted);max-width:70ch}
+.bar .wrap{max-width:1240px}
+.menu{display:none}
+.nav{display:flex;gap:4px;margin-left:auto}
+.nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px;font-size:var(--t-small);color:var(--muted);text-decoration:none;white-space:nowrap;border-radius:10px}
+.nav a[aria-current]{color:var(--ink);text-decoration:underline;text-decoration-color:var(--blue);text-decoration-thickness:2px;text-underline-offset:8px}
+@media (hover:hover){.nav a:hover{color:var(--ink)}}
 
-.strategy{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px}
-.strategy div{border:2px solid var(--line);border-radius:var(--radius);padding:16px 18px}
-.strategy b{display:block;color:var(--teal);font-size:13px;letter-spacing:1.2px;text-transform:uppercase}
-.strategy h4{margin:4px 0 6px;font-size:20px;font-weight:600}
-.strategy p{margin:0;font-size:15px;color:var(--muted)}
+/* opening + business areas */
+.open{padding-bottom:clamp(40px,6vw,72px)}
 
-.mgmt{display:grid;grid-template-columns:200px 1fr;gap:28px;margin-bottom:24px;align-items:start}
-.portrait{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:var(--radius);background:var(--row)}
-.photo{margin:0 0 18px}
-.photo img{display:block;width:100%;height:auto;max-height:460px;object-fit:cover;border-radius:var(--radius);background:var(--row)}
-.sub-title{font-size:20px;font-weight:600;margin:6px 0 10px;display:flex;align-items:center}
-.mgmt h3{font-size:24px;font-weight:600}
-.mgmt .role{color:var(--gold);font-weight:700;font-size:13px;letter-spacing:1.5px;text-transform:uppercase;margin:4px 0 12px}
+.areas .wrap{max-width:1240px;display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.6vw,20px)}
+.tile{position:relative;border-radius:var(--r-l);overflow:hidden;display:flex;flex-direction:column;background:var(--silver);min-height:clamp(420px,42vw,560px)}
+.tile .txt{padding:clamp(28px,3.6vw,48px);padding-bottom:0}
+.tile .tt{font-size:clamp(1.8rem,3.2vw,2.75rem);letter-spacing:-.02em;margin:10px 0 12px}
+.tile p{font-size:1.125rem;color:var(--muted);max-width:34ch}
+.tile .go{margin-top:8px}
+.go.on::after{transform:rotate(-45deg);margin:0 0 0 .4em}
+.tile .go::before{content:"";position:absolute;inset:0;z-index:1}
+.tile .go:focus-visible{outline:none}
+.tile:focus-within{outline:3px solid var(--blue);outline-offset:3px}
+.tile.re{grid-column:1/-1;background:var(--ice);display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);align-items:center;min-height:0}
+.tile.re .txt{padding-bottom:clamp(28px,3.6vw,48px)}
+.tile.re svg{width:100%;height:auto;padding:clamp(12px,3vw,40px)}
+.tile .pic{margin-top:auto;padding-top:28px}
+.tile img{width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:50% 45%}
+.tile.tr svg{margin:auto auto 0;width:min(78%,420px);height:auto;padding:28px 0 44px}
+
+/* about */
+.about{padding-block:var(--band)}
+.about .top{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:clamp(24px,5vw,72px)}
+.about .top p+p{margin-top:20px}
+.creed{background:var(--deep);color:#fff;padding-block:clamp(80px,12vw,168px);text-align:center}
+.creed .k{color:var(--on-deep);font-weight:600;font-size:var(--t-lead);margin-bottom:18px}
+.creed .c{font-size:clamp(2rem,5vw,4rem);font-weight:600;line-height:1.12;letter-spacing:-.02em;text-wrap:balance}
+html:lang(ja) .creed .c,html:lang(zh) .creed .c{letter-spacing:0;line-height:1.3}
+.creed .m{color:var(--on-deep);font-size:var(--t-lead);line-height:1.5;max-width:56ch;margin:36px auto 0}
+.princ{padding-block:var(--band)}
+.princ .grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px) clamp(28px,6vw,88px);margin-top:clamp(32px,5vw,64px)}
+.princ h3{font-size:var(--t-h3);margin-bottom:8px}
+.princ .grid p{color:var(--muted)}
+
+/* section openings */
+.chap{padding-top:var(--band);text-align:center}
+#realestate .chap{padding-top:0}
+.chap .kicker{font-size:var(--t-lead);font-weight:600;color:var(--blue);margin-bottom:6px}
+.chap .status{margin-bottom:18px}
+.chap h2{max-width:22ch;margin:0 auto}
+html:lang(ja) .chap h2.big,html:lang(zh) .chap h2.big{font-size:clamp(2rem,5vw,3.8rem)}
+.chap .lead{max-width:60ch;margin:28px auto 0}
+#realestate .process{padding-top:clamp(56px,8vw,104px)}
+.process h3{font-size:var(--t-h2);text-align:center;letter-spacing:-.022em;margin-bottom:clamp(28px,4vw,48px)}
+.work h3.t{font-size:var(--t-h2);letter-spacing:-.022em}
+.way h3{font-size:clamp(1.7rem,3vw,2.5rem);letter-spacing:-.022em;margin-bottom:16px}
+
+/* digital assets */
+#digital{background:var(--silver);padding-bottom:var(--band)}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);padding-block:clamp(56px,8vw,104px)}
+.split h3{font-size:var(--t-h2);letter-spacing:-.022em;margin-bottom:20px}
+.split .body p+p{margin-top:16px}
+.rows{margin:0}
+.rows div{padding:18px 0;border-top:1px solid var(--line)}
+.rows dt{font-weight:600;font-size:1.125rem}
+.rows dd{margin:4px 0 0;color:var(--muted)}
+.photo img{width:100%;height:auto;border-radius:var(--r-l);outline:1px solid rgba(23,33,43,.08);outline-offset:-1px}
+#digital .bxwrap{max-width:1240px}
+
+/* trade */
+#trade{padding-bottom:var(--band)}
+.pairtext{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);margin-top:clamp(48px,6vw,88px)}
+.pairtext h3{font-size:var(--t-h3);margin-bottom:10px}
+.pairtext p{color:var(--muted)}
+.pairtext b{color:var(--ink);font-weight:600}
+#trade .fine{margin:clamp(36px,5vw,64px) 0 0}
+
+/* management */
+#management{background:var(--silver);padding-block:var(--band)}
+.person{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,6vw,88px);align-items:center}
+.person img{width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;object-position:35% 20%;border-radius:var(--r-l)}
+.person .k{color:var(--blue);font-weight:600;font-size:var(--t-lead);letter-spacing:0}
+.person h3{font-size:var(--t-h2);letter-spacing:-.022em;margin-top:8px}
+.person .role{color:var(--muted);font-weight:600;margin:8px 0 24px}
+.person p+p{margin-top:16px}
+.person .say{font-size:var(--t-lead);font-weight:600;line-height:1.35}
+.geo{margin-top:var(--band)}
+.geo .rows{margin-top:clamp(24px,3vw,40px)}
+.geo .rows div{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,8fr);gap:24px}
+.geo .rows dd{margin:0}
 
 /* contact */
-.contact{display:grid;grid-template-columns:1.3fr 1fr;gap:28px;margin-bottom:24px}
-form label{display:block;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin:12px 0 4px}
-form input,form select,form textarea{width:100%;font:inherit;font-size:15px;padding:9px 10px;border:1px solid #c9c9c9;border-radius:4px;background:#fff;color:var(--text)}
-form input:focus,form select:focus,form textarea:focus{outline:2px solid var(--green);border-color:var(--green)}
-form textarea{min-height:120px;resize:vertical}
-.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.btn{margin-top:16px;display:inline-block;background:var(--teal);color:#fff;border:2px solid var(--teal);border-radius:999px;padding:8px 30px;font:inherit;font-weight:700;cursor:pointer;transition:background .2s}
-.btn:hover{background:var(--green-dark);border-color:var(--green-dark)}
-.form-msg{margin-top:12px;font-size:14px;color:var(--green-dark);display:none}
-.consent{display:flex;gap:8px;align-items:flex-start;font-size:13px;color:var(--muted);margin-top:12px}
-.consent input{width:auto;margin-top:4px}
+#contact{padding-block:var(--band)}
+#contact .head{text-align:center}
+#contact .head .lead{max-width:60ch;margin:24px auto 0}
+.contact{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(32px,6vw,88px);margin-top:clamp(40px,6vw,80px)}
+.contact.solo{grid-template-columns:minmax(0,640px);justify-content:center}
+.contact h3{font-size:var(--t-h3);margin-bottom:16px}
+form label{display:block;font-weight:600;font-size:.9375rem;margin:0 0 6px}
+form .f{margin-bottom:20px;min-width:0}
+form .two{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+form input,form select,form textarea{width:100%;font:inherit;font-size:1.0625rem;color:var(--ink);min-height:50px;padding:12px 16px;border:1px solid #7f8a95;border-radius:14px;background:#fff}
+form textarea{min-height:150px;resize:vertical}
+form :focus-visible{outline-offset:0;border-radius:14px}
+form .btn{border:0;font:inherit;font-weight:600;cursor:pointer}
+form .btn:focus-visible{outline-offset:3px;border-radius:999px}
+form .fine{margin-top:14px}
+#formMsg{margin-top:14px;font-weight:600;color:var(--blue-dark)}
+.contact .rows div:not([hidden]){display:grid;grid-template-columns:minmax(0,2fr) minmax(0,3fr);gap:16px;padding:14px 0}
+.contact .rows dt{font-size:1rem;font-weight:400;color:var(--muted)}
+.contact .rows dd{margin:0;color:var(--ink);overflow-wrap:anywhere}
 
-footer{font-size:13px;color:var(--muted);padding:0 4px}
-footer .disc{margin:0 0 8px}
+footer{background:var(--silver);padding-block:56px 64px;font-size:.9375rem;color:var(--muted)}
+footer .cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px)}
+footer h2{font-size:1rem;letter-spacing:0;line-height:1.55;color:var(--ink);margin-bottom:8px}
+footer .end{border-top:1px solid var(--line);margin-top:36px;padding-top:16px;display:flex;flex-wrap:wrap;gap:4px 24px;align-items:center}
+footer .end a{display:inline-flex;align-items:center;min-height:44px;min-width:44px;color:var(--muted)}
 
-/* renovation list + discreet on-site photo */
-.reno{display:grid;grid-template-columns:1fr 180px;gap:28px;align-items:start;margin-bottom:20px}
-.reno ul.ticks{margin:0}
-.reno-photo{margin:0}
-.reno-photo img{display:block;width:100%;height:auto;aspect-ratio:1/1;object-fit:cover;object-position:50% 38%;border-radius:var(--radius);filter:saturate(.85);background:var(--row)}
-.reno-photo figcaption{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.35}
-@media (max-width:600px){.reno{grid-template-columns:1fr;gap:14px}.reno-photo{max-width:220px}}
 
-/* ---------- Real estate process (ruin → smart home) ---------- */
-.bpe-process{background:#EEF5FC;border-radius:20px;padding:32px;margin:0 0 26px;display:flex;align-items:flex-end;justify-content:space-between;gap:12px;color:#0F3D66}
-.bpe-step{flex:1 1 0;min-width:0;display:flex;flex-direction:column;gap:14px}
-.bpe-head{display:flex;align-items:center;gap:12px;min-height:56px}
-.bpe-num{flex:none;width:40px;height:40px;border-radius:50%;background:#2F7DD1;color:#fff;font-weight:700;font-size:18px;display:flex;align-items:center;justify-content:center}
-.bpe-title{font-size:20px;font-weight:700;line-height:1.15;hyphens:auto;overflow-wrap:break-word}
-.bpe-sub{font-size:14px;font-weight:600;color:#4A6A88;margin-top:3px;line-height:1.3}
-.bpe-card{background:#fff;border:1px solid #D3E4F4;border-radius:18px;aspect-ratio:312/360;display:flex;align-items:center;justify-content:center;padding:16px}
-.bpe-card svg{width:100%;height:auto}
-.bpe-arrow{flex:none;align-self:center;margin-top:60px}
-@media (max-width:1200px){
-  .bpe-process{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  .bpe-arrow{display:none}
-  .bpe-card{aspect-ratio:auto}
+@media (max-width:1040px){
+  .bar .wrap{flex-wrap:wrap;gap:0 12px}
+  .langs{margin-left:auto}
+  .js .menu{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 4px;border:0;background:none;font:inherit;font-weight:600;font-size:var(--t-small);color:var(--ink);cursor:pointer}
+  .nav{order:5;width:100%;flex-direction:column;margin:0;padding-bottom:12px}
+  .js .nav{display:none}
+  .js .nav.open{display:flex;max-height:calc(100vh - 56px);overflow-y:auto}
+  .nav a{min-height:48px;font-size:1.25rem;font-weight:600;color:var(--ink);padding:0}
 }
-@media (max-width:600px){
-  .bpe-process{grid-template-columns:1fr;padding:20px;gap:10px}
-  .bpe-arrow{display:block;justify-self:center;margin:0;transform:rotate(90deg)}
+@media (max-width:460px){
+  .bar .wrap{padding-left:16px;padding-right:12px;gap:0 2px}
+  .langs button{min-width:36px}
+  .langs button[aria-pressed="true"]::after{left:8px;right:8px}
+}
+@media (max-width:760px){
+  .areas .wrap,.tile.re,.about .top,.princ .grid,.split,.pairtext,.person,.contact,footer .cols{grid-template-columns:minmax(0,1fr)}
+  .tile{min-height:0}
+  .tile.re .txt{padding-bottom:0}
+  form .two{grid-template-columns:minmax(0,1fr)}
+  .geo .rows div,.contact .rows div:not([hidden]){grid-template-columns:minmax(0,1fr);gap:2px}
 }
 
 /* ---------- Bitcoin infographic ---------- */
 .bx{--bx-bg:#0e141b;--bx-card:#18202a;--bx-tile:#111820;--bx-text:#f2f4f7;--bx-muted:#9aa4b0;--bx-or:#f7931a;--bx-neg:#f08a7e;
-  background:var(--bx-bg);color:var(--bx-text);border-radius:10px;padding:28px;margin:8px 0 28px;line-height:1.35}
+  background:var(--bx-bg);color:var(--bx-text);line-height:1.35}
 .bx h3,.bx h4{margin:0;font-weight:700;color:var(--bx-text)}
 .bx-head{display:flex;align-items:center;gap:20px;margin-bottom:18px}
 .bx-logo{flex:none;width:64px;height:64px;border-radius:50%;background:var(--bx-or);color:#1b1206;font-size:38px;font-weight:800;display:flex;align-items:center;justify-content:center}
@@ -310,7 +384,7 @@ footer .disc{margin:0 0 8px}
 @media (max-width:1100px){.bx-row3{grid-template-columns:1fr 1fr}.bx-row3>:last-child{grid-column:1/-1}}
 @media (max-width:860px){.bx-feat{grid-template-columns:1fr 1fr}.bx-row2{grid-template-columns:1fr}}
 @media (max-width:600px){
-  .bx{padding:16px;margin-left:-6px;margin-right:-6px}
+  .bx{margin-left:-6px;margin-right:-6px}
   .bx-head{flex-wrap:wrap;gap:12px}.bx-logo{width:48px;height:48px;font-size:28px}
   .bx-asof{margin-left:0;flex-basis:100%}
   .bx-feat,.bx-row3{grid-template-columns:1fr}
@@ -320,185 +394,133 @@ footer .disc{margin:0 0 8px}
   .bx-kpis strong{font-size:20px}
 }
 
-/* reveal animation */
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
-/* mobile top bar */
-.topbar{display:none}
-@media (max-width:1000px){
-  .grid.g4{grid-template-columns:1fr 1fr}
-  .grid.g4 .cell:nth-child(2){border-right:0}
-  .grid.g4 .cell:nth-child(-n+2){border-bottom:1px solid var(--line)}
-  .contact{grid-template-columns:1fr}
-}
-@media (max-width:860px){
-  .app{display:block;padding:0}
-  .topbar{display:flex;position:sticky;top:0;z-index:20;background:#fff;align-items:center;justify-content:space-between;padding:10px 16px;box-shadow:0 1px 3px rgba(0,0,0,.1)}
-  .topbar .logo{padding:0}
-  .topbar .logo-mark{font-size:28px}
-  .topbar .logo-line,.topbar .logo-sub{display:none}
-  .burger{border:2px solid var(--green);background:#fff;border-radius:999px;padding:6px 14px;font:inherit;font-weight:700;color:var(--green-dark);cursor:pointer}
-  .side{position:fixed;inset:0 auto 0 0;width:280px;z-index:30;transform:translateX(-100%);transition:transform .25s;top:0;background:var(--bg);overflow-y:auto}
-  .side.open{transform:none;box-shadow:0 0 40px rgba(0,0,0,.25)}
-  .side-meta{padding:16px 20px}
-  .scrim{display:none;position:fixed;inset:0;background:rgba(0,0,0,.3);z-index:25}
-  .scrim.show{display:block}
-  main{padding:12px 16px 32px}
-  .langbar{justify-content:center}
-  .pad{padding:0 18px}
-  .hero{padding:18px 18px 4px}
-  .hero-visual{margin:22px 18px 0;height:200px}
-  .hero-visual .claim{left:18px;max-width:80%}
-  .pills{padding:24px 18px 20px;gap:10px}
-  .pill{min-width:0;flex:1 1 calc(50% - 10px);padding:6px 12px;font-size:14px}
-}
-@media (max-width:600px){
-  .grid.g4,.grid.g3,.grid.g2{grid-template-columns:1fr}
-  .cell{border-right:0;border-bottom:1px solid var(--line)}
-  .cell:last-child{border-bottom:0}
-  ul.ticks{columns:1}
-  .strategy,.mgmt,.row2{grid-template-columns:1fr}
-  .portrait{max-width:160px}
-  .sec-title{font-size:22px}
-  .hero-visual svg{opacity:.35}
-  .tbl thead tr th:not(:first-child){display:none}
-  .tbl thead th{display:block}
-  .tbl tr,.tbl td{display:block;border-right:0}
-  .tbl td:first-child{white-space:normal;padding-bottom:0;border-bottom:0;color:var(--green-dark)}
-  .tbl tr:nth-child(even) td{background:var(--row)}
-}
+.bx{border-radius:var(--r-l);padding:clamp(18px,3vw,40px)}
+.bx .bx-bar small{font-size:12px}
+.bx h3,.bx h4{letter-spacing:-.01em}
 </style>
+<script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
+<a class="skip" href="#main" data-i18n="x.skip">Skip to content</a>
+<header class="bar"><div class="wrap">
+  <a class="brand" href="#home" aria-label="BPE">BPE</a>
+  <nav class="nav" id="nav" data-i18n-aria="x.nav" aria-label="Main menu">
+    <a href="#about" data-i18n="nav.about">About BPE</a>
+    <a href="#realestate" data-i18n="nav.re">Real Estate</a>
+    <a href="#digital" data-i18n="nav.da">Digital Assets</a>
+    <a href="#trade" data-i18n="nav.it">International Trade</a>
+    <a href="#management" data-i18n="nav.mg">Management</a>
+    <a href="#contact" data-i18n="nav.ct">Contact</a>
+  </nav>
+  <div class="langs" role="group" data-i18n-aria="x.lang" aria-label="Language">
+    <button type="button" data-lang="de" lang="de" aria-label="DE, Deutsch">DE</button>
+    <button type="button" data-lang="en" lang="en" aria-label="EN, English">EN</button>
+    <button type="button" data-lang="pt" lang="pt" aria-label="PT, Português">PT</button>
+    <button type="button" data-lang="ja" lang="ja" aria-label="JP, 日本語">JP</button>
+    <button type="button" data-lang="zh" lang="zh" aria-label="CN, 中文">CN</button>
+  </div>
+  <button type="button" class="menu" id="menu" aria-controls="nav" aria-expanded="false" data-i18n="menu">Menu</button>
+</div></header>
 
-<!-- Mobile top bar -->
-<div class="topbar">
-  <a class="logo" href="#home" aria-label="BPE home"><div class="logo-mark"><span class="b">B</span><span class="pe">PE</span></div></a>
-  <button class="burger" id="burger" aria-controls="side" aria-expanded="false" data-i18n="menu">Menu</button>
-</div>
-<div class="scrim" id="scrim"></div>
-
-<div class="app">
-  <!-- ========== SIDEBAR ========== -->
-  <aside class="side" id="side">
-    <div class="side-card">
-      <a class="logo" href="#home" aria-label="BPE home">
-        <div class="logo-mark"><span class="b">B</span><span class="pe">PE</span></div>
-        <div class="logo-line"></div>
-        <div class="logo-sub">Private Equity</div>
-      </a>
-      <nav>
-        <ul class="nav">
-          <li><a href="#home" class="active" data-i18n="nav.home">Home</a></li>
-          <li><a href="#about" data-i18n="nav.about">About BPE</a></li>
-          <li><a href="#realestate" data-i18n="nav.re">Real Estate</a></li>
-          <li><a href="#digital" data-i18n="nav.da">Digital Assets</a></li>
-          <li><a href="#trade" data-i18n="nav.it">International Trade</a></li>
-          <li><a href="#management" data-i18n="nav.mg">Management</a></li>
-          <li><a href="#contact" class="contact-link" data-i18n="nav.ct">Contact</a></li>
-        </ul>
-      </nav>
+<main id="main">
+<section id="home">
+  <div class="open"><div class="wrap">
+    <p class="kicker">BPE | Private Equity</p>
+    <h1 data-lines data-i18n="hero.h1">Investing in Value. Building the Future.</h1>
+    <p class="lead" data-i18n="hero.sub">Independent investments in real estate, digital assets and emerging opportunities.</p>
+    <div class="acts">
+      <a class="btn" href="#contact" data-i18n="x.cta">Contact BPE</a>
+      <a class="go" href="#areas" data-i18n="areas.title">Business Areas</a>
     </div>
-    <div class="side-meta">
-      <span data-i18n="side.office">Registered office:</span>
-      <strong>Montemor-o-Novo, Portugal</strong>
-      <br>
-      <span data-i18n="side.est">Established:</span>
-      <strong>2022 · NIPC 517 096 420</strong>
+  </div></div>
+  <div class="areas" id="areas"><div class="wrap">
+    <article class="tile re">
+      <div class="txt"><span class="status on" data-i18n="st.active">Active</span><h2 class="tt" data-i18n="nav.re">Real Estate</h2><p data-i18n="areas.re">Acquisition, modernisation and active management of residential property in Portugal.</p><a class="go on" href="#realestate" data-i18n="x.toRe">More about real estate</a></div>
+      <svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<rect x="14" y="190" width="232" height="6" rx="3" fill="#BBD7F2" />
+<path d="M150 34 C 158 26, 170 26, 178 34 M156 42 C 160 38, 168 38, 172 42" stroke="#2F7DD1" stroke-width="3" />
+<circle cx="164" cy="49" r="3.5" fill="#2F7DD1" />
+<polygon points="114,66 138,52 168,52 144,66" fill="#2F7DD1" stroke="#0F3D66" stroke-width="2.5" />
+<polygon points="152,66 176,52 206,52 182,66" fill="#2F7DD1" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M126 59 H156 M164 59 H194" stroke="#BBD7F2" stroke-width="1.5" />
+<rect x="34" y="104" width="96" height="86" fill="#FFFFFF" stroke="#0F3D66" stroke-width="3" />
+<rect x="108" y="70" width="114" height="120" fill="#FFFFFF" stroke="#0F3D66" stroke-width="3" />
+<path d="M28 104 H134 M102 70 H228" stroke="#0F3D66" stroke-width="4" />
+<rect x="46" y="118" width="54" height="40" fill="#8DB8E3" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M73 118 V158" stroke="#0F3D66" stroke-width="2" />
+<rect x="122" y="84" width="86" height="44" fill="#8DB8E3" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M151 84 V128 M180 84 V128" stroke="#0F3D66" stroke-width="2" />
+<rect x="122" y="140" width="50" height="50" fill="#8DB8E3" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M147 140 V190" stroke="#0F3D66" stroke-width="2" />
+<rect x="186" y="146" width="20" height="26" rx="4" fill="#DCE9F6" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M198 152 L192 160 H200 L194 168" stroke="#2F7DD1" stroke-width="2.5" />
+<rect x="236" y="150" width="12" height="40" rx="3" fill="#2F7DD1" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M236 166 C 228 168, 228 180, 222 188" stroke="#0F3D66" stroke-width="2.5" />
+<circle cx="22" cy="152" r="16" fill="#BBD7F2" stroke="#0F3D66" stroke-width="2.5" />
+<path d="M22 168 V190" stroke="#0F3D66" stroke-width="3" />
+<g transform="translate(46 166)">
+<rect x="0" y="0" width="22" height="16" rx="3" fill="#FFFFFF" stroke="#2F7DD1" stroke-width="2" />
+<path d="M5 8 H9 L11 4 L13 12 L15 8 H17" stroke="#2F7DD1" stroke-width="1.8" />
+</g>
+</svg>
+    </article>
+    <article class="tile da">
+      <div class="txt"><span class="status" data-i18n="st.analysis">Analysis phase</span><h2 class="tt" data-i18n="nav.da">Digital Assets</h2><p data-i18n="areas.da">Tokenisation of real assets and Bitcoin mining – analysed on the basis of real data.</p><a class="go on" href="#digital" data-i18n="x.toDa">More about digital assets</a></div>
+      <div class="pic"><img src="images/btc-mining.webp" width="1448" height="1086" loading="lazy" alt=""></div>
+    </article>
+    <article class="tile tr">
+      <div class="txt"><span class="status" data-i18n="st.eval">In evaluation</span><h2 class="tt" data-i18n="nav.it">International Trade</h2><p data-i18n="areas.it">Direct international sourcing of technical products – currently under evaluation.</p><a class="go on" href="#trade" data-i18n="x.toIt">More about trade</a></div>
+      <svg viewBox="0 0 420 230" fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="20" y="16" width="270" height="78" rx="14" fill="#fff" stroke="#0F3D66" stroke-width="4"/>
+        <path d="M20 68H290" stroke="#0F3D66" stroke-width="4"/><path d="M44 81H266" stroke="#8DB8E3" stroke-width="5"/>
+        <circle cx="262" cy="42" r="5" fill="#2F7DD1"/>
+        <path d="M80 114c0 16-14 18-14 34M155 114c0 16-14 18-14 34M230 114c0 16-14 18-14 34" stroke="#2F7DD1" stroke-width="5"/>
+        <path d="M290 54H316V118" stroke="#8DB8E3" stroke-width="6"/>
+        <rect x="256" y="120" width="146" height="96" rx="12" fill="#DCE9F6" stroke="#0F3D66" stroke-width="4"/>
+        <circle cx="312" cy="168" r="34" fill="#fff" stroke="#0F3D66" stroke-width="4"/>
+        <path d="M312 168c-4-12-2-20 8-24M312 168c12-4 20-2 24 8M312 168c4 12 2 20-8 24M312 168c-12 4-20 2-24-8" stroke="#2F7DD1" stroke-width="5"/>
+        <path d="M364 146h20M364 160h20M364 174h20M364 188h20" stroke="#0F3D66" stroke-width="3"/>
+      </svg>
+    </article>
+  </div></div>
+</section>
+
+<section id="about">
+  <div class="about"><div class="wrap top">
+    <h2 class="mid" data-i18n="nav.about">About BPE</h2>
+    <div>
+      <p class="lead" data-i18n="about.p1">BPE Lda. is an owner-managed Portuguese investment and holding company headquartered in Montemor-o-Novo, Portugal. Founded in 2022, the company is wholly owned and led by its Managing Director, Marcus Boehm.</p>
+      <p class="lead" data-i18n="about.p2">BPE follows an entrepreneurial investment approach: building sustainable assets through targeted capital investment, operational value creation and long-term asset management. The company invests its own capital, selectively and with a long-term horizon.</p>
     </div>
-  </aside>
-
-  <!-- ========== MAIN ========== -->
-  <main>
-    <!-- LANGUAGE SWITCH -->
-    <div class="langbar">
-      <div class="lang-switch" role="group" aria-label="Language">
-        <button type="button" data-lang="de" title="Deutsch" lang="de">DE</button>
-        <button type="button" data-lang="en" title="English" lang="en">EN</button>
-        <button type="button" data-lang="pt" title="Português" lang="pt">PT</button>
-        <button type="button" data-lang="ja" title="日本語" lang="ja">JP</button>
-        <button type="button" data-lang="zh" title="中文" lang="zh">CN</button>
-      </div>
+  </div></div>
+  <div class="creed"><div class="wrap">
+    <p class="k" data-i18n="hero.philLabel">Our philosophy</p>
+    <p class="c" data-lines data-i18n="x.phil">Identify opportunities. Create value. Build long-term wealth.</p>
+    <p class="m" data-i18n="about.motto">BPE is not a broker, a conventional developer or a retail financial service provider – it is a privately held investment company with its own capital, operational experience and an international outlook.</p>
+  </div></div>
+  <div class="princ"><div class="wrap">
+    <h2 class="mid" data-i18n="strat.title">Investment Strategy – Four Principles</h2>
+    <div class="grid">
+      <div><h3 data-i18n="x.s1">Value investing</h3><p data-i18n="strat.p1">We invest where economic value and market price present attractive opportunities.</p></div>
+      <div><h3 data-i18n="x.s2">Active value creation</h3><p data-i18n="strat.p2">Value is created actively – through renovation and modernisation in real estate, and through innovation, scaling and operational development in company holdings.</p></div>
+      <div><h3 data-i18n="x.s3">Cash flow &amp; capital growth</h3><p data-i18n="strat.p3">We consider both recurring income and medium- to long-term appreciation.</p></div>
+      <div><h3 data-i18n="x.s4">Risk management</h3><p data-i18n="strat.p4">Decisions are based on economic analysis, realistic return assumptions and an assessment of technical, regulatory and market risks.</p></div>
     </div>
+  </div></div>
+</section>
 
-    <!-- HOME -->
-    <section class="card" id="home">
-      <div class="hero">
-        <div class="eyebrow">BPE | Private Equity</div>
-        <h1 data-i18n="hero.h1">Investing in Value. Building the Future.</h1>
-        <p class="lead" data-i18n="hero.sub">Independent investments in real estate, digital assets and emerging opportunities.</p>
-      </div>
-      <div class="hero-visual" role="img" aria-label="Abstract skyline and network graphic">
-        <svg viewBox="0 0 520 240" fill="none" aria-hidden="true">
-          <g stroke="rgba(255,255,255,.55)" stroke-width="1.2">
-            <path d="M40 240V150h46v90M96 240V110h54v130M160 240V70h40v170M210 240V128h60v112M280 240V92h44v148M334 240V140h58v100M402 240V60h38v180M450 240V118h52v122"/>
-            <path d="M104 122h38M104 138h38M104 154h38M168 86h24M168 102h24M168 118h24M288 108h28M288 124h28M410 78h22M410 94h22M410 110h22" opacity=".6"/>
-          </g>
-          <g stroke="#e3eef8" stroke-width="1.2" opacity=".8">
-            <circle cx="180" cy="40" r="3" fill="#e3eef8"/><circle cx="300" cy="62" r="3" fill="#e3eef8"/><circle cx="420" cy="28" r="3" fill="#e3eef8"/><circle cx="480" cy="84" r="3" fill="#e3eef8"/>
-            <path d="M180 40L300 62L420 28L480 84M300 62L480 84"/>
-          </g>
-        </svg>
-        <div class="claim"><span data-i18n="hero.philLabel">Our philosophy</span><b>Identify Opportunities. Create Value. Build Long-Term Wealth.</b></div>
-      </div>
-
-      <div class="pills">
-        <a class="pill" href="#realestate"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><span data-i18n="nav.re">Real Estate</span></a>
-        <a class="pill" href="#digital"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M10 7v10M13 7v10M9 8h5a2 2 0 010 4H9h6a2 2 0 010 4H9"/></svg><span data-i18n="nav.da">Digital Assets</span></a>
-        <a class="pill" href="#trade"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span data-i18n="pill.trade">Trade</span></a>
-        <a class="pill" href="#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 5h16v12H8l-4 4z"/></svg><span data-i18n="nav.ct">Contact</span></a>
-      </div>
-
-      <div class="pad">
-        <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8"/><rect x="13" y="3" width="8" height="8"/><rect x="3" y="13" width="8" height="8"/><rect x="13" y="13" width="8" height="8"/></svg><span data-i18n="areas.title">Business Areas</span></h2>
-        <div class="grid g3 reveal">
-          <div class="cell"><h3><span class="num">01</span><span data-i18n="nav.re">Real Estate</span></h3><div class="body"><p data-i18n="areas.re">Acquisition, modernisation and active management of residential property in Portugal.</p><a class="more" href="#realestate" data-i18n="more">Learn more</a></div></div>
-          <div class="cell"><h3><span class="num">02</span><span data-i18n="nav.da">Digital Assets</span></h3><div class="body"><p data-i18n="areas.da">Tokenisation of real assets and Bitcoin mining – analysed on the basis of real data.</p><a class="more" href="#digital" data-i18n="more">Learn more</a></div></div>
-          <div class="cell"><h3><span class="num">03</span><span data-i18n="nav.it">International Trade</span></h3><div class="body"><p data-i18n="areas.it">Direct international sourcing of technical products – currently under evaluation.</p><a class="more" href="#trade" data-i18n="more">Learn more</a></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="card" id="about">
-      <div class="pad">
-        <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></svg><span data-i18n="nav.about">About BPE</span></h2>
-        <p class="intro" data-i18n="about.p1">BPE Lda. is an owner-managed Portuguese investment and holding company headquartered in Montemor-o-Novo, Portugal. Founded in 2022, the company is wholly owned and led by its Managing Director, Marcus Boehm.</p>
-        <p class="intro" data-i18n="about.p2">BPE follows an entrepreneurial investment approach: building sustainable assets through targeted capital investment, operational value creation and long-term asset management. The company invests its own capital, selectively and with a long-term horizon.</p>
-        <div class="motto" data-i18n="about.motto">BPE is not a broker, a conventional developer or a retail financial service provider – it is a privately held investment company with its own capital, operational experience and an international outlook.</div>
-
-        <h3 style="font-size:20px;font-weight:600;margin:0 0 12px" data-i18n="strat.title">Investment Strategy – Four Principles</h3>
-        <div class="wrap reveal">
-        <table class="tbl">
-          <thead><tr><th data-i18n="strat.th1">Principle</th><th data-i18n="strat.th2">Approach</th></tr></thead>
-          <tbody>
-            <tr><td>1 · Value Investing</td><td data-i18n="strat.p1">We invest where economic value and market price present attractive opportunities.</td></tr>
-            <tr><td>2 · Active Value Creation</td><td data-i18n="strat.p2">Value is created actively – through renovation and modernisation in real estate, and through innovation, scaling and operational development in company holdings.</td></tr>
-            <tr><td>3 · Cash Flow &amp; Capital Growth</td><td data-i18n="strat.p3">We consider both recurring income and medium- to long-term appreciation.</td></tr>
-            <tr><td>4 · Risk Management</td><td data-i18n="strat.p4">Decisions are based on economic analysis, realistic return assumptions and an assessment of technical, regulatory and market risks.</td></tr>
-          </tbody>
-        </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- REAL ESTATE -->
-    <section class="card" id="realestate">
-      <div class="pad">
-        <div class="sec-head">
-          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg><span data-i18n="re.title">Real Estate Investments &amp; Development</span></h2>
-          <span class="status active" data-i18n="st.active">Active</span>
-        </div>
-        <p class="intro"><strong data-i18n="re.claim">Acquire property. Develop value. Secure income.</strong> <span data-i18n="re.p1">Real estate is a core pillar of BPE. We invest in residential property in Portugal – particularly in the Alentejo region – focusing on assets whose market value can be increased through modernisation, renovation or a change of use.</span></p>
-
-        <!-- Process graphic: from ruin to smart home -->
-        <h3 class="sub-title" data-i18n="rp.title">From Ruin to Smart Home</h3>
-        <div class="bpe-process reveal" role="group" data-i18n-aria="rp.aria" aria-label="Our approach in four steps: ruin, planning, shell construction, turnkey">
-          <div class="bpe-step">
-            <div class="bpe-head"><span class="bpe-num">1</span><div><div class="bpe-title" data-i18n="rp.t1">Ruin</div><div class="bpe-sub" data-i18n="rp.s1">Property with potential</div></div></div>
-            <div class="bpe-card"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+<section id="realestate">
+  <div class="wrap chap">
+    <p class="kicker" data-i18n="re.title">Real Estate Investments &amp; Development</p>
+    <span class="status on" data-i18n="st.active">Active</span>
+    <h2 class="big" data-lines data-i18n="re.claim">Acquire property. Develop value. Secure income.</h2>
+    <p class="lead" data-i18n="re.p1">Real estate is a core pillar of BPE. We invest in residential property in Portugal – particularly in the Alentejo region – focusing on assets whose market value can be increased through modernisation, renovation or a change of use.</p>
+  </div>
+  <div class="process" id="process"><div class="wrap">
+    <h3 data-i18n="rp.title">From Ruin to Smart Home</h3>
+    <div class="stage">
+      <div class="pane on" id="pane1" role="tabpanel" aria-labelledby="tab1"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <rect x="14" y="190" width="232" height="6" rx="3" fill="#BBD7F2" />
 <polygon points="40,190 40,96 66,72 82,86 96,74 112,94 118,190" fill="#DCE9F6" stroke="#0F3D66" stroke-width="3" />
 <polygon points="132,190 132,112 148,98 160,118 174,100 194,126 208,116 208,190" fill="#DCE9F6" stroke="#0F3D66" stroke-width="3" />
@@ -513,11 +535,7 @@ footer .disc{margin:0 0 8px}
 <rect x="120" y="180" width="10" height="10" fill="#BBD7F2" stroke="#0F3D66" stroke-width="2" />
 <path d="M226 176 C 224 164, 230 156, 232 150 M230 166 C 236 160, 242 160, 244 156" stroke="#2F7DD1" stroke-width="2.5" />
 </svg></div>
-          </div>
-          <div class="bpe-arrow" aria-hidden="true"><svg width="56" height="36" viewBox="0 0 64 40" fill="none"><path d="M4 20 H54 M40 6 L56 20 L40 34" stroke="#2F7DD1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="bpe-step">
-            <div class="bpe-head"><span class="bpe-num">2</span><div><div class="bpe-title" data-i18n="rp.t2">Planning</div><div class="bpe-sub" data-i18n="rp.s2">with architects</div></div></div>
-            <div class="bpe-card"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <div class="pane" id="pane2" role="tabpanel" aria-labelledby="tab2"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <rect x="26" y="34" width="196" height="150" rx="10" fill="#2F7DD1" />
 <g stroke="#FFFFFF" stroke-opacity="0.18" stroke-width="1">
 <path d="M26 64 H222 M26 94 H222 M26 124 H222 M26 154 H222 M56 34 V184 M86 34 V184 M116 34 V184 M146 34 V184 M176 34 V184 M206 34 V184" />
@@ -539,11 +557,7 @@ footer .disc{margin:0 0 8px}
 <rect x="18" y="190" width="150" height="16" rx="3" fill="#DCE9F6" stroke="#0F3D66" stroke-width="2.5" />
 <path d="M34 190 V198 M50 190 V196 M66 190 V198 M82 190 V196 M98 190 V198 M114 190 V196 M130 190 V198 M146 190 V196" stroke="#0F3D66" stroke-width="2" />
 </svg></div>
-          </div>
-          <div class="bpe-arrow" aria-hidden="true"><svg width="56" height="36" viewBox="0 0 64 40" fill="none"><path d="M4 20 H54 M40 6 L56 20 L40 34" stroke="#2F7DD1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="bpe-step">
-            <div class="bpe-head"><span class="bpe-num">3</span><div><div class="bpe-title" data-i18n="rp.t3">Shell construction</div><div class="bpe-sub" data-i18n="rp.s3">by the building contractor</div></div></div>
-            <div class="bpe-card"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <div class="pane" id="pane3" role="tabpanel" aria-labelledby="tab3"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <rect x="14" y="190" width="232" height="6" rx="3" fill="#BBD7F2" />
 <path d="M26 190 V22 H172" stroke="#0F3D66" stroke-width="3.5" />
 <path d="M26 40 L44 22" stroke="#0F3D66" stroke-width="2.5" />
@@ -560,11 +574,7 @@ footer .disc{margin:0 0 8px}
 <path d="M126 60 V104 M88 82 L106 104 M164 82 L146 104 M50 104 H202" stroke="#2F7DD1" stroke-width="2.5" />
 <path d="M212 190 V88 M240 190 V88 M206 104 H246 M206 140 H246 M206 172 H246 M212 140 L240 104 M212 172 L240 140" stroke="#2F7DD1" stroke-width="2.5" />
 </svg></div>
-          </div>
-          <div class="bpe-arrow" aria-hidden="true"><svg width="56" height="36" viewBox="0 0 64 40" fill="none"><path d="M4 20 H54 M40 6 L56 20 L40 34" stroke="#2F7DD1" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-          <div class="bpe-step">
-            <div class="bpe-head"><span class="bpe-num">4</span><div><div class="bpe-title" data-i18n="rp.t4">Turnkey</div><div class="bpe-sub" data-i18n="rp.s4">modern &amp; smart</div></div></div>
-            <div class="bpe-card"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
+      <div class="pane" id="pane4" role="tabpanel" aria-labelledby="tab4"><svg viewBox="0 0 260 220" aria-hidden="true" fill="none" stroke-linecap="round" stroke-linejoin="round">
 <rect x="14" y="190" width="232" height="6" rx="3" fill="#BBD7F2" />
 <path d="M150 34 C 158 26, 170 26, 178 34 M156 42 C 160 38, 168 38, 172 42" stroke="#2F7DD1" stroke-width="3" />
 <circle cx="164" cy="49" r="3.5" fill="#2F7DD1" />
@@ -591,90 +601,97 @@ footer .disc{margin:0 0 8px}
 <path d="M5 8 H9 L11 4 L13 12 L15 8 H17" stroke="#2F7DD1" stroke-width="1.8" />
 </g>
 </svg></div>
-          </div>
-        </div>
+    </div>
+    <div class="steps" role="tablist" data-i18n-aria="rp.aria" aria-label="Our approach in four steps: ruin, planning, shell construction, turnkey">
+      <button type="button" role="tab" id="tab1" aria-controls="pane1" aria-selected="true"><b data-i18n="rp.t1">Ruin</b><span data-i18n="rp.s1">Property with potential</span></button>
+      <button type="button" role="tab" id="tab2" aria-controls="pane2" aria-selected="false" tabindex="-1"><b data-i18n="rp.t2">Planning</b><span data-i18n="rp.s2">with architects</span></button>
+      <button type="button" role="tab" id="tab3" aria-controls="pane3" aria-selected="false" tabindex="-1"><b data-i18n="rp.t3">Shell construction</b><span data-i18n="rp.s3">by the building contractor</span></button>
+      <button type="button" role="tab" id="tab4" aria-controls="pane4" aria-selected="false" tabindex="-1"><b data-i18n="rp.t4">Turnkey</b><span data-i18n="rp.s4">modern &amp; smart</span></button>
+    </div>
+  </div></div>
 
-        <div class="grid g3 reveal">
-          <div class="cell"><h3><span class="num">01</span>Acquisition</h3><div class="body"><p data-i18n="re.acq">Identifying and acquiring undervalued properties, or properties requiring renovation or offering development potential.</p></div></div>
-          <div class="cell"><h3><span class="num">02</span>Renovation &amp; Modernisation</h3><div class="body"><p data-i18n="re.ren">Planning and executing comprehensive structural and technical renovation and modernisation works.</p></div></div>
-          <div class="cell"><h3><span class="num">03</span>Asset Management</h3><div class="body"><p data-i18n="re.am">On completion, each property is assessed to determine the most economically sound strategy.</p></div></div>
-        </div>
+  <div class="wrap tasks">
+    <div><h3 data-i18n="x.acq">Acquisition</h3><p data-i18n="re.acq">Identifying and acquiring undervalued properties, or properties requiring renovation or offering development potential.</p></div>
+    <div><h3 data-i18n="x.ren">Renovation &amp; modernisation</h3><p data-i18n="re.ren">Planning and executing comprehensive structural and technical renovation and modernisation works.</p></div>
+    <div><h3 data-i18n="x.am">Asset management</h3><p data-i18n="re.am">On completion, each property is assessed to determine the most economically sound strategy.</p></div>
+  </div>
 
-        <div class="reno reveal">
-          <ul class="ticks">
-            <li data-i18n="re.l1">Structural and technical refurbishment of existing buildings</li>
-            <li data-i18n="re.l2">Modernisation of kitchens, bathrooms and living areas</li>
-            <li data-i18n="re.l3">Improved energy efficiency</li>
-            <li data-i18n="re.l4">Renewal of building services</li>
-            <li data-i18n="re.l5">Modern air-conditioning and building technology</li>
-            <li data-i18n="re.l6">Optimised floor plans and living concepts</li>
-            <li data-i18n="re.l7">Higher property quality and lettability</li>
-          </ul>
-          <figure class="reno-photo">
-            <img src="images/renovation-vor-ort.jpg" alt="" loading="lazy" width="900" height="1600">
-            <figcaption data-i18n="re.photo">On site: coordinating the renovation</figcaption>
-          </figure>
-        </div>
+  <div class="work"><div class="wrap">
+    <figure>
+      <img src="images/renovation-vor-ort.jpg" width="900" height="1600" loading="lazy" data-i18n-alt="x.alt" alt="Two people discussing the work in front of a house due for renovation">
+      <figcaption data-i18n="re.photo">On site: coordinating the renovation</figcaption>
+    </figure>
+    <div>
+      <h3 class="t" data-i18n="x.workT">What we renew</h3>
+      <ul>
+        <li data-i18n="re.l1">Structural and technical refurbishment of existing buildings</li>
+        <li data-i18n="re.l2">Modernisation of kitchens, bathrooms and living areas</li>
+        <li data-i18n="re.l3">Improved energy efficiency</li>
+        <li data-i18n="re.l4">Renewal of building services</li>
+        <li data-i18n="re.l5">Modern air-conditioning and building technology</li>
+        <li data-i18n="re.l6">Optimised floor plans and living concepts</li>
+        <li data-i18n="re.l7">Higher property quality and lettability</li>
+      </ul>
+    </div>
+  </div></div>
 
-        <div class="strategy reveal">
-          <div><b data-i18n="re.sa">Strategy A</b><h4>Buy · Renovate · Sell</h4><p data-i18n="re.saT">Acquisition, modernisation and subsequent sale – realising the value uplift as investment return.</p></div>
-          <div><b data-i18n="re.sb">Strategy B</b><h4>Buy · Renovate · Hold</h4><p data-i18n="re.sbT">Long-term ownership of the modernised property – generating recurring rental income and further appreciation.</p></div>
-        </div>
+  <div class="ways"><div class="wrap pair">
+    <article class="way">
+      <p class="tag" data-i18n="re.sa">Strategy A</p>
+      <h3 data-lines data-i18n="x.sell">Buy. Renovate. Sell.</h3>
+      <p data-i18n="re.saT">Acquisition, modernisation and subsequent sale – realising the value uplift as investment return.</p>
+      <div class="yield"><b data-i18n="x.cap">Capital appreciation</b><p data-i18n="re.ca">Value growth through favourable acquisition, targeted modernisation and market development.</p></div>
+    </article>
+    <article class="way dark">
+      <p class="tag" data-i18n="re.sb">Strategy B</p>
+      <h3 data-lines data-i18n="x.hold">Buy. Renovate. Hold.</h3>
+      <p data-i18n="re.sbT">Long-term ownership of the modernised property – generating recurring rental income and further appreciation.</p>
+      <div class="yield"><b data-i18n="x.rent">Recurring rental income</b><p data-i18n="re.ri">Regular income from long-term letting of our own properties.</p></div>
+    </article>
+  </div></div>
 
-        <div class="wrap reveal">
-        <table class="tbl">
-          <thead><tr><th data-i18n="re.th1">Return source</th><th data-i18n="re.th2">Description</th></tr></thead>
-          <tbody>
-            <tr><td>Capital Appreciation</td><td data-i18n="re.ca">Value growth through favourable acquisition, targeted modernisation and market development.</td></tr>
-            <tr><td>Recurring Rental Income</td><td data-i18n="re.ri">Regular income from long-term letting of our own properties.</td></tr>
-          </tbody>
-        </table>
-        </div>
-        <p class="note" data-i18n="re.region">Regional focus: Montemor-o-Novo, Alentejo – residential investments, apartment refurbishment and letting, including a development project comprising six residential units. Projects are delivered with local architects, contractors, technical service providers and property experts; BPE is responsible for financial planning, project management and investment decisions.</p>
-      </div>
-    </section>
+  <div class="region"><div class="wrap">
+    <div class="six">6<small data-i18n="x.units">residential units in one development project</small></div>
+    <p data-i18n="re.region">Regional focus: Montemor-o-Novo, Alentejo – residential investments, apartment refurbishment and letting, including a development project comprising six residential units. Projects are delivered with local architects, contractors, technical service providers and property experts; BPE is responsible for financial planning, project management and investment decisions.</p>
+  </div></div>
 
-    <!-- DIGITAL ASSETS -->
-    <section class="card" id="digital">
-      <div class="pad">
-        <div class="sec-head">
-          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M10 7v10M13 7v10M9 8h5a2 2 0 010 4H9h6a2 2 0 010 4H9"/></svg><span data-i18n="da.title">Digital Assets: Tokenisation &amp; Bitcoin Mining</span></h2>
-          <span class="status eval" data-i18n="st.analysis">Analysis phase</span>
-        </div>
-        <p class="intro" data-i18n="da.intro">BPE focuses on two areas of digital assets: the tokenisation of real assets on the blockchain and Bitcoin mining as digital production infrastructure.</p>
+</section>
 
-        <!-- Tokenisation -->
-        <h3 class="sub-title"><span class="num">A</span><span data-i18n="tk.title">Tokenisation of Real Assets</span></h3>
-        <p class="intro" data-i18n="tk.p1">Tokenisation means representing a real asset – such as a property – or the rights to it as a digital token on a blockchain. This can make ownership structures more transparent, simplify transfers and open up new forms of financing and fractional participation. BPE analyses how its experience in real estate and financial technology can be combined in this field.</p>
-        <div class="grid g3 reveal">
-          <div class="cell"><h3>Asset Tokenisation</h3><div class="body"><p data-i18n="tk.c1">Digital representation of real assets and ownership rights on the blockchain.</p></div></div>
-          <div class="cell"><h3>Regulation</h3><div class="body"><p data-i18n="tk.c2">Assessment of legal and regulatory requirements in the EU, including crypto-asset and securities regulation.</p></div></div>
-          <div class="cell"><h3>Technology &amp; Security</h3><div class="body"><p data-i18n="tk.c3">Evaluation of blockchain platforms, smart contracts, custody and security standards.</p></div></div>
-        </div>
-        <p class="note" data-i18n="tk.disc">This area is in its analysis phase. BPE does not currently issue or offer tokens to the public.</p>
-
-        <!-- Bitcoin mining -->
-        <h3 class="sub-title"><span class="num">B</span>Bitcoin Mining</h3>
-        <figure class="photo reveal">
-          <img src="images/btc-mining.webp" alt="Marcus Boehm in front of a Bitcoin mining container" loading="lazy" width="1448" height="1086">
-        </figure>
-        <p class="intro" data-i18n="da.p1">Since 2026, BPE has been analysing and testing Bitcoin mining as an additional investment segment. To this end, BPE has acquired interests in, or economic entitlements to, mining hardware and digital mining capacity – in order to assess actual profitability and technical conditions on the basis of real production data.</p>
-        <div class="wrap reveal">
-        <table class="tbl">
-          <thead><tr><th data-i18n="da.th1">Analysis focus</th><th data-i18n="da.th2">What we assess</th></tr></thead>
-          <tbody>
-            <tr><td>Mining Revenue</td><td data-i18n="da.r1">Bitcoin yield generated by the deployed computing power.</td></tr>
-            <tr><td>Operating Costs</td><td data-i18n="da.r2">Ongoing costs – in particular energy, infrastructure, operation and maintenance.</td></tr>
-            <tr><td>Return on Investment</td><td data-i18n="da.r3">Payback period and return on capital under different market conditions.</td></tr>
-            <tr><td>Technology &amp; Efficiency</td><td data-i18n="da.r4">Comparison of mining technologies by hash rate, energy efficiency and economics.</td></tr>
-            <tr><td>Market Risk</td><td data-i18n="da.r5">Bitcoin price, mining difficulty, network hash rate and changing mining rewards.</td></tr>
-          </tbody>
-        </table>
-        </div>
-        <p class="note" data-i18n="da.disc">This segment currently serves BPE's own investment analysis. BPE does not offer public mining investments or guaranteed-return products.</p>
-
-        <!-- Bitcoin infographic (all texts translatable via data-i18n, numbers via data-num) -->
-        <div class="bx reveal" id="bitcoin-gold">
+<section id="digital">
+  <div class="wrap chap">
+    <span class="status" data-i18n="st.analysis">Analysis phase</span>
+    <h2 class="mid" data-i18n="da.title">Digital Assets: Tokenisation &amp; Bitcoin Mining</h2>
+    <p class="lead" data-i18n="da.intro">BPE focuses on two areas of digital assets: the tokenisation of real assets on the blockchain and Bitcoin mining as digital production infrastructure.</p>
+  </div>
+  <div class="wrap split">
+    <div class="body">
+      <h3 data-i18n="tk.title">Tokenisation of Real Assets</h3>
+      <p data-i18n="tk.p1">Tokenisation means representing a real asset – such as a property – or the rights to it as a digital token on a blockchain. This can make ownership structures more transparent, simplify transfers and open up new forms of financing and fractional participation. BPE analyses how its experience in real estate and financial technology can be combined in this field.</p>
+      <p class="fine" data-i18n="tk.disc">This area is in its analysis phase. BPE does not currently issue or offer tokens to the public.</p>
+    </div>
+    <dl class="rows">
+      <div><dt data-i18n="x.t1">Asset tokenisation</dt><dd data-i18n="tk.c1">Digital representation of real assets and ownership rights on the blockchain.</dd></div>
+      <div><dt data-i18n="x.t2">Regulation</dt><dd data-i18n="tk.c2">Assessment of legal and regulatory requirements in the EU, including crypto-asset and securities regulation.</dd></div>
+      <div><dt data-i18n="x.t3">Technology &amp; security</dt><dd data-i18n="tk.c3">Evaluation of blockchain platforms, smart contracts, custody and security standards.</dd></div>
+    </dl>
+  </div>
+  <div class="wrap"><figure class="photo"><img src="images/btc-mining.webp" width="1448" height="1086" loading="lazy" data-i18n-alt="x.altBtc" alt="Marcus Boehm in front of a Bitcoin mining container"></figure></div>
+  <div class="wrap split">
+    <div class="body">
+      <h3 data-i18n="x.mining">Bitcoin mining</h3>
+      <p data-i18n="da.p1">Since 2026, BPE has been analysing and testing Bitcoin mining as an additional investment segment. To this end, BPE has acquired interests in, or economic entitlements to, mining hardware and digital mining capacity – in order to assess actual profitability and technical conditions on the basis of real production data.</p>
+      <p class="fine" data-i18n="da.disc">This segment currently serves BPE's own investment analysis. BPE does not offer public mining investments or guaranteed-return products.</p>
+    </div>
+    <dl class="rows">
+      <div><dt data-i18n="x.m1">Mining revenue</dt><dd data-i18n="da.r1">Bitcoin yield generated by the deployed computing power.</dd></div>
+      <div><dt data-i18n="x.m2">Operating costs</dt><dd data-i18n="da.r2">Ongoing costs – in particular energy, infrastructure, operation and maintenance.</dd></div>
+      <div><dt data-i18n="x.m3">Return on investment</dt><dd data-i18n="da.r3">Payback period and return on capital under different market conditions.</dd></div>
+      <div><dt data-i18n="x.m4">Technology &amp; efficiency</dt><dd data-i18n="da.r4">Comparison of mining technologies by hash rate, energy efficiency and economics.</dd></div>
+      <div><dt data-i18n="x.m5">Market risk</dt><dd data-i18n="da.r5">Bitcoin price, mining difficulty, network hash rate and changing mining rewards.</dd></div>
+    </dl>
+  </div>
+  <div class="wrap bxwrap">
+<div class="bx" id="bitcoin-gold">
           <div class="bx-head">
             <div class="bx-logo" aria-hidden="true">₿</div>
             <div><h3 data-i18n="bx.title">Bitcoin – Digital Gold</h3><p data-i18n="bx.sub">Scarce money as software. And it is only just beginning.</p></div>
@@ -714,7 +731,7 @@ footer .disc{margin:0 0 8px}
                 <div><small data-i18n="bx.c2max">Maximum per person</small><strong class="or"><span data-num="0.0026" data-dec="4">0.0026</span> BTC</strong><small data-i18n="bx.c2maxs">≈ $160 · 8.2 billion people</small></div>
                 <div><small data-i18n="bx.c2share">1 bitcoin is shared by</small><strong>390</strong><small data-i18n="bx.c2people">people (dots below)</small></div>
               </div>
-              <div class="bx-dots" id="bxDots" role="img" aria-label="390"></div>
+              <div class="bx-dots" id="bxDots" role="img" data-i18n-aria="x.dots" aria-label="390 dots, each standing for one person"></div>
             </div>
 
             <div class="bx-card">
@@ -779,493 +796,883 @@ footer .disc{margin:0 0 8px}
           <div class="bx-banner" data-i18n="bx.banner">Fixed supply + rising demand = digital gold.</div>
           <p class="bx-src" data-i18n="bx.src">Sources: BTC ~$63,000, gold ~$3,690/oz (AOL, TheDailyCoins), median home price (NAR), M2 (FRED), ETFs (Cointelegraph), Coinbase (Q3 report), Kraken (QuantLogix), holdings (SoFi), volume (Coinotag). S-curve after Rogers. Figures rounded. Bitcoin is highly volatile. Not investment advice.</p>
         </div>
+  </div>
+</section>
+
+<section id="trade"><div class="wrap">
+  <div class="chap">
+    <span class="status" data-i18n="st.eval">In evaluation</span>
+    <h2 class="mid" data-i18n="it.title">International Sourcing &amp; Trading</h2>
+    <p class="lead" data-i18n="it.p1">BPE is exploring the development of an international trading activity: sourcing selected technical products and building materials directly from manufacturers in China for import into Portugal and the wider European market – using direct purchasing, optimised supply chains and efficient distribution.</p>
+  </div>
+  <div class="pairtext">
+    <div><h3 data-i18n="it.projT">Current evaluation project</h3><p data-i18n="it.proj">Modern split air-conditioning systems, including units using the natural refrigerant R290 – assessing quality, energy efficiency, EU conformity and certification, logistics, customs and the Portuguese market.</p></div>
+    <div><h3 data-i18n="it.modelT">Business model</h3><p><b data-i18n="x.sid">Source. Import. Distribute.</b> <span data-i18n="it.model">Identifying suitable, high-quality products that can be offered at competitive prices through direct international sourcing, working with local installation specialists.</span></p></div>
+  </div>
+  <p class="fine" data-i18n="it.disc">This business area is currently in its economic and regulatory evaluation phase and is not yet operational. A future extension to further technical products and building materials is conceivable.</p>
+</div></section>
+
+<section id="management"><div class="wrap">
+  <div class="person">
+    <img src="images/marcus-boehm.webp" width="1186" height="1326" loading="lazy" alt="Marcus Boehm">
+    <div>
+      <h2 class="k" data-i18n="nav.mg">Management</h2>
+      <h3>Marcus Boehm</h3>
+      <p class="role" data-i18n="x.role">Founder, owner and Managing Director</p>
+      <p data-i18n="mg.p1">Marcus Boehm is a German entrepreneur and investor with many years of international experience in corporate leadership, financial technology, strategic business development and investments – with entrepreneurial activities in Germany, Switzerland, Greece and Portugal.</p>
+      <p data-i18n="mg.p2">He has extensive experience in the FinTech sector, including as CEO of a Swiss financial technology company. Through BPE, he aims to identify investment opportunities early, assess them on a sound economic basis and develop them into assets of lasting value.</p>
+      <p class="say" data-i18n="x.say">Investing in real assets, innovation and sustainable value creation.</p>
+    </div>
+  </div>
+  <div class="geo">
+    <h2 class="mid" data-i18n="geo.title">Geographic Focus</h2>
+    <dl class="rows">
+      <div><dt data-i18n="geo.ptN">Portugal</dt><dd data-i18n="geo.pt">Headquarters · real estate investment · project development · letting · evaluation of trading opportunities</dd></div>
+      <div><dt data-i18n="geo.deN">Germany</dt><dd data-i18n="geo.de">Entrepreneurial networks · technology · finance · investment contacts</dd></div>
+      <div><dt data-i18n="geo.chN">Switzerland</dt><dd data-i18n="geo.ch">Financial technology · company holdings · international investment activities</dd></div>
+      <div><dt data-i18n="geo.grN">Greece</dt><dd data-i18n="geo.gr">Technology development · software · entrepreneurial partnerships</dd></div>
+      <div><dt data-i18n="geo.cnN">China</dt><dd data-i18n="geo.cn">Analysis of sourcing markets · manufacturer contacts · potential future import relationships</dd></div>
+    </dl>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="head"><h2 class="big" data-i18n="nav.ct">Contact</h2>
+  <p class="lead" data-i18n="ct.p1">We welcome enquiries from entrepreneurs and investment partners, property sellers and developers, technology companies and founders, manufacturers and suppliers, as well as banks and institutional partners.</p></div>
+  <div class="contact solo" id="contactGrid">
+    <form id="contactForm" hidden>
+      <div class="two">
+        <div class="f"><label for="f-name" data-i18n="ct.name">Name</label><input id="f-name" name="name" required autocomplete="name"></div>
+        <div class="f"><label for="f-company" data-i18n="ct.company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
       </div>
-    </section>
+      <div class="f"><label for="f-topic" data-i18n="ct.topic">Subject</label>
+        <select id="f-topic" name="topic">
+          <option data-i18n="nav.re">Real Estate</option>
+          <option data-i18n="nav.da">Digital Assets</option>
+          <option data-i18n="nav.it">International Trade</option>
+          <option data-i18n="ct.other">Other enquiry</option>
+        </select></div>
+      <div class="f"><label for="f-msg" data-i18n="ct.msg">Message</label><textarea id="f-msg" name="message" required></textarea></div>
+      <button class="btn" type="submit" data-i18n="x.mailBtn">Open as e-mail</button>
+      <p class="fine" data-i18n="x.mailNote">Opens your e-mail program with the finished message. You send it yourself; this website stores nothing.</p>
+      <p id="formMsg" role="status"></p>
+    </form>
+    <div>
+      <h3 data-i18n="ct.data">Company Details</h3>
+      <dl class="rows">
+        <div><dt data-i18n="ct.co">Company</dt><dd>BPE Lda.</dd></div>
+        <div><dt data-i18n="ct.legal">Legal form</dt><dd lang="pt">Sociedade Unipessoal por Quotas</dd></div>
+        <div><dt data-i18n="ct.md">Managing Director</dt><dd>Marcus Boehm</dd></div>
+        <div><dt data-i18n="ct.addr">Registered office</dt><dd>Quinta de São Jorge<br>Porto das Lãs, Estrada Municipal 537<br>7050-203 Montemor-o-Novo<br>Portugal</dd></div>
+        <div><dt>NIPC</dt><dd>517 096 420</dd></div>
+        <div><dt data-i18n="ct.found">Founded</dt><dd>2022</dd></div>
+        <div id="mailRow" hidden><dt data-i18n="ct.email">E-mail</dt><dd><a id="mailLink"></a></dd></div>
+      </dl>
+    </div>
+  </div>
+</div></section>
+</main>
 
-    <!-- TRADE -->
-    <section class="card" id="trade">
-      <div class="pad">
-        <div class="sec-head">
-          <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></svg><span data-i18n="it.title">International Sourcing &amp; Trading</span></h2>
-          <span class="status eval" data-i18n="st.eval">In evaluation</span>
-        </div>
-        <p class="intro" data-i18n="it.p1">BPE is exploring the development of an international trading activity: sourcing selected technical products and building materials directly from manufacturers in China for import into Portugal and the wider European market – using direct purchasing, optimised supply chains and efficient distribution.</p>
-        <div class="grid g2 reveal">
-          <div class="cell"><h3 data-i18n="it.projT">Current evaluation project</h3><div class="body"><p data-i18n="it.proj">Modern split air-conditioning systems, including units using the natural refrigerant R290 – assessing quality, energy efficiency, EU conformity and certification, logistics, customs and the Portuguese market.</p></div></div>
-          <div class="cell"><h3 data-i18n="it.modelT">Business model</h3><div class="body"><p><strong>Source · Import · Distribute</strong></p><p data-i18n="it.model">Identifying suitable, high-quality products that can be offered at competitive prices through direct international sourcing, working with local installation specialists.</p></div></div>
-        </div>
-        <p class="note" data-i18n="it.disc">This business area is currently in its economic and regulatory evaluation phase and is not yet operational. A future extension to further technical products and building materials is conceivable.</p>
-      </div>
-    </section>
-
-    <!-- MANAGEMENT -->
-    <section class="card" id="management">
-      <div class="pad">
-        <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c1-4 4-6 8-6s7 2 8 6"/></svg><span data-i18n="nav.mg">Management</span></h2>
-        <div class="mgmt reveal">
-          <img class="portrait" src="images/marcus-boehm.webp" alt="Marcus Boehm" loading="lazy" width="1186" height="1326">
-          <div>
-            <h3>Marcus Boehm</h3>
-            <div class="role">Founder · Owner · Managing Director</div>
-            <p data-i18n="mg.p1">Marcus Boehm is a German entrepreneur and investor with many years of international experience in corporate leadership, financial technology, strategic business development and investments – with entrepreneurial activities in Germany, Switzerland, Greece and Portugal.</p>
-            <p data-i18n="mg.p2">He has extensive experience in the FinTech sector, including as CEO of a Swiss financial technology company. Through BPE, he aims to identify investment opportunities early, assess them on a sound economic basis and develop them into assets of lasting value.</p>
-            <div class="motto" style="margin-bottom:0">Investing in Real Assets, Innovation and Sustainable Value Creation.</div>
-          </div>
-        </div>
-
-        <h3 style="font-size:20px;font-weight:600;margin:6px 0 12px" data-i18n="geo.title">Geographic Focus</h3>
-        <div class="wrap reveal">
-        <table class="tbl">
-          <thead><tr><th data-i18n="geo.th1">Country</th><th data-i18n="geo.th2">Focus</th></tr></thead>
-          <tbody>
-            <tr><td data-i18n="geo.ptN">Portugal</td><td data-i18n="geo.pt">Headquarters · real estate investment · project development · letting · evaluation of trading opportunities</td></tr>
-            <tr><td data-i18n="geo.deN">Germany</td><td data-i18n="geo.de">Entrepreneurial networks · technology · finance · investment contacts</td></tr>
-            <tr><td data-i18n="geo.chN">Switzerland</td><td data-i18n="geo.ch">Financial technology · company holdings · international investment activities</td></tr>
-            <tr><td data-i18n="geo.grN">Greece</td><td data-i18n="geo.gr">Technology development · software · entrepreneurial partnerships</td></tr>
-            <tr><td data-i18n="geo.cnN">China</td><td data-i18n="geo.cn">Analysis of sourcing markets · manufacturer contacts · potential future import relationships</td></tr>
-          </tbody>
-        </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="card" id="contact">
-      <div class="pad">
-        <h2 class="sec-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 5h16v12H8l-4 4z"/></svg><span data-i18n="nav.ct">Contact</span></h2>
-        <p class="intro" data-i18n="ct.p1">We welcome enquiries from entrepreneurs and investment partners, property sellers and developers, technology companies and founders, manufacturers and suppliers, as well as banks and institutional partners.</p>
-        <div class="contact">
-          <form id="contactForm" novalidate>
-            <div class="row2">
-              <div><label for="f-name" data-i18n="ct.name">Name</label><input id="f-name" name="name" required autocomplete="name"></div>
-              <div><label for="f-company" data-i18n="ct.company">Company</label><input id="f-company" name="company" autocomplete="organization"></div>
-            </div>
-            <div class="row2">
-              <div><label for="f-email" data-i18n="ct.email">E-mail</label><input id="f-email" name="email" type="email" required autocomplete="email"></div>
-              <div><label for="f-topic" data-i18n="ct.topic">Subject</label>
-                <select id="f-topic" name="topic">
-                  <option data-i18n="nav.re">Real Estate</option>
-                  <option data-i18n="nav.da">Digital Assets</option>
-                  <option data-i18n="nav.it">International Trade</option>
-                  <option data-i18n="ct.other">Other enquiry</option>
-                </select></div>
-            </div>
-            <label for="f-msg" data-i18n="ct.msg">Message</label>
-            <textarea id="f-msg" name="message" required></textarea>
-            <label class="consent"><input type="checkbox" required id="f-consent"> <span data-i18n="ct.consent">I agree that my details may be used to process my enquiry.</span></label>
-            <button class="btn" type="submit" data-i18n="ct.send">Send enquiry</button>
-            <div class="form-msg" id="formMsg" data-i18n="ct.thanks">Thank you – your enquiry has been noted. We will get back to you shortly.</div>
-          </form>
-
-          <div class="wrap">
-          <table class="tbl">
-            <thead><tr><th colspan="2" data-i18n="ct.data">Company Details</th></tr></thead>
-            <tbody>
-              <tr><td data-i18n="ct.co">Company</td><td>BPE Lda.</td></tr>
-              <tr><td data-i18n="ct.legal">Legal form</td><td>Sociedade Unipessoal por Quotas</td></tr>
-              <tr><td data-i18n="ct.md">Managing Director</td><td>Marcus Boehm</td></tr>
-              <tr><td data-i18n="ct.addr">Registered office</td><td>Quinta de São Jorge<br>Porto das Lãs, Estrada Municipal 537<br>7050-203 Montemor-o-Novo<br>Portugal</td></tr>
-              <tr><td>NIPC</td><td>517 096 420</td></tr>
-              <tr><td data-i18n="ct.found">Founded</td><td>2022</td></tr>
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <p class="disc" data-i18n="foot.disc">BPE Lda. invests exclusively its own capital. Nothing on this website constitutes an offer of financial products, investment advice or a solicitation to invest. BPE does not manage client funds.</p>
-      <p>© <span id="yr">2026</span> BPE Lda. · Montemor-o-Novo, Portugal · <a href="#contact" data-i18n="foot.imp">Legal notice</a> · <a href="#contact" data-i18n="foot.priv">Privacy</a></p>
-    </footer>
-  </main>
-</div>
+<footer><div class="wrap">
+  <div class="cols">
+    <p data-i18n="foot.disc">BPE Lda. invests exclusively its own capital. Nothing on this website constitutes an offer of financial products, investment advice or a solicitation to invest. BPE does not manage client funds.</p>
+    <div id="privacy"><h2 data-i18n="foot.priv">Privacy</h2><p data-i18n="x.priv">This website sets no cookies, uses no analytics and loads nothing from third parties. Your browser only remembers the chosen language. Our hosting provider Vercel processes technical access data such as the IP address to deliver the page. Controller: BPE Lda., address under Contact. You have the right to access, rectification, erasure and objection, and to complain to the Portuguese data protection authority CNPD.</p></div>
+  </div>
+  <div class="end"><span>© <span id="yr">2026</span> BPE Lda. · Montemor-o-Novo, Portugal</span><a href="#contact" data-i18n="foot.imp">Legal notice</a><a href="#privacy" data-i18n="foot.priv">Privacy</a></div>
+</div></footer>
 
 <script>
-const I18N = {
- de:{
-  "menu":"Menü","nav.home":"Startseite","nav.about":"Über BPE","nav.re":"Immobilien","nav.pe":"Private Equity & Technologie","nav.da":"Digital Assets","nav.it":"Internationaler Handel","nav.mg":"Management","nav.ct":"Kontakt",
-  "side.office":"Sitz der Gesellschaft:","side.est":"Gegründet:",
-  "hero.h1":"In Werte investieren. Die Zukunft gestalten.","hero.sub":"Unabhängige Investments in Immobilien, Digital Assets und neue Chancen.","hero.philLabel":"Unsere Philosophie",
-  "pill.tech":"Technologie","pill.trade":"Handel",
-  "areas.title":"Geschäftsbereiche","areas.peT":"PE & Technologie",
-  "areas.re":"Erwerb, Modernisierung und aktives Management von Wohnimmobilien in Portugal.",
-  "areas.pe":"Selektive Beteiligungen in Software, künstlicher Intelligenz und Finanztechnologie.",
-  "areas.da":"Tokenisierung realer Vermögenswerte und Bitcoin-Mining – analysiert auf Basis realer Daten.",
-  "areas.it":"Direkte internationale Beschaffung technischer Produkte – derzeit in Prüfung.",
-  "more":"Mehr erfahren",
-  "about.p1":"Die BPE Lda. ist eine inhabergeführte portugiesische Investment- und Beteiligungsgesellschaft mit Sitz in Montemor-o-Novo, Portugal. Das 2022 gegründete Unternehmen befindet sich zu 100 % im Eigentum ihres Geschäftsführers Marcus Boehm.",
-  "about.p2":"BPE verfolgt einen unternehmerischen Investmentansatz: den Aufbau nachhaltiger Vermögenswerte durch gezielte Kapitalinvestitionen, operative Wertschöpfung und langfristiges Asset Management. Die Gesellschaft investiert eigenes Kapital – selektiv und langfristig.",
-  "about.motto":"BPE ist weder Makler noch klassischer Bauträger oder Finanzdienstleister für Privatkunden – sondern eine privat geführte Investmentgesellschaft mit eigenem Kapital, operativer Erfahrung und internationaler Ausrichtung.",
-  "strat.title":"Investmentstrategie – vier Grundprinzipien","strat.th1":"Prinzip","strat.th2":"Ansatz",
-  "strat.p1":"Wir investieren dort, wo wirtschaftlicher Wert und Marktpreis attraktive Chancen bieten.",
-  "strat.p2":"Wert entsteht aktiv – durch Sanierung und Modernisierung bei Immobilien sowie durch Innovation, Skalierung und operative Entwicklung bei Beteiligungen.",
-  "strat.p3":"Wir berücksichtigen sowohl laufende Erträge als auch mittel- und langfristige Wertsteigerungen.",
-  "strat.p4":"Entscheidungen beruhen auf wirtschaftlichen Analysen, realistischen Ertragsannahmen und der Bewertung technischer, regulatorischer und marktbedingter Risiken.",
-  "st.active":"Aktiv","st.analysis":"Analysephase","st.eval":"In Prüfung",
-  "re.title":"Immobilieninvestments & Projektentwicklung","re.claim":"Immobilien erwerben. Werte entwickeln. Erträge sichern.",
-  "re.p1":"Immobilien bilden einen wesentlichen Schwerpunkt der BPE. Wir investieren in Wohnimmobilien in Portugal – insbesondere im Alentejo – mit Fokus auf Objekte, deren Marktwert durch Modernisierung, Sanierung oder veränderte Nutzung gesteigert werden kann.",
-  "re.acq":"Identifikation und Erwerb unterbewerteter, sanierungsbedürftiger oder entwicklungsfähiger Immobilien.",
-  "re.ren":"Planung und Durchführung umfassender baulicher und technischer Renovierungs- und Modernisierungsmaßnahmen.",
-  "re.am":"Nach Fertigstellung wird für jedes Objekt die wirtschaftlich sinnvollste Verwertungsstrategie festgelegt.",
-  "re.l1":"Bauliche und technische Sanierung bestehender Gebäude","re.l2":"Modernisierung von Küchen, Bädern und Wohnbereichen","re.l3":"Verbesserung der Energieeffizienz","re.l4":"Erneuerung der technischen Gebäudeausstattung","re.l5":"Moderne Klimatisierungs- und Haustechnik","re.l6":"Optimierte Grundrisse und Wohnkonzepte","re.l7":"Höhere Immobilienqualität und Vermietbarkeit",
-  "re.sa":"Strategie A","re.sb":"Strategie B",
-  "re.saT":"Ankauf, Modernisierung und anschließender Verkauf – die realisierte Wertsteigerung als Investitionsertrag.",
-  "re.sbT":"Langfristiges Halten der modernisierten Immobilie – für kontinuierliche Mieteinnahmen und weitere Wertsteigerung.",
-  "re.th1":"Ertragsquelle","re.th2":"Beschreibung",
-  "re.ca":"Wertsteigerung durch günstigen Einkauf, gezielte Modernisierung und Marktentwicklung.",
-  "re.ri":"Regelmäßige Einnahmen aus der langfristigen Vermietung eigener Immobilien.",
-  "re.region":"Regionaler Fokus: Montemor-o-Novo, Alentejo – Investments in Wohnimmobilien, Sanierung und Vermietung von Apartments, darunter ein Entwicklungsprojekt mit sechs Wohneinheiten. Die Umsetzung erfolgt mit lokalen Architekten, Bauunternehmen, technischen Dienstleistern und Immobilienexperten; BPE verantwortet wirtschaftliche Planung, Projektsteuerung und Investitionsentscheidungen.",
-  "pe.claim":"Investitionen in Innovation und digitale Geschäftsmodelle.",
-  "pe.p1":"Neben Immobilien hält BPE Unternehmensbeteiligungen mit besonderem Fokus auf innovative Technologien – Geschäftsmodelle, die mittels Software, Digitalisierung und künstlicher Intelligenz bestehende Prozesse verbessern oder neue Märkte erschließen.",
-  "pe.sw":"Beteiligungen an innovativen Softwareunternehmen und technologischen Geschäftsmodellen, insbesondere im B2B-Bereich.",
-  "pe.ai":"Analyse von Investitionsmöglichkeiten in KI, Automatisierung und datenbasierten Unternehmensprozessen.",
-  "pe.ft":"Investitionen und unternehmerische Erfahrung in Finanzsoftware, digitaler Finanzinfrastruktur und technologiebasierten Finanzdienstleistungen.",
-  "pe.compT":"Besondere Kompetenzfelder",
-  "pe.c1":"Finanztechnologie und digitale Geschäftsprozesse","pe.c2":"Algorithmische und quantitative Investmentstrategien","pe.c3":"Softwaregestützte Handels- und Analyseprozesse","pe.c4":"Workflow-Automatisierung","pe.c5":"Transaktionskostenanalyse","pe.c7":"Digitale Finanzinfrastruktur","pe.c8":"Blockchain-Technologie und Tokenisierung",
-  "pe.phil":"Technologische Innovation ist für uns kein kurzfristiger Trend. Entscheidend sind die wirtschaftliche Tragfähigkeit des Geschäftsmodells, das Wachstumspotenzial und die Fähigkeit, nachhaltige Wettbewerbsvorteile aufzubauen.",
-  "pe.disc":"BPE investiert selektiv. BPE ist keine öffentlich angebotene Investmentplattform und verwaltet keine Kundengelder.",
-  "da.title":"Digital Assets: Tokenisierung & Bitcoin-Mining",
-  "da.intro":"BPE konzentriert sich im Bereich Digital Assets auf zwei Themen: die Tokenisierung realer Vermögenswerte auf der Blockchain und Bitcoin-Mining als digitale Produktionsinfrastruktur.",
-  "tk.title":"Tokenisierung realer Vermögenswerte",
-  "tk.p1":"Tokenisierung bedeutet, einen realen Vermögenswert – etwa eine Immobilie – oder die Rechte daran als digitalen Token auf einer Blockchain abzubilden. Das kann Eigentumsstrukturen transparenter machen, Übertragungen vereinfachen und neue Formen der Finanzierung und anteiligen Beteiligung ermöglichen. BPE analysiert, wie sich die eigene Erfahrung in Immobilien und Finanztechnologie in diesem Feld verbinden lässt.",
-  "tk.c1":"Digitale Abbildung realer Vermögenswerte und Eigentumsrechte auf der Blockchain.",
-  "tk.c2":"Prüfung der rechtlichen und regulatorischen Anforderungen in der EU, einschließlich Krypto- und Wertpapierrecht.",
-  "tk.c3":"Bewertung von Blockchain-Plattformen, Smart Contracts, Verwahrung und Sicherheitsstandards.",
-  "tk.disc":"Dieser Bereich befindet sich in der Analysephase. BPE gibt derzeit keine Token aus und bietet keine Token öffentlich an.",
-  "da.p1":"Seit 2026 analysiert und erprobt BPE Bitcoin-Mining als zusätzliches Investmentsegment. Dazu wurden Beteiligungen bzw. wirtschaftliche Ansprüche an Mining-Hardware und digitalen Mining-Kapazitäten erworben – um Rentabilität und technische Rahmenbedingungen anhand realer Produktionsdaten zu untersuchen.",
-  "da.th1":"Analyseschwerpunkt","da.th2":"Was wir bewerten",
-  "da.r1":"Durch die eingesetzte Rechenleistung erwirtschaftete Bitcoin-Erträge.","da.r2":"Laufende Kosten – insbesondere Energie, Infrastruktur, Betrieb und Wartung.","da.r3":"Amortisationsdauer und Kapitalrendite unter verschiedenen Marktbedingungen.","da.r4":"Vergleich von Mining-Technologien nach Rechenleistung, Energieeffizienz und Wirtschaftlichkeit.","da.r5":"Bitcoin-Preis, Mining-Difficulty, Netzwerk-Hashrate und Veränderungen der Mining-Erträge.",
-  "da.disc":"Dieser Bereich dient derzeit der eigenen Investitionsanalyse. BPE bietet keine öffentlichen Mining-Investments und keine garantierten Renditeprodukte an.",
-  "it.title":"Internationale Beschaffung & Handel",
-  "it.p1":"BPE prüft den Aufbau eines internationalen Handelsgeschäfts: die direkte Beschaffung ausgewählter technischer Produkte und Baumaterialien bei Herstellern in China für den Import nach Portugal und in den europäischen Markt – durch Direkteinkauf, optimierte Lieferketten und effiziente Vertriebsstrukturen.",
-  "it.projT":"Aktuelles Prüfprojekt","it.proj":"Moderne Split-Klimaanlagen, u. a. mit dem natürlichen Kältemittel R290 – Prüfung von Qualität, Energieeffizienz, EU-Konformität und Zertifizierung, Logistik, Zoll und portugiesischem Markt.",
-  "it.modelT":"Geschäftsmodell","it.model":"Identifikation geeigneter, hochwertiger Produkte, die über direkte internationale Beschaffung zu wettbewerbsfähigen Preisen angeboten werden können – in Zusammenarbeit mit lokalen Fachbetrieben.",
-  "it.disc":"Dieser Geschäftsbereich befindet sich in der wirtschaftlichen und regulatorischen Evaluierungsphase und ist noch nicht operativ. Ein späterer Ausbau auf weitere technische Produkte und Baumaterialien ist denkbar.",
-  "mg.p1":"Marcus Boehm ist ein deutscher Unternehmer und Investor mit langjähriger internationaler Erfahrung in Unternehmensführung, Finanztechnologie, strategischer Unternehmensentwicklung und Investments – mit unternehmerischen Aktivitäten in Deutschland, der Schweiz, Griechenland und Portugal.",
-  "mg.p2":"Er verfügt über langjährige Erfahrung im FinTech-Umfeld, unter anderem als CEO eines Schweizer Finanztechnologieunternehmens. Mit BPE verfolgt er das Ziel, Investitionsmöglichkeiten frühzeitig zu erkennen, wirtschaftlich fundiert zu bewerten und daraus werthaltige Vermögenswerte zu entwickeln.",
-  "geo.title":"Geografischer Fokus","geo.th1":"Land","geo.th2":"Schwerpunkt",
-  "geo.pt":"Hauptsitz · Immobilieninvestitionen · Projektentwicklung · Vermietung · Prüfung von Handelsmöglichkeiten",
-  "geo.deN":"Deutschland","geo.de":"Unternehmerische Netzwerke · Technologie · Finanzwirtschaft · Investitionskontakte",
-  "geo.chN":"Schweiz","geo.ch":"Finanztechnologie · Unternehmensbeteiligungen · internationale Investmentaktivitäten",
-  "geo.grN":"Griechenland","geo.gr":"Technologieentwicklung · Software · unternehmerische Kooperationen",
-  "geo.cnN":"China","geo.cn":"Analyse von Beschaffungsmärkten · Herstellerkontakte · mögliche künftige Importbeziehungen",
-  "ct.p1":"Wir freuen uns über Anfragen von Unternehmern und Investmentpartnern, Immobilienverkäufern und Projektentwicklern, Technologieunternehmen und Gründern, Herstellern und Lieferanten sowie Banken und institutionellen Partnern.",
-  "ct.name":"Name","ct.company":"Unternehmen","ct.email":"E-Mail","ct.topic":"Betreff","ct.other":"Sonstige Anfrage","ct.msg":"Nachricht",
-  "ct.consent":"Ich bin einverstanden, dass meine Angaben zur Bearbeitung meiner Anfrage verwendet werden.","ct.send":"Anfrage senden",
-  "ct.thanks":"Vielen Dank – Ihre Anfrage wurde erfasst. Wir melden uns in Kürze.",
-  "ct.data":"Unternehmensdaten","ct.co":"Gesellschaft","ct.legal":"Rechtsform","ct.md":"Geschäftsführer","ct.addr":"Sitz","ct.found":"Gegründet",
-  "foot.disc":"Die BPE Lda. investiert ausschließlich eigenes Kapital. Die Inhalte dieser Website stellen weder ein Angebot von Finanzprodukten noch eine Anlageberatung oder Aufforderung zur Investition dar. BPE verwaltet keine Kundengelder.",
-  "foot.imp":"Impressum","foot.priv":"Datenschutz","geo.ptN":"Portugal",
-  "re.photo":"Vor Ort: Abstimmung zur Sanierung",
-  "rp.title":"Von der Ruine zum Smart Home","rp.aria":"Unser Vorgehen in vier Schritten: Ruine, Planung, Rohbau, Schlüsselfertig",
-  "rp.t1":"Ruine","rp.s1":"Objekt mit Potenzial","rp.t2":"Planung","rp.s2":"mit Architekten","rp.t3":"Rohbau","rp.s3":"durch den Bauunternehmer","rp.t4":"Schlüsselfertig","rp.s4":"modern & smart",
-  "bx.title":"Bitcoin – das digitale Gold","bx.sub":"Knappes Geld als Software. Und sie steht erst am Anfang.","bx.asof":"Stand 19.11.2026",
-  "bx.f1t":"Limitiert","bx.f1d":"Maximal 21 Mio. – nie mehr","bx.f2t":"Geschlossenes System","bx.f2d":"Regeln im Code, Mining sichert","bx.f3t":"Bankenunabhängig","bx.f3d":"Direkt, weltweit, rund um die Uhr","bx.f4t":"Wertmaßstab","bx.f4d":"Eine Einheit, die nicht verwässert",
-  "bx.c1t":"Dollar wird gedruckt","bx.c1m2":"US-Geldmenge M2, Bio. $","bx.c1since":"Geldmenge seit 1971","bx.c1pp":"Kaufkraft 1 $","bx.c1ppv":"−87 %","bx.c1btc":"Bitcoin, für immer","bx.c1btcv":"21 Mio.",
-  "bx.c2t":"Echte Knappheit","bx.c2max":"Maximal pro Mensch","bx.c2maxs":"≈ 160 $ · 8,2 Mrd. Menschen","bx.c2share":"1 Bitcoin teilen sich","bx.c2people":"Menschen (Punkte unten)",
-  "bx.c3t":"Bitcoin als Maßstab","bx.c3h":"Preis in Bitcoin","bx.c3r1":"US-Eigenheim","bx.c3r2":"1 Unze Gold","bx.c3r3":"1.000 Dollar","bx.c3note":"In Dollar steigt alles. In Bitcoin gemessen wird es billiger.",
-  "bx.c4t":"Der typische Zyklus einer neuen Anlageklasse","bx.c4now":"Bitcoin heute: ~4 %","bx.c4cmp":"≈ Internet 1999","bx.seg1":"Innovatoren 2,5 %","bx.seg2":"Frühe Anwender","bx.seg3":"Frühe Mehrheit","bx.seg4":"Späte Mehrheit","bx.seg5":"Nachzügler",
-  "bx.t1t":"Privat","bx.t1d":"Tech-Pioniere","bx.t2t":"Börsen & Wallets","bx.t2d":"Coinbase, Kraken","bx.t3t":"Unternehmen","bx.t3d":"Strategy: 846.000 BTC","bx.t4t":"Institutionelle","bx.t4d":"Spot-ETFs","bx.t5t":"Staaten","bx.t5d":"USA-Reserve","bx.t6t":"Zentralbanken","bx.t6d":"Tschechien testet",
-  "bx.c5t":"Neue Anlageklasse","bx.s1l":"Handel pro Tag","bx.s1v":"~22 Mrd. $","bx.s1s":"Spot weltweit","bx.s2l":"US-Spot-ETFs","bx.s2v":"1,25 Mio. BTC","bx.s2s":"≈ 78 Mrd. $","bx.s3l":"Coinbase · Nr. 1","bx.s3v":"1,2 Mrd. $","bx.s3s":"Umsatz Q3 2026","bx.s4l":"Kraken · Nr. 2","bx.s4v":"13 Mio.","bx.s4s":"Kunden","bx.s5l":"Unternehmen","bx.s5v":"> 1 Mio. BTC","bx.s5s":"Bestand","bx.s6l":"Staaten","bx.s6v":"> 590.000","bx.s6s":"BTC Bestand",
-  "bx.banner":"Fester Bestand + steigende Nachfrage = digitales Gold.",
-  "bx.src":"Quellen: BTC ~63.000 $, Gold ~3.690 $/oz (AOL, TheDailyCoins), Eigenheim-Median (NAR), M2 (FRED), ETFs (Cointelegraph), Coinbase (Q3-Bericht), Kraken (QuantLogix), Bestände (SoFi), Volumen (Coinotag). S-Kurve nach Rogers. Werte gerundet. Bitcoin ist sehr volatil. Keine Anlageberatung."
- },
- pt:{
-  "menu":"Menu","nav.home":"Início","nav.about":"Sobre a BPE","nav.re":"Imobiliário","nav.pe":"Private Equity & Tecnologia","nav.da":"Ativos Digitais","nav.it":"Comércio Internacional","nav.mg":"Gestão","nav.ct":"Contacto",
-  "side.office":"Sede social:","side.est":"Constituída:",
-  "hero.h1":"Investir em valor. Construir o futuro.","hero.sub":"Investimentos independentes em imobiliário, ativos digitais e oportunidades emergentes.","hero.philLabel":"A nossa filosofia",
-  "pill.tech":"Tecnologia","pill.trade":"Comércio",
-  "areas.title":"Áreas de Negócio","areas.peT":"PE & Tecnologia",
-  "areas.re":"Aquisição, modernização e gestão ativa de imóveis residenciais em Portugal.",
-  "areas.pe":"Participações seletivas em software, inteligência artificial e tecnologia financeira.",
-  "areas.da":"Tokenização de ativos reais e mineração de Bitcoin – analisadas com base em dados reais.",
-  "areas.it":"Aprovisionamento internacional direto de produtos técnicos – atualmente em avaliação.",
-  "more":"Saber mais",
-  "about.p1":"A BPE Lda. é uma sociedade portuguesa de investimento e participações, gerida pelo seu proprietário, com sede em Montemor-o-Novo, Portugal. Constituída em 2022, é detida a 100 % pelo seu gerente, Marcus Boehm.",
-  "about.p2":"A BPE segue uma abordagem de investimento empresarial: criar património sustentável através de investimento de capital direcionado, criação de valor operacional e gestão de ativos a longo prazo. A sociedade investe capital próprio, de forma seletiva e com horizonte de longo prazo.",
-  "about.motto":"A BPE não é uma mediadora imobiliária, nem um promotor convencional, nem um prestador de serviços financeiros a particulares – é uma sociedade de investimento privada, com capital próprio, experiência operacional e orientação internacional.",
-  "strat.title":"Estratégia de Investimento – Quatro Princípios","strat.th1":"Princípio","strat.th2":"Abordagem",
-  "strat.p1":"Investimos onde o valor económico e o preço de mercado oferecem oportunidades atrativas.",
-  "strat.p2":"O valor é criado ativamente – através de reabilitação e modernização no imobiliário, e de inovação, escala e desenvolvimento operacional nas participações.",
-  "strat.p3":"Consideramos tanto os rendimentos recorrentes como a valorização a médio e longo prazo.",
-  "strat.p4":"As decisões baseiam-se em análises económicas, pressupostos de rendimento realistas e na avaliação de riscos técnicos, regulatórios e de mercado.",
-  "st.active":"Ativo","st.analysis":"Fase de análise","st.eval":"Em avaliação",
-  "re.title":"Investimento e Desenvolvimento Imobiliário","re.claim":"Adquirir imóveis. Desenvolver valor. Assegurar rendimentos.",
-  "re.p1":"O imobiliário é um pilar central da BPE. Investimos em imóveis residenciais em Portugal – em particular no Alentejo – com foco em ativos cujo valor de mercado pode ser aumentado através de modernização, reabilitação ou alteração de uso.",
-  "re.acq":"Identificação e aquisição de imóveis subavaliados, a necessitar de reabilitação ou com potencial de desenvolvimento.",
-  "re.ren":"Planeamento e execução de obras abrangentes de reabilitação e modernização estrutural e técnica.",
-  "re.am":"Após a conclusão, define-se para cada imóvel a estratégia de valorização economicamente mais adequada.",
-  "re.l1":"Reabilitação estrutural e técnica de edifícios existentes","re.l2":"Modernização de cozinhas, casas de banho e zonas de estar","re.l3":"Melhoria da eficiência energética","re.l4":"Renovação das instalações técnicas","re.l5":"Climatização e tecnologia doméstica modernas","re.l6":"Otimização de plantas e conceitos habitacionais","re.l7":"Maior qualidade e atratividade para arrendamento",
-  "re.sa":"Estratégia A","re.sb":"Estratégia B",
-  "re.saT":"Aquisição, modernização e posterior venda – realizando a valorização como retorno do investimento.",
-  "re.sbT":"Detenção a longo prazo do imóvel modernizado – gerando rendas recorrentes e valorização adicional.",
-  "re.th1":"Fonte de rendimento","re.th2":"Descrição",
-  "re.ca":"Valorização através de aquisição vantajosa, modernização direcionada e evolução do mercado.",
-  "re.ri":"Rendimentos regulares do arrendamento de longo prazo de imóveis próprios.",
-  "re.region":"Foco regional: Montemor-o-Novo, Alentejo – investimentos em imóveis residenciais, reabilitação e arrendamento de apartamentos, incluindo um projeto de desenvolvimento com seis frações habitacionais. Os projetos são executados com arquitetos, construtores, prestadores técnicos e especialistas imobiliários locais; a BPE assegura o planeamento económico, a gestão de projeto e as decisões de investimento.",
-  "pe.claim":"Investir em inovação e modelos de negócio digitais.",
-  "pe.p1":"Para além do imobiliário, a BPE detém participações empresariais com especial foco em tecnologias inovadoras – modelos de negócio que, através de software, digitalização e inteligência artificial, melhoram processos existentes ou abrem novos mercados.",
-  "pe.sw":"Participações em empresas de software inovadoras e modelos de negócio tecnológicos, sobretudo B2B.",
-  "pe.ai":"Análise de oportunidades em IA, automação e processos empresariais baseados em dados.",
-  "pe.ft":"Investimento e experiência empresarial em software financeiro, infraestrutura financeira digital e serviços financeiros de base tecnológica.",
-  "pe.compT":"Áreas de especial competência",
-  "pe.c1":"Tecnologia financeira e processos de negócio digitais","pe.c2":"Estratégias de investimento algorítmicas e quantitativas","pe.c3":"Processos de negociação e análise suportados por software","pe.c4":"Automação de fluxos de trabalho","pe.c5":"Análise de custos de transação","pe.c7":"Infraestrutura financeira digital","pe.c8":"Tecnologia blockchain e tokenização",
-  "pe.phil":"Não encaramos a inovação tecnológica como uma tendência de curto prazo. O decisivo é a viabilidade económica do modelo de negócio, o potencial de crescimento e a capacidade de construir vantagens competitivas duradouras.",
-  "pe.disc":"A BPE investe de forma seletiva. A BPE não é uma plataforma de investimento oferecida ao público e não gere fundos de clientes.",
-  "da.title":"Ativos Digitais: Tokenização & Mineração de Bitcoin",
-  "da.intro":"Na área de ativos digitais, a BPE concentra-se em dois temas: a tokenização de ativos reais em blockchain e a mineração de Bitcoin como infraestrutura de produção digital.",
-  "tk.title":"Tokenização de Ativos Reais",
-  "tk.p1":"Tokenizar significa representar um ativo real – por exemplo, um imóvel – ou os direitos sobre ele como um token digital numa blockchain. Isto pode tornar as estruturas de propriedade mais transparentes, simplificar transferências e abrir novas formas de financiamento e participação fracionada. A BPE analisa como combinar neste campo a sua experiência em imobiliário e tecnologia financeira.",
-  "tk.c1":"Representação digital de ativos reais e direitos de propriedade em blockchain.",
-  "tk.c2":"Avaliação dos requisitos legais e regulatórios na UE, incluindo a regulamentação de criptoativos e valores mobiliários.",
-  "tk.c3":"Avaliação de plataformas blockchain, smart contracts, custódia e normas de segurança.",
-  "tk.disc":"Esta área encontra-se em fase de análise. A BPE não emite nem oferece atualmente tokens ao público.",
-  "da.p1":"Desde 2026, a BPE analisa e testa a mineração de Bitcoin como segmento de investimento adicional. Para o efeito, adquiriu participações ou direitos económicos sobre hardware de mineração e capacidade de mineração digital – para avaliar a rentabilidade e as condições técnicas com base em dados reais de produção.",
-  "da.th1":"Foco de análise","da.th2":"O que avaliamos",
-  "da.r1":"Rendimento em Bitcoin gerado pela capacidade de computação utilizada.","da.r2":"Custos correntes – sobretudo energia, infraestrutura, operação e manutenção.","da.r3":"Prazo de recuperação e rentabilidade do capital em diferentes condições de mercado.","da.r4":"Comparação de tecnologias de mineração por capacidade, eficiência energética e rentabilidade.","da.r5":"Preço do Bitcoin, dificuldade de mineração, hashrate da rede e evolução das recompensas.",
-  "da.disc":"Esta área serve atualmente a análise de investimento própria da BPE. A BPE não oferece investimentos públicos em mineração nem produtos com rendimento garantido.",
-  "it.title":"Aprovisionamento & Comércio Internacional",
-  "it.p1":"A BPE estuda o desenvolvimento de uma atividade de comércio internacional: aquisição direta de produtos técnicos e materiais de construção selecionados a fabricantes na China, para importação para Portugal e o mercado europeu – através de compra direta, cadeias de abastecimento otimizadas e distribuição eficiente.",
-  "it.projT":"Projeto atualmente em avaliação","it.proj":"Sistemas modernos de ar condicionado split, incluindo unidades com o refrigerante natural R290 – avaliação de qualidade, eficiência energética, conformidade e certificação UE, logística, alfândega e mercado português.",
-  "it.modelT":"Modelo de negócio","it.model":"Identificar produtos adequados e de qualidade que possam ser oferecidos a preços competitivos através de aprovisionamento internacional direto, em colaboração com instaladores locais.",
-  "it.disc":"Esta área de negócio encontra-se em fase de avaliação económica e regulatória e ainda não está operacional. Uma futura extensão a outros produtos técnicos e materiais de construção é possível.",
-  "mg.p1":"Marcus Boehm é um empresário e investidor alemão com longa experiência internacional em gestão empresarial, tecnologia financeira, desenvolvimento estratégico e investimentos – com atividade empresarial na Alemanha, Suíça, Grécia e Portugal.",
-  "mg.p2":"Tem vasta experiência no setor FinTech, incluindo como CEO de uma empresa suíça de tecnologia financeira. Com a BPE, pretende identificar oportunidades de investimento cedo, avaliá-las com rigor económico e transformá-las em ativos de valor duradouro.",
-  "geo.title":"Foco Geográfico","geo.th1":"País","geo.th2":"Foco",
-  "geo.pt":"Sede · investimento imobiliário · desenvolvimento de projetos · arrendamento · avaliação de oportunidades comerciais",
-  "geo.deN":"Alemanha","geo.de":"Redes empresariais · tecnologia · setor financeiro · contactos de investimento",
-  "geo.chN":"Suíça","geo.ch":"Tecnologia financeira · participações empresariais · atividades de investimento internacionais",
-  "geo.grN":"Grécia","geo.gr":"Desenvolvimento tecnológico · software · parcerias empresariais",
-  "geo.cnN":"China","geo.cn":"Análise de mercados de aprovisionamento · contactos com fabricantes · possíveis relações de importação futuras",
-  "ct.p1":"Recebemos com interesse contactos de empresários e parceiros de investimento, vendedores de imóveis e promotores, empresas tecnológicas e fundadores, fabricantes e fornecedores, bem como bancos e parceiros institucionais.",
-  "ct.name":"Nome","ct.company":"Empresa","ct.email":"E-mail","ct.topic":"Assunto","ct.other":"Outro pedido","ct.msg":"Mensagem",
-  "ct.consent":"Concordo que os meus dados sejam utilizados para tratar o meu pedido.","ct.send":"Enviar pedido",
-  "ct.thanks":"Obrigado – o seu pedido foi registado. Entraremos em contacto brevemente.",
-  "ct.data":"Dados da Empresa","ct.co":"Sociedade","ct.legal":"Forma jurídica","ct.md":"Gerente","ct.addr":"Sede social","ct.found":"Constituição",
-  "foot.disc":"A BPE Lda. investe exclusivamente capital próprio. O conteúdo deste website não constitui oferta de produtos financeiros, aconselhamento de investimento nem solicitação para investir. A BPE não gere fundos de clientes.",
-  "foot.imp":"Informação legal","foot.priv":"Privacidade","geo.ptN":"Portugal",
-  "re.photo":"No local: coordenação da reabilitação",
-  "rp.title":"Da ruína à casa inteligente","rp.aria":"A nossa abordagem em quatro etapas: ruína, projeto, obra em tosco, chave na mão",
-  "rp.t1":"Ruína","rp.s1":"Imóvel com potencial","rp.t2":"Projeto","rp.s2":"com arquitetos","rp.t3":"Obra em tosco","rp.s3":"pelo empreiteiro","rp.t4":"Chave na mão","rp.s4":"moderno & inteligente",
-  "bx.title":"Bitcoin – o ouro digital","bx.sub":"Dinheiro escasso em forma de software. E ainda agora está a começar.","bx.asof":"Atualizado a 19.11.2026",
-  "bx.f1t":"Limitada","bx.f1d":"Máximo de 21 milhões – nunca mais","bx.f2t":"Sistema fechado","bx.f2d":"Regras no código, protegido pela mineração","bx.f3t":"Independente dos bancos","bx.f3d":"Direta, global, 24 horas por dia","bx.f4t":"Medida de valor","bx.f4d":"Uma unidade que não se dilui",
-  "bx.c1t":"O dólar está a ser impresso","bx.c1m2":"Massa monetária M2 dos EUA, biliões de $","bx.c1since":"Massa monetária desde 1971","bx.c1pp":"Poder de compra de 1 $","bx.c1ppv":"−87 %","bx.c1btc":"Bitcoin, para sempre","bx.c1btcv":"21 milhões",
-  "bx.c2t":"Escassez real","bx.c2max":"Máximo por pessoa","bx.c2maxs":"≈ 160 $ · 8,2 mil milhões de pessoas","bx.c2share":"1 bitcoin é partilhada por","bx.c2people":"pessoas (pontos abaixo)",
-  "bx.c3t":"Bitcoin como referência","bx.c3h":"Preço em bitcoin","bx.c3r1":"Habitação nos EUA","bx.c3r2":"1 onça de ouro","bx.c3r3":"1.000 dólares","bx.c3note":"Em dólares, tudo sobe. Medido em bitcoin, fica mais barato.",
-  "bx.c4t":"O ciclo típico de uma nova classe de ativos","bx.c4now":"Bitcoin hoje: ~4 %","bx.c4cmp":"≈ Internet em 1999","bx.seg1":"Inovadores 2,5 %","bx.seg2":"Primeiros adeptos","bx.seg3":"Maioria inicial","bx.seg4":"Maioria tardia","bx.seg5":"Retardatários",
-  "bx.t1t":"Particulares","bx.t1d":"Pioneiros tecnológicos","bx.t2t":"Bolsas & carteiras","bx.t2d":"Coinbase, Kraken","bx.t3t":"Empresas","bx.t3d":"Strategy: 846 mil BTC","bx.t4t":"Institucionais","bx.t4d":"ETF spot","bx.t5t":"Estados","bx.t5d":"Reserva dos EUA","bx.t6t":"Bancos centrais","bx.t6d":"Chéquia em teste",
-  "bx.c5t":"Nova classe de ativos","bx.s1l":"Volume diário","bx.s1v":"~22 mil milhões $","bx.s1s":"Spot, a nível mundial","bx.s2l":"ETF spot dos EUA","bx.s2v":"1,25 milhões BTC","bx.s2s":"≈ 78 mil milhões $","bx.s3l":"Coinbase · N.º 1","bx.s3v":"1,2 mil milhões $","bx.s3s":"Receitas T3 2026","bx.s4l":"Kraken · N.º 2","bx.s4v":"13 milhões","bx.s4s":"Clientes","bx.s5l":"Empresas","bx.s5v":"> 1 milhão BTC","bx.s5s":"Em carteira","bx.s6l":"Estados","bx.s6v":"> 590 mil","bx.s6s":"BTC em carteira",
-  "bx.banner":"Oferta fixa + procura crescente = ouro digital.",
-  "bx.src":"Fontes: BTC ~63 000 $, ouro ~3690 $/oz (AOL, TheDailyCoins), mediana da habitação (NAR), M2 (FRED), ETF (Cointelegraph), Coinbase (relatório T3), Kraken (QuantLogix), participações (SoFi), volume (Coinotag). Curva S segundo Rogers. Valores arredondados. A bitcoin é muito volátil. Não constitui aconselhamento de investimento."
- },
- ja:{
-  "menu":"メニュー","nav.home":"ホーム","nav.about":"BPEについて","nav.re":"不動産","nav.da":"デジタル資産","nav.it":"国際貿易","nav.mg":"経営陣","nav.ct":"お問い合わせ",
-  "side.office":"登記上の本店所在地:","side.est":"設立:",
-  "hero.h1":"価値に投資し、未来を築く。","hero.sub":"不動産、デジタル資産、そして新たな機会への独立した投資。","hero.philLabel":"私たちの理念",
-  "pill.trade":"貿易",
-  "areas.title":"事業分野",
-  "areas.re":"ポルトガルにおける住宅不動産の取得、改修、およびアクティブな資産運用。",
-  "areas.da":"実物資産のトークン化とビットコイン・マイニング ― 実データに基づく分析。",
-  "areas.it":"技術製品の国際的な直接調達 ― 現在検討中。",
-  "more":"詳しく見る",
-  "about.p1":"BPE Lda.は、ポルトガル・モンテモール・オ・ノヴォに本拠を置く、オーナー経営のポルトガルの投資・持株会社です。2022年に設立され、代表取締役マルクス・ベーム（Marcus Boehm）が100％出資し、経営を担っています。",
-  "about.p2":"BPEは起業家的な投資アプローチを採用しています。的を絞った資本投下、事業面での価値創造、長期的なアセットマネジメントを通じて、持続可能な資産を構築します。自己資本のみを、厳選して長期的な視点で投資します。",
-  "about.motto":"BPEは仲介業者でも、一般的なデベロッパーでも、個人向け金融サービス業者でもありません。自己資本、実務経験、そして国際的な視野を備えた非公開の投資会社です。",
-  "strat.title":"投資戦略 ― 4つの基本原則","strat.th1":"原則","strat.th2":"アプローチ",
-  "strat.p1":"経済的価値と市場価格の間に魅力的な機会がある分野に投資します。",
-  "strat.p2":"価値は能動的に創出します。不動産では改修・近代化を通じて、事業投資ではイノベーション、規模拡大、事業開発を通じて価値を高めます。",
-  "strat.p3":"継続的な収益と中長期的な資産価値の向上の両方を重視します。",
-  "strat.p4":"投資判断は、経済分析、現実的な収益想定、ならびに技術的・規制上・市場上のリスク評価に基づいて行います。",
-  "st.active":"稼働中","st.analysis":"分析段階","st.eval":"検討中",
-  "re.title":"不動産投資・開発","re.claim":"不動産を取得し、価値を高め、収益を確保する。",
-  "re.p1":"不動産はBPEの中核事業です。ポルトガル、特にアレンテージョ地方の住宅不動産に投資し、近代化、改修、または用途変更によって市場価値を高められる物件に注力しています。",
-  "re.acq":"割安な物件、改修が必要な物件、または開発余地のある物件の発掘と取得。",
-  "re.ren":"建物構造および設備面での包括的な改修・近代化工事の計画と実施。",
-  "re.am":"工事完了後、物件ごとに経済的に最適な活用戦略を決定します。",
-  "re.l1":"既存建物の構造・設備の改修","re.l2":"キッチン、浴室、居住空間の近代化","re.l3":"エネルギー効率の向上","re.l4":"建築設備の更新","re.l5":"最新の空調・住宅設備の導入","re.l6":"間取りと住空間コンセプトの最適化","re.l7":"物件品質と賃貸適性の向上",
-  "re.sa":"戦略A","re.sb":"戦略B",
-  "re.saT":"取得、近代化、その後の売却 ― 実現した価値上昇を投資収益とします。",
-  "re.sbT":"近代化した物件を長期保有 ― 継続的な賃料収入とさらなる価値上昇を目指します。",
-  "re.th1":"収益源","re.th2":"内容",
-  "re.ca":"有利な取得、的確な近代化、市場の発展による資産価値の上昇。",
-  "re.ri":"自社保有物件の長期賃貸による定期的な収入。",
-  "re.region":"地域的重点：アレンテージョ地方モンテモール・オ・ノヴォ ― 住宅不動産への投資、アパートの改修と賃貸。6戸の住宅で構成される開発プロジェクトを含みます。プロジェクトは地元の建築家、建設会社、技術サービス事業者、不動産専門家と連携して実施し、BPEは事業計画、プロジェクト管理、投資判断を担います。",
-  "da.title":"デジタル資産：トークン化とビットコイン・マイニング",
-  "da.intro":"BPEはデジタル資産の分野で2つのテーマに注力しています。ブロックチェーン上での実物資産のトークン化と、デジタル生産インフラとしてのビットコイン・マイニングです。",
-  "tk.title":"実物資産のトークン化",
-  "tk.p1":"トークン化とは、不動産などの実物資産、またはその権利を、ブロックチェーン上のデジタルトークンとして表現することです。これにより所有構造の透明性が高まり、移転が簡素化され、新たな資金調達や小口参加の形が生まれる可能性があります。BPEは、不動産とフィンテックにおける自らの経験をこの分野でどのように組み合わせられるかを分析しています。",
-  "tk.c1":"実物資産と所有権のブロックチェーン上でのデジタル表現。",
-  "tk.c2":"暗号資産規制や証券規制を含む、EUにおける法的・規制上の要件の検討。",
-  "tk.c3":"ブロックチェーン基盤、スマートコントラクト、カストディ、セキュリティ基準の評価。",
-  "tk.disc":"この分野は分析段階にあります。BPEは現在、トークンの発行や一般向けの提供を行っていません。",
-  "da.p1":"BPEは2026年より、新たな投資分野としてビットコイン・マイニングの分析と試験運用を行っています。そのためにマイニング機器およびデジタル・マイニング能力に対する持分または経済的権利を取得し、実際の生産データに基づいて収益性と技術的条件を検証しています。",
-  "da.th1":"分析の重点","da.th2":"評価内容",
-  "da.r1":"投入した計算能力によって得られるビットコイン収益。","da.r2":"運営コスト ― 特にエネルギー、インフラ、運用、保守。","da.r3":"さまざまな市場環境における投資回収期間と資本収益率。","da.r4":"ハッシュレート、エネルギー効率、経済性によるマイニング技術の比較。","da.r5":"ビットコイン価格、マイニング難易度、ネットワーク・ハッシュレート、マイニング報酬の変動。",
-  "da.disc":"この分野は現在、BPE自身の投資分析を目的としています。BPEは一般向けのマイニング投資や元本・利回り保証型の商品を提供していません。",
-  "it.title":"国際調達・貿易",
-  "it.p1":"BPEは国際貿易事業の立ち上げを検討しています。厳選した技術製品や建築資材を中国のメーカーから直接調達し、ポルトガルおよび欧州市場へ輸入するもので、直接購買、最適化されたサプライチェーン、効率的な流通を活用します。",
-  "it.projT":"現在検討中のプロジェクト","it.proj":"自然冷媒R290を使用する機種を含む最新のスプリット型エアコン ― 品質、エネルギー効率、EU適合性と認証、物流、通関、ポルトガル市場について検討しています。",
-  "it.modelT":"ビジネスモデル","it.model":"国際的な直接調達により競争力のある価格で提供できる、適切で高品質な製品を見極め、地元の施工専門業者と連携します。",
-  "it.disc":"この事業分野は現在、経済面および規制面の評価段階にあり、まだ稼働していません。将来的には他の技術製品や建築資材への拡大も考えられます。",
-  "mg.p1":"マルクス・ベームは、企業経営、フィンテック、戦略的事業開発、投資の分野で長年の国際経験を持つドイツ人の起業家・投資家です。ドイツ、スイス、ギリシャ、ポルトガルで事業活動を行ってきました。",
-  "mg.p2":"スイスのフィンテック企業のCEOを務めるなど、フィンテック分野で豊富な経験を有しています。BPEを通じて、投資機会をいち早く見いだし、経済的に確かな評価を行い、長期的に価値ある資産へと育てることを目指しています。",
-  "geo.title":"地理的重点","geo.th1":"国","geo.th2":"重点分野",
-  "geo.ptN":"ポルトガル","geo.pt":"本社 · 不動産投資 · プロジェクト開発 · 賃貸 · 貿易機会の検討",
-  "geo.deN":"ドイツ","geo.de":"起業家ネットワーク · テクノロジー · 金融 · 投資関係のつながり",
-  "geo.chN":"スイス","geo.ch":"フィンテック · 事業投資 · 国際的な投資活動",
-  "geo.grN":"ギリシャ","geo.gr":"技術開発 · ソフトウェア · 事業提携",
-  "geo.cnN":"中国","geo.cn":"調達市場の分析 · メーカーとの関係 · 将来の輸入関係の可能性",
-  "ct.p1":"起業家や投資パートナー、不動産の売主やデベロッパー、テクノロジー企業や創業者、メーカーやサプライヤー、そして銀行や機関投資家の皆様からのお問い合わせをお待ちしております。",
-  "ct.name":"お名前","ct.company":"会社名","ct.email":"メールアドレス","ct.topic":"件名","ct.other":"その他のお問い合わせ","ct.msg":"メッセージ",
-  "ct.consent":"お問い合わせへの対応のために、入力した情報が利用されることに同意します。","ct.send":"送信する",
-  "ct.thanks":"お問い合わせありがとうございます。内容を承りました。追ってご連絡いたします。",
-  "ct.data":"会社概要","ct.co":"会社名","ct.legal":"法人形態","ct.md":"代表取締役","ct.addr":"本店所在地","ct.found":"設立",
-  "foot.disc":"BPE Lda.は自己資本のみで投資を行っています。本ウェブサイトの内容は、金融商品の募集、投資助言、または投資の勧誘を構成するものではありません。BPEは顧客資産の運用を行っていません。",
-  "foot.imp":"法的情報","foot.priv":"プライバシー",
-  "re.photo":"現場にて：改修工事の打ち合わせ",
-  "rp.title":"廃屋からスマートホームへ","rp.aria":"4つのステップによる私たちの取り組み：廃屋、設計、躯体工事、完成・引き渡し",
-  "rp.t1":"廃屋","rp.s1":"ポテンシャルのある物件","rp.t2":"設計","rp.s2":"建築家と共に","rp.t3":"躯体工事","rp.s3":"施工会社による","rp.t4":"完成・引き渡し","rp.s4":"モダン & スマート",
-  "bx.title":"ビットコイン ― デジタル・ゴールド","bx.sub":"ソフトウェアとしての希少な通貨。そして、まだ始まったばかり。","bx.asof":"2026年11月19日時点",
-  "bx.f1t":"発行上限","bx.f1d":"最大2,100万枚 ― それ以上は発行されない","bx.f2t":"閉じたシステム","bx.f2d":"ルールはコードに、安全はマイニングが担保","bx.f3t":"銀行から独立","bx.f3d":"直接、世界中で、24時間","bx.f4t":"価値の尺度","bx.f4d":"希薄化しない単位",
-  "bx.c1t":"刷られ続けるドル","bx.c1m2":"米国マネーサプライM2（兆ドル）","bx.c1since":"1971年以降のマネーサプライ","bx.c1pp":"1ドルの購買力","bx.c1ppv":"−87%","bx.c1btc":"ビットコインは永遠に","bx.c1btcv":"2,100万",
-  "bx.c2t":"本物の希少性","bx.c2max":"1人あたり最大","bx.c2maxs":"約160ドル · 世界人口82億人","bx.c2share":"1ビットコインを分け合う人数","bx.c2people":"人（下の点）",
-  "bx.c3t":"尺度としてのビットコイン","bx.c3h":"ビットコイン建て価格","bx.c3r1":"米国の住宅","bx.c3r2":"金1オンス","bx.c3r3":"1,000ドル","bx.c3note":"ドル建てではすべてが値上がりする。ビットコインで測ると安くなる。",
-  "bx.c4t":"新しい資産クラスの典型的なサイクル","bx.c4now":"現在のビットコイン：約4%","bx.c4cmp":"≈ 1999年のインターネット","bx.seg1":"イノベーター 2.5%","bx.seg2":"アーリーアダプター","bx.seg3":"アーリーマジョリティ","bx.seg4":"レイトマジョリティ","bx.seg5":"ラガード",
-  "bx.t1t":"個人","bx.t1d":"テックの先駆者","bx.t2t":"取引所とウォレット","bx.t2d":"Coinbase、Kraken","bx.t3t":"企業","bx.t3d":"Strategy：84.6万BTC","bx.t4t":"機関投資家","bx.t4d":"現物ETF","bx.t5t":"国家","bx.t5d":"米国の準備資産","bx.t6t":"中央銀行","bx.t6d":"チェコが試験中",
-  "bx.c5t":"新しい資産クラス","bx.s1l":"1日の取引高","bx.s1v":"約220億ドル","bx.s1s":"現物・世界全体","bx.s2l":"米国現物ETF","bx.s2v":"125万BTC","bx.s2s":"約780億ドル","bx.s3l":"Coinbase · 第1位","bx.s3v":"12億ドル","bx.s3s":"2026年第3四半期売上高","bx.s4l":"Kraken · 第2位","bx.s4v":"1,300万","bx.s4s":"顧客数","bx.s5l":"企業","bx.s5v":"100万BTC超","bx.s5s":"保有量","bx.s6l":"国家","bx.s6v":"59万BTC超","bx.s6s":"BTC保有量",
-  "bx.banner":"固定された供給量 + 増え続ける需要 = デジタル・ゴールド。",
-  "bx.src":"出典：BTC 約63,000ドル、金 約3,690ドル/オンス（AOL、TheDailyCoins）、住宅価格中央値（NAR）、M2（FRED）、ETF（Cointelegraph）、Coinbase（第3四半期報告）、Kraken（QuantLogix）、保有量（SoFi）、取引高（Coinotag）。Sカーブはロジャーズの理論に基づく。数値は概数。ビットコインは価格変動が非常に大きい資産です。投資助言ではありません。"
- },
- zh:{
-  "menu":"菜单","nav.home":"首页","nav.about":"关于BPE","nav.re":"房地产","nav.da":"数字资产","nav.it":"国际贸易","nav.mg":"管理层","nav.ct":"联系我们",
-  "side.office":"注册地址：","side.est":"成立：",
-  "hero.h1":"投资价值，构建未来。","hero.sub":"独立投资于房地产、数字资产及新兴机遇。","hero.philLabel":"我们的理念",
-  "pill.trade":"贸易",
-  "areas.title":"业务领域",
-  "areas.re":"在葡萄牙收购、翻新并积极管理住宅物业。",
-  "areas.da":"实物资产代币化与比特币挖矿——基于真实数据进行分析。",
-  "areas.it":"技术产品的国际直接采购——目前处于评估阶段。",
-  "more":"了解更多",
-  "about.p1":"BPE Lda. 是一家由所有者亲自管理的葡萄牙投资及控股公司，总部位于葡萄牙蒙特莫尔-诺沃（Montemor-o-Novo）。公司成立于2022年，由董事总经理 Marcus Boehm 100%持有并管理。",
-  "about.p2":"BPE 奉行企业家式的投资理念：通过有针对性的资本投入、运营层面的价值创造以及长期资产管理，打造可持续的资产。公司以自有资本进行投资，精挑细选，着眼长远。",
-  "about.motto":"BPE 既不是中介机构，也不是传统开发商或面向个人客户的金融服务机构，而是一家拥有自有资本、实操经验和国际视野的私人投资公司。",
-  "strat.title":"投资策略——四项基本原则","strat.th1":"原则","strat.th2":"方法",
-  "strat.p1":"我们投资于经济价值与市场价格之间存在吸引力机会的领域。",
-  "strat.p2":"价值通过主动方式创造——在房地产领域通过翻新与现代化改造，在企业投资领域通过创新、规模化和运营发展。",
-  "strat.p3":"我们同时关注持续性收益与中长期资产增值。",
-  "strat.p4":"投资决策基于经济分析、合理的收益假设，以及对技术、监管和市场风险的评估。",
-  "st.active":"运营中","st.analysis":"分析阶段","st.eval":"评估中",
-  "re.title":"房地产投资与开发","re.claim":"收购物业，提升价值，确保收益。",
-  "re.p1":"房地产是 BPE 的核心业务。我们投资于葡萄牙的住宅物业，尤其是阿连特茹（Alentejo）地区，重点关注可通过现代化改造、翻新或变更用途来提升市场价值的物业。",
-  "re.acq":"发掘并收购被低估、需要翻新或具有开发潜力的物业。",
-  "re.ren":"规划并实施全面的建筑结构及技术设施翻新与现代化改造工程。",
-  "re.am":"工程完成后，针对每处物业确定经济上最合理的运营策略。",
-  "re.l1":"既有建筑的结构与技术翻新","re.l2":"厨房、浴室及起居空间的现代化改造","re.l3":"提升能源效率","re.l4":"更新建筑设备设施","re.l5":"现代化空调及楼宇技术","re.l6":"优化户型与居住理念","re.l7":"提升物业品质与出租吸引力",
-  "re.sa":"策略A","re.sb":"策略B",
-  "re.saT":"收购、现代化改造后出售——将实现的增值作为投资回报。",
-  "re.sbT":"长期持有改造后的物业——获取持续租金收入及进一步增值。",
-  "re.th1":"收益来源","re.th2":"说明",
-  "re.ca":"通过有利的收购价格、有针对性的现代化改造和市场发展实现资产增值。",
-  "re.ri":"来自自有物业长期出租的稳定收入。",
-  "re.region":"区域重点：阿连特茹地区蒙特莫尔-诺沃——住宅物业投资、公寓翻新与出租，其中包括一个由六套住宅单元组成的开发项目。项目与当地建筑师、建筑公司、技术服务商及房地产专家合作实施；BPE 负责经济规划、项目管理和投资决策。",
-  "da.title":"数字资产：代币化与比特币挖矿",
-  "da.intro":"在数字资产领域，BPE 专注于两个主题：在区块链上实现实物资产代币化，以及作为数字生产基础设施的比特币挖矿。",
-  "tk.title":"实物资产代币化",
-  "tk.p1":"代币化是指将实物资产（例如房产）或其相关权利，以数字代币的形式记录在区块链上。这可以提高所有权结构的透明度、简化转让流程，并开辟新的融资方式和份额化参与形式。BPE 正在分析如何在这一领域结合自身在房地产和金融科技方面的经验。",
-  "tk.c1":"在区块链上以数字形式呈现实物资产及所有权。",
-  "tk.c2":"评估欧盟的法律与监管要求，包括加密资产及证券监管。",
-  "tk.c3":"评估区块链平台、智能合约、资产托管及安全标准。",
-  "tk.disc":"该领域目前处于分析阶段。BPE 目前不发行代币，也不向公众提供代币。",
-  "da.p1":"自2026年起，BPE 开始分析并试行比特币挖矿，将其作为新增投资领域。为此，BPE 已取得矿机硬件及数字算力的权益或经济权利，以便基于真实生产数据评估实际盈利能力和技术条件。",
-  "da.th1":"分析重点","da.th2":"评估内容",
-  "da.r1":"所投入算力产生的比特币收益。","da.r2":"运营成本——尤其是能源、基础设施、运营及维护。","da.r3":"不同市场条件下的投资回收期与资本回报率。","da.r4":"按算力、能效和经济性比较不同挖矿技术。","da.r5":"比特币价格、挖矿难度、全网算力及挖矿奖励的变化。",
-  "da.disc":"该业务目前用于 BPE 自身的投资分析。BPE 不提供面向公众的挖矿投资，也不提供保证收益的产品。",
-  "it.title":"国际采购与贸易",
-  "it.p1":"BPE 正在探索开展国际贸易业务：直接向中国制造商采购精选的技术产品和建筑材料，进口至葡萄牙及欧洲市场——依托直接采购、优化的供应链和高效的分销体系。",
-  "it.projT":"当前评估项目","it.proj":"现代分体式空调系统，包括采用天然制冷剂 R290 的机型——评估质量、能效、欧盟合规与认证、物流、海关以及葡萄牙市场。",
-  "it.modelT":"商业模式","it.model":"甄选合适的优质产品，通过国际直接采购以具有竞争力的价格提供，并与当地安装专业公司合作。",
-  "it.disc":"该业务目前处于经济与监管评估阶段，尚未正式运营。未来可能扩展至其他技术产品和建筑材料。",
-  "mg.p1":"Marcus Boehm 是一位德国企业家和投资人，在企业管理、金融科技、战略业务发展和投资领域拥有多年国际经验，曾在德国、瑞士、希腊和葡萄牙开展创业活动。",
-  "mg.p2":"他在金融科技领域经验丰富，曾担任一家瑞士金融科技公司的首席执行官。通过 BPE，他致力于及早发现投资机会，以扎实的经济分析进行评估，并将其发展为具有持久价值的资产。",
-  "geo.title":"地域重点","geo.th1":"国家","geo.th2":"重点",
-  "geo.ptN":"葡萄牙","geo.pt":"总部 · 房地产投资 · 项目开发 · 租赁 · 贸易机会评估",
-  "geo.deN":"德国","geo.de":"创业网络 · 科技 · 金融 · 投资人脉",
-  "geo.chN":"瑞士","geo.ch":"金融科技 · 企业投资 · 国际投资活动",
-  "geo.grN":"希腊","geo.gr":"技术开发 · 软件 · 商业合作",
-  "geo.cnN":"中国","geo.cn":"采购市场分析 · 制造商联系 · 未来潜在的进口合作",
-  "ct.p1":"我们欢迎企业家与投资伙伴、物业卖方与开发商、科技公司与创始人、制造商与供应商，以及银行和机构合作伙伴与我们联系。",
-  "ct.name":"姓名","ct.company":"公司","ct.email":"电子邮箱","ct.topic":"主题","ct.other":"其他咨询","ct.msg":"留言",
-  "ct.consent":"我同意我的信息被用于处理本次咨询。","ct.send":"提交咨询",
-  "ct.thanks":"感谢您的咨询，我们已收到您的信息，将尽快与您联系。",
-  "ct.data":"公司信息","ct.co":"公司名称","ct.legal":"法律形式","ct.md":"董事总经理","ct.addr":"注册地址","ct.found":"成立时间",
-  "foot.disc":"BPE Lda. 仅以自有资本进行投资。本网站内容不构成金融产品的要约、投资建议或投资招揽。BPE 不管理客户资金。",
-  "foot.imp":"法律声明","foot.priv":"隐私政策",
-  "re.photo":"现场：翻新工程沟通协调",
-  "rp.title":"从旧房到智能住宅","rp.aria":"我们的四步流程：旧房、规划设计、主体施工、交钥匙",
-  "rp.t1":"旧房","rp.s1":"具有潜力的物业","rp.t2":"规划设计","rp.s2":"与建筑师合作","rp.t3":"主体施工","rp.s3":"由建筑承包商完成","rp.t4":"交钥匙","rp.s4":"现代 & 智能",
-  "bx.title":"比特币——数字黄金","bx.sub":"以软件形式存在的稀缺货币，而这一切才刚刚开始。","bx.asof":"截至2026年11月19日",
-  "bx.f1t":"总量有限","bx.f1d":"最多2100万枚——永不增发","bx.f2t":"封闭系统","bx.f2d":"规则写入代码，挖矿保障安全","bx.f3t":"独立于银行","bx.f3d":"直接、全球、全天候","bx.f4t":"价值尺度","bx.f4d":"不会被稀释的计量单位",
-  "bx.c1t":"美元不断被印出","bx.c1m2":"美国M2货币供应量（万亿美元）","bx.c1since":"1971年以来货币供应量","bx.c1pp":"1美元购买力","bx.c1ppv":"−87%","bx.c1btc":"比特币，永远","bx.c1btcv":"2100万",
-  "bx.c2t":"真正的稀缺","bx.c2max":"每人最多","bx.c2maxs":"约160美元 · 全球82亿人","bx.c2share":"1枚比特币由","bx.c2people":"人共享（见下方圆点）",
-  "bx.c3t":"以比特币为尺度","bx.c3h":"以比特币计价","bx.c3r1":"美国住房","bx.c3r2":"1盎司黄金","bx.c3r3":"1000美元","bx.c3note":"以美元计价，一切都在上涨；以比特币衡量，一切都在变便宜。",
-  "bx.c4t":"新资产类别的典型周期","bx.c4now":"比特币目前：约4%","bx.c4cmp":"≈ 1999年的互联网","bx.seg1":"创新者 2.5%","bx.seg2":"早期采用者","bx.seg3":"早期大众","bx.seg4":"后期大众","bx.seg5":"落后者",
-  "bx.t1t":"个人","bx.t1d":"科技先驱","bx.t2t":"交易所与钱包","bx.t2d":"Coinbase、Kraken","bx.t3t":"企业","bx.t3d":"Strategy：84.6万枚BTC","bx.t4t":"机构投资者","bx.t4d":"现货ETF","bx.t5t":"国家","bx.t5d":"美国储备","bx.t6t":"央行","bx.t6d":"捷克正在测试",
-  "bx.c5t":"新资产类别","bx.s1l":"日交易量","bx.s1v":"约220亿美元","bx.s1s":"全球现货","bx.s2l":"美国现货ETF","bx.s2v":"125万枚BTC","bx.s2s":"约780亿美元","bx.s3l":"Coinbase · 第一","bx.s3v":"12亿美元","bx.s3s":"2026年第三季度营收","bx.s4l":"Kraken · 第二","bx.s4v":"1300万","bx.s4s":"客户","bx.s5l":"企业","bx.s5v":"超过100万枚BTC","bx.s5s":"持有量","bx.s6l":"国家","bx.s6v":"超过59万枚","bx.s6s":"BTC持有量",
-  "bx.banner":"固定供应 + 持续增长的需求 = 数字黄金。",
-  "bx.src":"来源：BTC约63,000美元，黄金约3,690美元/盎司（AOL、TheDailyCoins），住房价格中位数（NAR），M2（FRED），ETF（Cointelegraph），Coinbase（第三季度报告），Kraken（QuantLogix），持有量（SoFi），交易量（Coinotag）。S曲线参照罗杰斯理论。数据为约数。比特币波动性极高。不构成投资建议。"
- }
+// Contact address: enter it here once; the form, the link and the e-mail row then switch on.
+const CONTACT_EMAIL='';
+
+const I18N={
+de:{
+"menu":"Menü",
+"nav.about":"Über BPE",
+"nav.re":"Immobilien",
+"nav.da":"Digital Assets",
+"nav.it":"Internationaler Handel",
+"nav.mg":"Management",
+"nav.ct":"Kontakt",
+"hero.h1":"In Werte investieren. Die Zukunft gestalten.",
+"hero.sub":"Unabhängige Investments in Immobilien, Digital Assets und neue Chancen.",
+"hero.philLabel":"Unsere Philosophie",
+"areas.title":"Geschäftsbereiche",
+"areas.re":"Erwerb, Modernisierung und aktives Management von Wohnimmobilien in Portugal.",
+"areas.da":"Tokenisierung realer Vermögenswerte und Bitcoin-Mining – analysiert auf Basis realer Daten.",
+"areas.it":"Direkte internationale Beschaffung technischer Produkte – derzeit in Prüfung.",
+"about.p1":"Die BPE Lda. ist eine inhabergeführte portugiesische Investment- und Beteiligungsgesellschaft mit Sitz in Montemor-o-Novo, Portugal. Das 2022 gegründete Unternehmen befindet sich zu 100 % im Eigentum ihres Geschäftsführers Marcus Boehm.",
+"about.p2":"BPE verfolgt einen unternehmerischen Investmentansatz: den Aufbau nachhaltiger Vermögenswerte durch gezielte Kapitalinvestitionen, operative Wertschöpfung und langfristiges Asset Management. Die Gesellschaft investiert eigenes Kapital – selektiv und langfristig.",
+"about.motto":"BPE ist weder Makler noch klassischer Bauträger oder Finanzdienstleister für Privatkunden – sondern eine privat geführte Investmentgesellschaft mit eigenem Kapital, operativer Erfahrung und internationaler Ausrichtung.",
+"strat.title":"Investmentstrategie – vier Grundprinzipien",
+"strat.p1":"Wir investieren dort, wo wirtschaftlicher Wert und Marktpreis attraktive Chancen bieten.",
+"strat.p2":"Wert entsteht aktiv – durch Sanierung und Modernisierung bei Immobilien sowie durch Innovation, Skalierung und operative Entwicklung bei Beteiligungen.",
+"strat.p3":"Wir berücksichtigen sowohl laufende Erträge als auch mittel- und langfristige Wertsteigerungen.",
+"strat.p4":"Entscheidungen beruhen auf wirtschaftlichen Analysen, realistischen Ertragsannahmen und der Bewertung technischer, regulatorischer und marktbedingter Risiken.",
+"st.active":"Aktiv",
+"st.analysis":"Analysephase",
+"st.eval":"In Prüfung",
+"re.title":"Immobilieninvestments & Projektentwicklung",
+"re.claim":"Immobilien erwerben. Werte entwickeln. Erträge sichern.",
+"re.p1":"Immobilien bilden einen wesentlichen Schwerpunkt der BPE. Wir investieren in Wohnimmobilien in Portugal – insbesondere im Alentejo – mit Fokus auf Objekte, deren Marktwert durch Modernisierung, Sanierung oder veränderte Nutzung gesteigert werden kann.",
+"re.acq":"Identifikation und Erwerb unterbewerteter, sanierungsbedürftiger oder entwicklungsfähiger Immobilien.",
+"re.ren":"Planung und Durchführung umfassender baulicher und technischer Renovierungs- und Modernisierungsmaßnahmen.",
+"re.am":"Nach Fertigstellung wird für jedes Objekt die wirtschaftlich sinnvollste Verwertungsstrategie festgelegt.",
+"re.l1":"Bauliche und technische Sanierung bestehender Gebäude",
+"re.l2":"Modernisierung von Küchen, Bädern und Wohnbereichen",
+"re.l3":"Verbesserung der Energieeffizienz",
+"re.l4":"Erneuerung der technischen Gebäudeausstattung",
+"re.l5":"Moderne Klimatisierungs- und Haustechnik",
+"re.l6":"Optimierte Grundrisse und Wohnkonzepte",
+"re.l7":"Höhere Immobilienqualität und Vermietbarkeit",
+"re.sa":"Strategie A",
+"re.sb":"Strategie B",
+"re.saT":"Ankauf, Modernisierung und anschließender Verkauf – die realisierte Wertsteigerung als Investitionsertrag.",
+"re.sbT":"Langfristiges Halten der modernisierten Immobilie – für kontinuierliche Mieteinnahmen und weitere Wertsteigerung.",
+"re.ca":"Wertsteigerung durch günstigen Einkauf, gezielte Modernisierung und Marktentwicklung.",
+"re.ri":"Regelmäßige Einnahmen aus der langfristigen Vermietung eigener Immobilien.",
+"re.region":"Regionaler Fokus: Montemor-o-Novo, Alentejo – Investments in Wohnimmobilien, Sanierung und Vermietung von Apartments, darunter ein Entwicklungsprojekt mit sechs Wohneinheiten. Die Umsetzung erfolgt mit lokalen Architekten, Bauunternehmen, technischen Dienstleistern und Immobilienexperten; BPE verantwortet wirtschaftliche Planung, Projektsteuerung und Investitionsentscheidungen.",
+"da.title":"Digital Assets: Tokenisierung & Bitcoin-Mining",
+"da.intro":"BPE konzentriert sich im Bereich Digital Assets auf zwei Themen: die Tokenisierung realer Vermögenswerte auf der Blockchain und Bitcoin-Mining als digitale Produktionsinfrastruktur.",
+"tk.title":"Tokenisierung realer Vermögenswerte",
+"tk.p1":"Tokenisierung bedeutet, einen realen Vermögenswert – etwa eine Immobilie – oder die Rechte daran als digitalen Token auf einer Blockchain abzubilden. Das kann Eigentumsstrukturen transparenter machen, Übertragungen vereinfachen und neue Formen der Finanzierung und anteiligen Beteiligung ermöglichen. BPE analysiert, wie sich die eigene Erfahrung in Immobilien und Finanztechnologie in diesem Feld verbinden lässt.",
+"tk.c1":"Digitale Abbildung realer Vermögenswerte und Eigentumsrechte auf der Blockchain.",
+"tk.c2":"Prüfung der rechtlichen und regulatorischen Anforderungen in der EU, einschließlich Krypto- und Wertpapierrecht.",
+"tk.c3":"Bewertung von Blockchain-Plattformen, Smart Contracts, Verwahrung und Sicherheitsstandards.",
+"tk.disc":"Dieser Bereich befindet sich in der Analysephase. BPE gibt derzeit keine Token aus und bietet keine Token öffentlich an.",
+"da.p1":"Seit 2026 analysiert und erprobt BPE Bitcoin-Mining als zusätzliches Investmentsegment. Dazu wurden Beteiligungen bzw. wirtschaftliche Ansprüche an Mining-Hardware und digitalen Mining-Kapazitäten erworben – um Rentabilität und technische Rahmenbedingungen anhand realer Produktionsdaten zu untersuchen.",
+"da.r1":"Durch die eingesetzte Rechenleistung erwirtschaftete Bitcoin-Erträge.",
+"da.r2":"Laufende Kosten – insbesondere Energie, Infrastruktur, Betrieb und Wartung.",
+"da.r3":"Amortisationsdauer und Kapitalrendite unter verschiedenen Marktbedingungen.",
+"da.r4":"Vergleich von Mining-Technologien nach Rechenleistung, Energieeffizienz und Wirtschaftlichkeit.",
+"da.r5":"Bitcoin-Preis, Mining-Difficulty, Netzwerk-Hashrate und Veränderungen der Mining-Erträge.",
+"da.disc":"Dieser Bereich dient derzeit der eigenen Investitionsanalyse. BPE bietet keine öffentlichen Mining-Investments und keine garantierten Renditeprodukte an.",
+"it.title":"Internationale Beschaffung & Handel",
+"it.p1":"BPE prüft den Aufbau eines internationalen Handelsgeschäfts: die direkte Beschaffung ausgewählter technischer Produkte und Baumaterialien bei Herstellern in China für den Import nach Portugal und in den europäischen Markt – durch Direkteinkauf, optimierte Lieferketten und effiziente Vertriebsstrukturen.",
+"it.projT":"Aktuelles Prüfprojekt",
+"it.proj":"Moderne Split-Klimaanlagen, u. a. mit dem natürlichen Kältemittel R290 – Prüfung von Qualität, Energieeffizienz, EU-Konformität und Zertifizierung, Logistik, Zoll und portugiesischem Markt.",
+"it.modelT":"Geschäftsmodell",
+"it.model":"Identifikation geeigneter, hochwertiger Produkte, die über direkte internationale Beschaffung zu wettbewerbsfähigen Preisen angeboten werden können – in Zusammenarbeit mit lokalen Fachbetrieben.",
+"it.disc":"Dieser Geschäftsbereich befindet sich in der wirtschaftlichen und regulatorischen Evaluierungsphase und ist noch nicht operativ. Ein späterer Ausbau auf weitere technische Produkte und Baumaterialien ist denkbar.",
+"mg.p1":"Marcus Boehm ist ein deutscher Unternehmer und Investor mit langjähriger internationaler Erfahrung in Unternehmensführung, Finanztechnologie, strategischer Unternehmensentwicklung und Investments – mit unternehmerischen Aktivitäten in Deutschland, der Schweiz, Griechenland und Portugal.",
+"mg.p2":"Er verfügt über langjährige Erfahrung im FinTech-Umfeld, unter anderem als CEO eines Schweizer Finanztechnologieunternehmens. Mit BPE verfolgt er das Ziel, Investitionsmöglichkeiten frühzeitig zu erkennen, wirtschaftlich fundiert zu bewerten und daraus werthaltige Vermögenswerte zu entwickeln.",
+"geo.title":"Geografischer Fokus",
+"geo.pt":"Hauptsitz · Immobilieninvestitionen · Projektentwicklung · Vermietung · Prüfung von Handelsmöglichkeiten",
+"geo.deN":"Deutschland",
+"geo.de":"Unternehmerische Netzwerke · Technologie · Finanzwirtschaft · Investitionskontakte",
+"geo.chN":"Schweiz",
+"geo.ch":"Finanztechnologie · Unternehmensbeteiligungen · internationale Investmentaktivitäten",
+"geo.grN":"Griechenland",
+"geo.gr":"Technologieentwicklung · Software · unternehmerische Kooperationen",
+"geo.cnN":"China",
+"geo.cn":"Analyse von Beschaffungsmärkten · Herstellerkontakte · mögliche künftige Importbeziehungen",
+"ct.p1":"Wir freuen uns über Anfragen von Unternehmern und Investmentpartnern, Immobilienverkäufern und Projektentwicklern, Technologieunternehmen und Gründern, Herstellern und Lieferanten sowie Banken und institutionellen Partnern.",
+"ct.name":"Name",
+"ct.company":"Unternehmen",
+"ct.email":"E-Mail",
+"ct.topic":"Betreff",
+"ct.other":"Sonstige Anfrage",
+"ct.msg":"Nachricht",
+"ct.data":"Unternehmensdaten",
+"ct.co":"Gesellschaft",
+"ct.legal":"Rechtsform",
+"ct.md":"Geschäftsführer",
+"ct.addr":"Sitz",
+"ct.found":"Gegründet",
+"foot.disc":"Die BPE Lda. investiert ausschließlich eigenes Kapital. Die Inhalte dieser Website stellen weder ein Angebot von Finanzprodukten noch eine Anlageberatung oder Aufforderung zur Investition dar. BPE verwaltet keine Kundengelder.",
+"foot.imp":"Impressum",
+"foot.priv":"Datenschutz",
+"geo.ptN":"Portugal",
+"re.photo":"Vor Ort: Abstimmung zur Sanierung",
+"rp.title":"Von der Ruine zum Smart Home",
+"rp.aria":"Unser Vorgehen in vier Schritten: Ruine, Planung, Rohbau, Schlüsselfertig",
+"rp.t1":"Ruine",
+"rp.s1":"Objekt mit Potenzial",
+"rp.t2":"Planung",
+"rp.s2":"mit Architekten",
+"rp.t3":"Rohbau",
+"rp.s3":"durch den Bauunternehmer",
+"rp.t4":"Schlüsselfertig",
+"rp.s4":"modern & smart",
+"bx.title":"Bitcoin – das digitale Gold",
+"bx.sub":"Knappes Geld als Software. Und sie steht erst am Anfang.",
+"bx.asof":"Stand 19.11.2026",
+"bx.f1t":"Limitiert",
+"bx.f1d":"Maximal 21 Mio. – nie mehr",
+"bx.f2t":"Geschlossenes System",
+"bx.f2d":"Regeln im Code, Mining sichert",
+"bx.f3t":"Bankenunabhängig",
+"bx.f3d":"Direkt, weltweit, rund um die Uhr",
+"bx.f4t":"Wertmaßstab",
+"bx.f4d":"Eine Einheit, die nicht verwässert",
+"bx.c1t":"Dollar wird gedruckt",
+"bx.c1m2":"US-Geldmenge M2, Bio. $",
+"bx.c1since":"Geldmenge seit 1971",
+"bx.c1pp":"Kaufkraft 1 $",
+"bx.c1ppv":"−87 %",
+"bx.c1btc":"Bitcoin, für immer",
+"bx.c1btcv":"21 Mio.",
+"bx.c2t":"Echte Knappheit",
+"bx.c2max":"Maximal pro Mensch",
+"bx.c2maxs":"≈ 160 $ · 8,2 Mrd. Menschen",
+"bx.c2share":"1 Bitcoin teilen sich",
+"bx.c2people":"Menschen (Punkte unten)",
+"bx.c3t":"Bitcoin als Maßstab",
+"bx.c3h":"Preis in Bitcoin",
+"bx.c3r1":"US-Eigenheim",
+"bx.c3r2":"1 Unze Gold",
+"bx.c3r3":"1.000 Dollar",
+"bx.c3note":"In Dollar steigt alles. In Bitcoin gemessen wird es billiger.",
+"bx.c4t":"Der typische Zyklus einer neuen Anlageklasse",
+"bx.c4now":"Bitcoin heute: ~4 %",
+"bx.c4cmp":"≈ Internet 1999",
+"bx.seg1":"Innovatoren 2,5 %",
+"bx.seg2":"Frühe Anwender",
+"bx.seg3":"Frühe Mehrheit",
+"bx.seg4":"Späte Mehrheit",
+"bx.seg5":"Nachzügler",
+"bx.t1t":"Privat",
+"bx.t1d":"Tech-Pioniere",
+"bx.t2t":"Börsen & Wallets",
+"bx.t2d":"Coinbase, Kraken",
+"bx.t3t":"Unternehmen",
+"bx.t3d":"Strategy: 846.000 BTC",
+"bx.t4t":"Institutionelle",
+"bx.t4d":"Spot-ETFs",
+"bx.t5t":"Staaten",
+"bx.t5d":"USA-Reserve",
+"bx.t6t":"Zentralbanken",
+"bx.t6d":"Tschechien testet",
+"bx.c5t":"Neue Anlageklasse",
+"bx.s1l":"Handel pro Tag",
+"bx.s1v":"~22 Mrd. $",
+"bx.s1s":"Spot weltweit",
+"bx.s2l":"US-Spot-ETFs",
+"bx.s2v":"1,25 Mio. BTC",
+"bx.s2s":"≈ 78 Mrd. $",
+"bx.s3l":"Coinbase · Nr. 1",
+"bx.s3v":"1,2 Mrd. $",
+"bx.s3s":"Umsatz Q3 2026",
+"bx.s4l":"Kraken · Nr. 2",
+"bx.s4v":"13 Mio.",
+"bx.s4s":"Kunden",
+"bx.s5l":"Unternehmen",
+"bx.s5v":"> 1 Mio. BTC",
+"bx.s5s":"Bestand",
+"bx.s6l":"Staaten",
+"bx.s6v":"> 590.000",
+"bx.s6s":"BTC Bestand",
+"bx.banner":"Fester Bestand + steigende Nachfrage = digitales Gold.",
+"bx.src":"Quellen: BTC ~63.000 $, Gold ~3.690 $/oz (AOL, TheDailyCoins), Eigenheim-Median (NAR), M2 (FRED), ETFs (Cointelegraph), Coinbase (Q3-Bericht), Kraken (QuantLogix), Bestände (SoFi), Volumen (Coinotag). S-Kurve nach Rogers. Werte gerundet. Bitcoin ist sehr volatil. Keine Anlageberatung."},
+pt:{
+"menu":"Menu",
+"nav.about":"Sobre a BPE",
+"nav.re":"Imobiliário",
+"nav.da":"Ativos Digitais",
+"nav.it":"Comércio Internacional",
+"nav.mg":"Gestão",
+"nav.ct":"Contacto",
+"hero.h1":"Investir em valor. Construir o futuro.",
+"hero.sub":"Investimentos independentes em imobiliário, ativos digitais e oportunidades emergentes.",
+"hero.philLabel":"A nossa filosofia",
+"areas.title":"Áreas de Negócio",
+"areas.re":"Aquisição, modernização e gestão ativa de imóveis residenciais em Portugal.",
+"areas.da":"Tokenização de ativos reais e mineração de Bitcoin – analisadas com base em dados reais.",
+"areas.it":"Aprovisionamento internacional direto de produtos técnicos – atualmente em avaliação.",
+"about.p1":"A BPE Lda. é uma sociedade portuguesa de investimento e participações, gerida pelo seu proprietário, com sede em Montemor-o-Novo, Portugal. Constituída em 2022, é detida a 100 % pelo seu gerente, Marcus Boehm.",
+"about.p2":"A BPE segue uma abordagem de investimento empresarial: criar património sustentável através de investimento de capital direcionado, criação de valor operacional e gestão de ativos a longo prazo. A sociedade investe capital próprio, de forma seletiva e com horizonte de longo prazo.",
+"about.motto":"A BPE não é uma mediadora imobiliária, nem um promotor convencional, nem um prestador de serviços financeiros a particulares – é uma sociedade de investimento privada, com capital próprio, experiência operacional e orientação internacional.",
+"strat.title":"Estratégia de Investimento – Quatro Princípios",
+"strat.p1":"Investimos onde o valor económico e o preço de mercado oferecem oportunidades atrativas.",
+"strat.p2":"O valor é criado ativamente – através de reabilitação e modernização no imobiliário, e de inovação, escala e desenvolvimento operacional nas participações.",
+"strat.p3":"Consideramos tanto os rendimentos recorrentes como a valorização a médio e longo prazo.",
+"strat.p4":"As decisões baseiam-se em análises económicas, pressupostos de rendimento realistas e na avaliação de riscos técnicos, regulatórios e de mercado.",
+"st.active":"Ativo",
+"st.analysis":"Fase de análise",
+"st.eval":"Em avaliação",
+"re.title":"Investimento e Desenvolvimento Imobiliário",
+"re.claim":"Adquirir imóveis. Desenvolver valor. Assegurar rendimentos.",
+"re.p1":"O imobiliário é um pilar central da BPE. Investimos em imóveis residenciais em Portugal – em particular no Alentejo – com foco em ativos cujo valor de mercado pode ser aumentado através de modernização, reabilitação ou alteração de uso.",
+"re.acq":"Identificação e aquisição de imóveis subavaliados, a necessitar de reabilitação ou com potencial de desenvolvimento.",
+"re.ren":"Planeamento e execução de obras abrangentes de reabilitação e modernização estrutural e técnica.",
+"re.am":"Após a conclusão, define-se para cada imóvel a estratégia de valorização economicamente mais adequada.",
+"re.l1":"Reabilitação estrutural e técnica de edifícios existentes",
+"re.l2":"Modernização de cozinhas, casas de banho e zonas de estar",
+"re.l3":"Melhoria da eficiência energética",
+"re.l4":"Renovação das instalações técnicas",
+"re.l5":"Climatização e tecnologia doméstica modernas",
+"re.l6":"Otimização de plantas e conceitos habitacionais",
+"re.l7":"Maior qualidade e atratividade para arrendamento",
+"re.sa":"Estratégia A",
+"re.sb":"Estratégia B",
+"re.saT":"Aquisição, modernização e posterior venda – realizando a valorização como retorno do investimento.",
+"re.sbT":"Detenção a longo prazo do imóvel modernizado – gerando rendas recorrentes e valorização adicional.",
+"re.ca":"Valorização através de aquisição vantajosa, modernização direcionada e evolução do mercado.",
+"re.ri":"Rendimentos regulares do arrendamento de longo prazo de imóveis próprios.",
+"re.region":"Foco regional: Montemor-o-Novo, Alentejo – investimentos em imóveis residenciais, reabilitação e arrendamento de apartamentos, incluindo um projeto de desenvolvimento com seis frações habitacionais. Os projetos são executados com arquitetos, construtores, prestadores técnicos e especialistas imobiliários locais; a BPE assegura o planeamento económico, a gestão de projeto e as decisões de investimento.",
+"da.title":"Ativos Digitais: Tokenização & Mineração de Bitcoin",
+"da.intro":"Na área de ativos digitais, a BPE concentra-se em dois temas: a tokenização de ativos reais em blockchain e a mineração de Bitcoin como infraestrutura de produção digital.",
+"tk.title":"Tokenização de Ativos Reais",
+"tk.p1":"Tokenizar significa representar um ativo real – por exemplo, um imóvel – ou os direitos sobre ele como um token digital numa blockchain. Isto pode tornar as estruturas de propriedade mais transparentes, simplificar transferências e abrir novas formas de financiamento e participação fracionada. A BPE analisa como combinar neste campo a sua experiência em imobiliário e tecnologia financeira.",
+"tk.c1":"Representação digital de ativos reais e direitos de propriedade em blockchain.",
+"tk.c2":"Avaliação dos requisitos legais e regulatórios na UE, incluindo a regulamentação de criptoativos e valores mobiliários.",
+"tk.c3":"Avaliação de plataformas blockchain, smart contracts, custódia e normas de segurança.",
+"tk.disc":"Esta área encontra-se em fase de análise. A BPE não emite nem oferece atualmente tokens ao público.",
+"da.p1":"Desde 2026, a BPE analisa e testa a mineração de Bitcoin como segmento de investimento adicional. Para o efeito, adquiriu participações ou direitos económicos sobre hardware de mineração e capacidade de mineração digital – para avaliar a rentabilidade e as condições técnicas com base em dados reais de produção.",
+"da.r1":"Rendimento em Bitcoin gerado pela capacidade de computação utilizada.",
+"da.r2":"Custos correntes – sobretudo energia, infraestrutura, operação e manutenção.",
+"da.r3":"Prazo de recuperação e rentabilidade do capital em diferentes condições de mercado.",
+"da.r4":"Comparação de tecnologias de mineração por capacidade, eficiência energética e rentabilidade.",
+"da.r5":"Preço do Bitcoin, dificuldade de mineração, hashrate da rede e evolução das recompensas.",
+"da.disc":"Esta área serve atualmente a análise de investimento própria da BPE. A BPE não oferece investimentos públicos em mineração nem produtos com rendimento garantido.",
+"it.title":"Aprovisionamento & Comércio Internacional",
+"it.p1":"A BPE estuda o desenvolvimento de uma atividade de comércio internacional: aquisição direta de produtos técnicos e materiais de construção selecionados a fabricantes na China, para importação para Portugal e o mercado europeu – através de compra direta, cadeias de abastecimento otimizadas e distribuição eficiente.",
+"it.projT":"Projeto atualmente em avaliação",
+"it.proj":"Sistemas modernos de ar condicionado split, incluindo unidades com o refrigerante natural R290 – avaliação de qualidade, eficiência energética, conformidade e certificação UE, logística, alfândega e mercado português.",
+"it.modelT":"Modelo de negócio",
+"it.model":"Identificar produtos adequados e de qualidade que possam ser oferecidos a preços competitivos através de aprovisionamento internacional direto, em colaboração com instaladores locais.",
+"it.disc":"Esta área de negócio encontra-se em fase de avaliação económica e regulatória e ainda não está operacional. Uma futura extensão a outros produtos técnicos e materiais de construção é possível.",
+"mg.p1":"Marcus Boehm é um empresário e investidor alemão com longa experiência internacional em gestão empresarial, tecnologia financeira, desenvolvimento estratégico e investimentos – com atividade empresarial na Alemanha, Suíça, Grécia e Portugal.",
+"mg.p2":"Tem vasta experiência no setor FinTech, incluindo como CEO de uma empresa suíça de tecnologia financeira. Com a BPE, pretende identificar oportunidades de investimento cedo, avaliá-las com rigor económico e transformá-las em ativos de valor duradouro.",
+"geo.title":"Foco Geográfico",
+"geo.pt":"Sede · investimento imobiliário · desenvolvimento de projetos · arrendamento · avaliação de oportunidades comerciais",
+"geo.deN":"Alemanha",
+"geo.de":"Redes empresariais · tecnologia · setor financeiro · contactos de investimento",
+"geo.chN":"Suíça",
+"geo.ch":"Tecnologia financeira · participações empresariais · atividades de investimento internacionais",
+"geo.grN":"Grécia",
+"geo.gr":"Desenvolvimento tecnológico · software · parcerias empresariais",
+"geo.cnN":"China",
+"geo.cn":"Análise de mercados de aprovisionamento · contactos com fabricantes · possíveis relações de importação futuras",
+"ct.p1":"Recebemos com interesse contactos de empresários e parceiros de investimento, vendedores de imóveis e promotores, empresas tecnológicas e fundadores, fabricantes e fornecedores, bem como bancos e parceiros institucionais.",
+"ct.name":"Nome",
+"ct.company":"Empresa",
+"ct.email":"E-mail",
+"ct.topic":"Assunto",
+"ct.other":"Outro pedido",
+"ct.msg":"Mensagem",
+"ct.data":"Dados da Empresa",
+"ct.co":"Sociedade",
+"ct.legal":"Forma jurídica",
+"ct.md":"Gerente",
+"ct.addr":"Sede social",
+"ct.found":"Constituição",
+"foot.disc":"A BPE Lda. investe exclusivamente capital próprio. O conteúdo deste website não constitui oferta de produtos financeiros, aconselhamento de investimento nem solicitação para investir. A BPE não gere fundos de clientes.",
+"foot.imp":"Informação legal",
+"foot.priv":"Privacidade",
+"geo.ptN":"Portugal",
+"re.photo":"No local: coordenação da reabilitação",
+"rp.title":"Da ruína à casa inteligente",
+"rp.aria":"A nossa abordagem em quatro etapas: ruína, projeto, obra em tosco, chave na mão",
+"rp.t1":"Ruína",
+"rp.s1":"Imóvel com potencial",
+"rp.t2":"Projeto",
+"rp.s2":"com arquitetos",
+"rp.t3":"Obra em tosco",
+"rp.s3":"pelo empreiteiro",
+"rp.t4":"Chave na mão",
+"rp.s4":"moderno & inteligente",
+"bx.title":"Bitcoin – o ouro digital",
+"bx.sub":"Dinheiro escasso em forma de software. E ainda agora está a começar.",
+"bx.asof":"Atualizado a 19.11.2026",
+"bx.f1t":"Limitada",
+"bx.f1d":"Máximo de 21 milhões – nunca mais",
+"bx.f2t":"Sistema fechado",
+"bx.f2d":"Regras no código, protegido pela mineração",
+"bx.f3t":"Independente dos bancos",
+"bx.f3d":"Direta, global, 24 horas por dia",
+"bx.f4t":"Medida de valor",
+"bx.f4d":"Uma unidade que não se dilui",
+"bx.c1t":"O dólar está a ser impresso",
+"bx.c1m2":"Massa monetária M2 dos EUA, biliões de $",
+"bx.c1since":"Massa monetária desde 1971",
+"bx.c1pp":"Poder de compra de 1 $",
+"bx.c1ppv":"−87 %",
+"bx.c1btc":"Bitcoin, para sempre",
+"bx.c1btcv":"21 milhões",
+"bx.c2t":"Escassez real",
+"bx.c2max":"Máximo por pessoa",
+"bx.c2maxs":"≈ 160 $ · 8,2 mil milhões de pessoas",
+"bx.c2share":"1 bitcoin é partilhada por",
+"bx.c2people":"pessoas (pontos abaixo)",
+"bx.c3t":"Bitcoin como referência",
+"bx.c3h":"Preço em bitcoin",
+"bx.c3r1":"Habitação nos EUA",
+"bx.c3r2":"1 onça de ouro",
+"bx.c3r3":"1.000 dólares",
+"bx.c3note":"Em dólares, tudo sobe. Medido em bitcoin, fica mais barato.",
+"bx.c4t":"O ciclo típico de uma nova classe de ativos",
+"bx.c4now":"Bitcoin hoje: ~4 %",
+"bx.c4cmp":"≈ Internet em 1999",
+"bx.seg1":"Inovadores 2,5 %",
+"bx.seg2":"Primeiros adeptos",
+"bx.seg3":"Maioria inicial",
+"bx.seg4":"Maioria tardia",
+"bx.seg5":"Retardatários",
+"bx.t1t":"Particulares",
+"bx.t1d":"Pioneiros tecnológicos",
+"bx.t2t":"Bolsas & carteiras",
+"bx.t2d":"Coinbase, Kraken",
+"bx.t3t":"Empresas",
+"bx.t3d":"Strategy: 846 mil BTC",
+"bx.t4t":"Institucionais",
+"bx.t4d":"ETF spot",
+"bx.t5t":"Estados",
+"bx.t5d":"Reserva dos EUA",
+"bx.t6t":"Bancos centrais",
+"bx.t6d":"Chéquia em teste",
+"bx.c5t":"Nova classe de ativos",
+"bx.s1l":"Volume diário",
+"bx.s1v":"~22 mil milhões $",
+"bx.s1s":"Spot, a nível mundial",
+"bx.s2l":"ETF spot dos EUA",
+"bx.s2v":"1,25 milhões BTC",
+"bx.s2s":"≈ 78 mil milhões $",
+"bx.s3l":"Coinbase · N.º 1",
+"bx.s3v":"1,2 mil milhões $",
+"bx.s3s":"Receitas T3 2026",
+"bx.s4l":"Kraken · N.º 2",
+"bx.s4v":"13 milhões",
+"bx.s4s":"Clientes",
+"bx.s5l":"Empresas",
+"bx.s5v":"> 1 milhão BTC",
+"bx.s5s":"Em carteira",
+"bx.s6l":"Estados",
+"bx.s6v":"> 590 mil",
+"bx.s6s":"BTC em carteira",
+"bx.banner":"Oferta fixa + procura crescente = ouro digital.",
+"bx.src":"Fontes: BTC ~63 000 $, ouro ~3690 $/oz (AOL, TheDailyCoins), mediana da habitação (NAR), M2 (FRED), ETF (Cointelegraph), Coinbase (relatório T3), Kraken (QuantLogix), participações (SoFi), volume (Coinotag). Curva S segundo Rogers. Valores arredondados. A bitcoin é muito volátil. Não constitui aconselhamento de investimento."},
+ja:{
+"menu":"メニュー",
+"nav.about":"BPEについて",
+"nav.re":"不動産",
+"nav.da":"デジタル資産",
+"nav.it":"国際貿易",
+"nav.mg":"経営陣",
+"nav.ct":"お問い合わせ",
+"hero.h1":"価値に投資し、未来を築く。",
+"hero.sub":"不動産、デジタル資産、そして新たな機会への独立した投資。",
+"hero.philLabel":"私たちの理念",
+"areas.title":"事業分野",
+"areas.re":"ポルトガルにおける住宅不動産の取得、改修、およびアクティブな資産運用。",
+"areas.da":"実物資産のトークン化とビットコイン・マイニング ― 実データに基づく分析。",
+"areas.it":"技術製品の国際的な直接調達 ― 現在検討中。",
+"about.p1":"BPE Lda.は、ポルトガル・モンテモール・オ・ノヴォに本拠を置く、オーナー経営のポルトガルの投資・持株会社です。2022年に設立され、代表取締役マルクス・ベーム（Marcus Boehm）が100％出資し、経営を担っています。",
+"about.p2":"BPEは起業家的な投資アプローチを採用しています。的を絞った資本投下、事業面での価値創造、長期的なアセットマネジメントを通じて、持続可能な資産を構築します。自己資本のみを、厳選して長期的な視点で投資します。",
+"about.motto":"BPEは仲介業者でも、一般的なデベロッパーでも、個人向け金融サービス業者でもありません。自己資本、実務経験、そして国際的な視野を備えた非公開の投資会社です。",
+"strat.title":"投資戦略 ― 4つの基本原則",
+"strat.p1":"経済的価値と市場価格の間に魅力的な機会がある分野に投資します。",
+"strat.p2":"価値は能動的に創出します。不動産では改修・近代化を通じて、事業投資ではイノベーション、規模拡大、事業開発を通じて価値を高めます。",
+"strat.p3":"継続的な収益と中長期的な資産価値の向上の両方を重視します。",
+"strat.p4":"投資判断は、経済分析、現実的な収益想定、ならびに技術的・規制上・市場上のリスク評価に基づいて行います。",
+"st.active":"稼働中",
+"st.analysis":"分析段階",
+"st.eval":"検討中",
+"re.title":"不動産投資・開発",
+"re.claim":"不動産を取得し、価値を高め、収益を確保する。",
+"re.p1":"不動産はBPEの中核事業です。ポルトガル、特にアレンテージョ地方の住宅不動産に投資し、近代化、改修、または用途変更によって市場価値を高められる物件に注力しています。",
+"re.acq":"割安な物件、改修が必要な物件、または開発余地のある物件の発掘と取得。",
+"re.ren":"建物構造および設備面での包括的な改修・近代化工事の計画と実施。",
+"re.am":"工事完了後、物件ごとに経済的に最適な活用戦略を決定します。",
+"re.l1":"既存建物の構造・設備の改修",
+"re.l2":"キッチン、浴室、居住空間の近代化",
+"re.l3":"エネルギー効率の向上",
+"re.l4":"建築設備の更新",
+"re.l5":"最新の空調・住宅設備の導入",
+"re.l6":"間取りと住空間コンセプトの最適化",
+"re.l7":"物件品質と賃貸適性の向上",
+"re.sa":"戦略A",
+"re.sb":"戦略B",
+"re.saT":"取得、近代化、その後の売却 ― 実現した価値上昇を投資収益とします。",
+"re.sbT":"近代化した物件を長期保有 ― 継続的な賃料収入とさらなる価値上昇を目指します。",
+"re.ca":"有利な取得、的確な近代化、市場の発展による資産価値の上昇。",
+"re.ri":"自社保有物件の長期賃貸による定期的な収入。",
+"re.region":"地域的重点：アレンテージョ地方モンテモール・オ・ノヴォ ― 住宅不動産への投資、アパートの改修と賃貸。6戸の住宅で構成される開発プロジェクトを含みます。プロジェクトは地元の建築家、建設会社、技術サービス事業者、不動産専門家と連携して実施し、BPEは事業計画、プロジェクト管理、投資判断を担います。",
+"da.title":"デジタル資産：トークン化とビットコイン・マイニング",
+"da.intro":"BPEはデジタル資産の分野で2つのテーマに注力しています。ブロックチェーン上での実物資産のトークン化と、デジタル生産インフラとしてのビットコイン・マイニングです。",
+"tk.title":"実物資産のトークン化",
+"tk.p1":"トークン化とは、不動産などの実物資産、またはその権利を、ブロックチェーン上のデジタルトークンとして表現することです。これにより所有構造の透明性が高まり、移転が簡素化され、新たな資金調達や小口参加の形が生まれる可能性があります。BPEは、不動産とフィンテックにおける自らの経験をこの分野でどのように組み合わせられるかを分析しています。",
+"tk.c1":"実物資産と所有権のブロックチェーン上でのデジタル表現。",
+"tk.c2":"暗号資産規制や証券規制を含む、EUにおける法的・規制上の要件の検討。",
+"tk.c3":"ブロックチェーン基盤、スマートコントラクト、カストディ、セキュリティ基準の評価。",
+"tk.disc":"この分野は分析段階にあります。BPEは現在、トークンの発行や一般向けの提供を行っていません。",
+"da.p1":"BPEは2026年より、新たな投資分野としてビットコイン・マイニングの分析と試験運用を行っています。そのためにマイニング機器およびデジタル・マイニング能力に対する持分または経済的権利を取得し、実際の生産データに基づいて収益性と技術的条件を検証しています。",
+"da.r1":"投入した計算能力によって得られるビットコイン収益。",
+"da.r2":"運営コスト ― 特にエネルギー、インフラ、運用、保守。",
+"da.r3":"さまざまな市場環境における投資回収期間と資本収益率。",
+"da.r4":"ハッシュレート、エネルギー効率、経済性によるマイニング技術の比較。",
+"da.r5":"ビットコイン価格、マイニング難易度、ネットワーク・ハッシュレート、マイニング報酬の変動。",
+"da.disc":"この分野は現在、BPE自身の投資分析を目的としています。BPEは一般向けのマイニング投資や元本・利回り保証型の商品を提供していません。",
+"it.title":"国際調達・貿易",
+"it.p1":"BPEは国際貿易事業の立ち上げを検討しています。厳選した技術製品や建築資材を中国のメーカーから直接調達し、ポルトガルおよび欧州市場へ輸入するもので、直接購買、最適化されたサプライチェーン、効率的な流通を活用します。",
+"it.projT":"現在検討中のプロジェクト",
+"it.proj":"自然冷媒R290を使用する機種を含む最新のスプリット型エアコン ― 品質、エネルギー効率、EU適合性と認証、物流、通関、ポルトガル市場について検討しています。",
+"it.modelT":"ビジネスモデル",
+"it.model":"国際的な直接調達により競争力のある価格で提供できる、適切で高品質な製品を見極め、地元の施工専門業者と連携します。",
+"it.disc":"この事業分野は現在、経済面および規制面の評価段階にあり、まだ稼働していません。将来的には他の技術製品や建築資材への拡大も考えられます。",
+"mg.p1":"マルクス・ベームは、企業経営、フィンテック、戦略的事業開発、投資の分野で長年の国際経験を持つドイツ人の起業家・投資家です。ドイツ、スイス、ギリシャ、ポルトガルで事業活動を行ってきました。",
+"mg.p2":"スイスのフィンテック企業のCEOを務めるなど、フィンテック分野で豊富な経験を有しています。BPEを通じて、投資機会をいち早く見いだし、経済的に確かな評価を行い、長期的に価値ある資産へと育てることを目指しています。",
+"geo.title":"地理的重点",
+"geo.ptN":"ポルトガル",
+"geo.pt":"本社 · 不動産投資 · プロジェクト開発 · 賃貸 · 貿易機会の検討",
+"geo.deN":"ドイツ",
+"geo.de":"起業家ネットワーク · テクノロジー · 金融 · 投資関係のつながり",
+"geo.chN":"スイス",
+"geo.ch":"フィンテック · 事業投資 · 国際的な投資活動",
+"geo.grN":"ギリシャ",
+"geo.gr":"技術開発 · ソフトウェア · 事業提携",
+"geo.cnN":"中国",
+"geo.cn":"調達市場の分析 · メーカーとの関係 · 将来の輸入関係の可能性",
+"ct.p1":"起業家や投資パートナー、不動産の売主やデベロッパー、テクノロジー企業や創業者、メーカーやサプライヤー、そして銀行や機関投資家の皆様からのお問い合わせをお待ちしております。",
+"ct.name":"お名前",
+"ct.company":"会社名",
+"ct.email":"メールアドレス",
+"ct.topic":"件名",
+"ct.other":"その他のお問い合わせ",
+"ct.msg":"メッセージ",
+"ct.data":"会社概要",
+"ct.co":"会社名",
+"ct.legal":"法人形態",
+"ct.md":"代表取締役",
+"ct.addr":"本店所在地",
+"ct.found":"設立",
+"foot.disc":"BPE Lda.は自己資本のみで投資を行っています。本ウェブサイトの内容は、金融商品の募集、投資助言、または投資の勧誘を構成するものではありません。BPEは顧客資産の運用を行っていません。",
+"foot.imp":"法的情報",
+"foot.priv":"プライバシー",
+"re.photo":"現場にて：改修工事の打ち合わせ",
+"rp.title":"廃屋からスマートホームへ",
+"rp.aria":"4つのステップによる私たちの取り組み：廃屋、設計、躯体工事、完成・引き渡し",
+"rp.t1":"廃屋",
+"rp.s1":"ポテンシャルのある物件",
+"rp.t2":"設計",
+"rp.s2":"建築家と共に",
+"rp.t3":"躯体工事",
+"rp.s3":"施工会社による",
+"rp.t4":"完成・引き渡し",
+"rp.s4":"モダン & スマート",
+"bx.title":"ビットコイン ― デジタル・ゴールド",
+"bx.sub":"ソフトウェアとしての希少な通貨。そして、まだ始まったばかり。",
+"bx.asof":"2026年11月19日時点",
+"bx.f1t":"発行上限",
+"bx.f1d":"最大2,100万枚 ― それ以上は発行されない",
+"bx.f2t":"閉じたシステム",
+"bx.f2d":"ルールはコードに、安全はマイニングが担保",
+"bx.f3t":"銀行から独立",
+"bx.f3d":"直接、世界中で、24時間",
+"bx.f4t":"価値の尺度",
+"bx.f4d":"希薄化しない単位",
+"bx.c1t":"刷られ続けるドル",
+"bx.c1m2":"米国マネーサプライM2（兆ドル）",
+"bx.c1since":"1971年以降のマネーサプライ",
+"bx.c1pp":"1ドルの購買力",
+"bx.c1ppv":"−87%",
+"bx.c1btc":"ビットコインは永遠に",
+"bx.c1btcv":"2,100万",
+"bx.c2t":"本物の希少性",
+"bx.c2max":"1人あたり最大",
+"bx.c2maxs":"約160ドル · 世界人口82億人",
+"bx.c2share":"1ビットコインを分け合う人数",
+"bx.c2people":"人（下の点）",
+"bx.c3t":"尺度としてのビットコイン",
+"bx.c3h":"ビットコイン建て価格",
+"bx.c3r1":"米国の住宅",
+"bx.c3r2":"金1オンス",
+"bx.c3r3":"1,000ドル",
+"bx.c3note":"ドル建てではすべてが値上がりする。ビットコインで測ると安くなる。",
+"bx.c4t":"新しい資産クラスの典型的なサイクル",
+"bx.c4now":"現在のビットコイン：約4%",
+"bx.c4cmp":"≈ 1999年のインターネット",
+"bx.seg1":"イノベーター 2.5%",
+"bx.seg2":"アーリーアダプター",
+"bx.seg3":"アーリーマジョリティ",
+"bx.seg4":"レイトマジョリティ",
+"bx.seg5":"ラガード",
+"bx.t1t":"個人",
+"bx.t1d":"テックの先駆者",
+"bx.t2t":"取引所とウォレット",
+"bx.t2d":"Coinbase、Kraken",
+"bx.t3t":"企業",
+"bx.t3d":"Strategy：84.6万BTC",
+"bx.t4t":"機関投資家",
+"bx.t4d":"現物ETF",
+"bx.t5t":"国家",
+"bx.t5d":"米国の準備資産",
+"bx.t6t":"中央銀行",
+"bx.t6d":"チェコが試験中",
+"bx.c5t":"新しい資産クラス",
+"bx.s1l":"1日の取引高",
+"bx.s1v":"約220億ドル",
+"bx.s1s":"現物・世界全体",
+"bx.s2l":"米国現物ETF",
+"bx.s2v":"125万BTC",
+"bx.s2s":"約780億ドル",
+"bx.s3l":"Coinbase · 第1位",
+"bx.s3v":"12億ドル",
+"bx.s3s":"2026年第3四半期売上高",
+"bx.s4l":"Kraken · 第2位",
+"bx.s4v":"1,300万",
+"bx.s4s":"顧客数",
+"bx.s5l":"企業",
+"bx.s5v":"100万BTC超",
+"bx.s5s":"保有量",
+"bx.s6l":"国家",
+"bx.s6v":"59万BTC超",
+"bx.s6s":"BTC保有量",
+"bx.banner":"固定された供給量 + 増え続ける需要 = デジタル・ゴールド。",
+"bx.src":"出典：BTC 約63,000ドル、金 約3,690ドル/オンス（AOL、TheDailyCoins）、住宅価格中央値（NAR）、M2（FRED）、ETF（Cointelegraph）、Coinbase（第3四半期報告）、Kraken（QuantLogix）、保有量（SoFi）、取引高（Coinotag）。Sカーブはロジャーズの理論に基づく。数値は概数。ビットコインは価格変動が非常に大きい資産です。投資助言ではありません。"},
+zh:{
+"menu":"菜单",
+"nav.about":"关于BPE",
+"nav.re":"房地产",
+"nav.da":"数字资产",
+"nav.it":"国际贸易",
+"nav.mg":"管理层",
+"nav.ct":"联系我们",
+"hero.h1":"投资价值，构建未来。",
+"hero.sub":"独立投资于房地产、数字资产及新兴机遇。",
+"hero.philLabel":"我们的理念",
+"areas.title":"业务领域",
+"areas.re":"在葡萄牙收购、翻新并积极管理住宅物业。",
+"areas.da":"实物资产代币化与比特币挖矿——基于真实数据进行分析。",
+"areas.it":"技术产品的国际直接采购——目前处于评估阶段。",
+"about.p1":"BPE Lda. 是一家由所有者亲自管理的葡萄牙投资及控股公司，总部位于葡萄牙蒙特莫尔-诺沃（Montemor-o-Novo）。公司成立于2022年，由董事总经理 Marcus Boehm 100%持有并管理。",
+"about.p2":"BPE 奉行企业家式的投资理念：通过有针对性的资本投入、运营层面的价值创造以及长期资产管理，打造可持续的资产。公司以自有资本进行投资，精挑细选，着眼长远。",
+"about.motto":"BPE 既不是中介机构，也不是传统开发商或面向个人客户的金融服务机构，而是一家拥有自有资本、实操经验和国际视野的私人投资公司。",
+"strat.title":"投资策略——四项基本原则",
+"strat.p1":"我们投资于经济价值与市场价格之间存在吸引力机会的领域。",
+"strat.p2":"价值通过主动方式创造——在房地产领域通过翻新与现代化改造，在企业投资领域通过创新、规模化和运营发展。",
+"strat.p3":"我们同时关注持续性收益与中长期资产增值。",
+"strat.p4":"投资决策基于经济分析、合理的收益假设，以及对技术、监管和市场风险的评估。",
+"st.active":"运营中",
+"st.analysis":"分析阶段",
+"st.eval":"评估中",
+"re.title":"房地产投资与开发",
+"re.claim":"收购物业，提升价值，确保收益。",
+"re.p1":"房地产是 BPE 的核心业务。我们投资于葡萄牙的住宅物业，尤其是阿连特茹（Alentejo）地区，重点关注可通过现代化改造、翻新或变更用途来提升市场价值的物业。",
+"re.acq":"发掘并收购被低估、需要翻新或具有开发潜力的物业。",
+"re.ren":"规划并实施全面的建筑结构及技术设施翻新与现代化改造工程。",
+"re.am":"工程完成后，针对每处物业确定经济上最合理的运营策略。",
+"re.l1":"既有建筑的结构与技术翻新",
+"re.l2":"厨房、浴室及起居空间的现代化改造",
+"re.l3":"提升能源效率",
+"re.l4":"更新建筑设备设施",
+"re.l5":"现代化空调及楼宇技术",
+"re.l6":"优化户型与居住理念",
+"re.l7":"提升物业品质与出租吸引力",
+"re.sa":"策略A",
+"re.sb":"策略B",
+"re.saT":"收购、现代化改造后出售——将实现的增值作为投资回报。",
+"re.sbT":"长期持有改造后的物业——获取持续租金收入及进一步增值。",
+"re.ca":"通过有利的收购价格、有针对性的现代化改造和市场发展实现资产增值。",
+"re.ri":"来自自有物业长期出租的稳定收入。",
+"re.region":"区域重点：阿连特茹地区蒙特莫尔-诺沃——住宅物业投资、公寓翻新与出租，其中包括一个由六套住宅单元组成的开发项目。项目与当地建筑师、建筑公司、技术服务商及房地产专家合作实施；BPE 负责经济规划、项目管理和投资决策。",
+"da.title":"数字资产：代币化与比特币挖矿",
+"da.intro":"在数字资产领域，BPE 专注于两个主题：在区块链上实现实物资产代币化，以及作为数字生产基础设施的比特币挖矿。",
+"tk.title":"实物资产代币化",
+"tk.p1":"代币化是指将实物资产（例如房产）或其相关权利，以数字代币的形式记录在区块链上。这可以提高所有权结构的透明度、简化转让流程，并开辟新的融资方式和份额化参与形式。BPE 正在分析如何在这一领域结合自身在房地产和金融科技方面的经验。",
+"tk.c1":"在区块链上以数字形式呈现实物资产及所有权。",
+"tk.c2":"评估欧盟的法律与监管要求，包括加密资产及证券监管。",
+"tk.c3":"评估区块链平台、智能合约、资产托管及安全标准。",
+"tk.disc":"该领域目前处于分析阶段。BPE 目前不发行代币，也不向公众提供代币。",
+"da.p1":"自2026年起，BPE 开始分析并试行比特币挖矿，将其作为新增投资领域。为此，BPE 已取得矿机硬件及数字算力的权益或经济权利，以便基于真实生产数据评估实际盈利能力和技术条件。",
+"da.r1":"所投入算力产生的比特币收益。",
+"da.r2":"运营成本——尤其是能源、基础设施、运营及维护。",
+"da.r3":"不同市场条件下的投资回收期与资本回报率。",
+"da.r4":"按算力、能效和经济性比较不同挖矿技术。",
+"da.r5":"比特币价格、挖矿难度、全网算力及挖矿奖励的变化。",
+"da.disc":"该业务目前用于 BPE 自身的投资分析。BPE 不提供面向公众的挖矿投资，也不提供保证收益的产品。",
+"it.title":"国际采购与贸易",
+"it.p1":"BPE 正在探索开展国际贸易业务：直接向中国制造商采购精选的技术产品和建筑材料，进口至葡萄牙及欧洲市场——依托直接采购、优化的供应链和高效的分销体系。",
+"it.projT":"当前评估项目",
+"it.proj":"现代分体式空调系统，包括采用天然制冷剂 R290 的机型——评估质量、能效、欧盟合规与认证、物流、海关以及葡萄牙市场。",
+"it.modelT":"商业模式",
+"it.model":"甄选合适的优质产品，通过国际直接采购以具有竞争力的价格提供，并与当地安装专业公司合作。",
+"it.disc":"该业务目前处于经济与监管评估阶段，尚未正式运营。未来可能扩展至其他技术产品和建筑材料。",
+"mg.p1":"Marcus Boehm 是一位德国企业家和投资人，在企业管理、金融科技、战略业务发展和投资领域拥有多年国际经验，曾在德国、瑞士、希腊和葡萄牙开展创业活动。",
+"mg.p2":"他在金融科技领域经验丰富，曾担任一家瑞士金融科技公司的首席执行官。通过 BPE，他致力于及早发现投资机会，以扎实的经济分析进行评估，并将其发展为具有持久价值的资产。",
+"geo.title":"地域重点",
+"geo.ptN":"葡萄牙",
+"geo.pt":"总部 · 房地产投资 · 项目开发 · 租赁 · 贸易机会评估",
+"geo.deN":"德国",
+"geo.de":"创业网络 · 科技 · 金融 · 投资人脉",
+"geo.chN":"瑞士",
+"geo.ch":"金融科技 · 企业投资 · 国际投资活动",
+"geo.grN":"希腊",
+"geo.gr":"技术开发 · 软件 · 商业合作",
+"geo.cnN":"中国",
+"geo.cn":"采购市场分析 · 制造商联系 · 未来潜在的进口合作",
+"ct.p1":"我们欢迎企业家与投资伙伴、物业卖方与开发商、科技公司与创始人、制造商与供应商，以及银行和机构合作伙伴与我们联系。",
+"ct.name":"姓名",
+"ct.company":"公司",
+"ct.email":"电子邮箱",
+"ct.topic":"主题",
+"ct.other":"其他咨询",
+"ct.msg":"留言",
+"ct.data":"公司信息",
+"ct.co":"公司名称",
+"ct.legal":"法律形式",
+"ct.md":"董事总经理",
+"ct.addr":"注册地址",
+"ct.found":"成立时间",
+"foot.disc":"BPE Lda. 仅以自有资本进行投资。本网站内容不构成金融产品的要约、投资建议或投资招揽。BPE 不管理客户资金。",
+"foot.imp":"法律声明",
+"foot.priv":"隐私政策",
+"re.photo":"现场：翻新工程沟通协调",
+"rp.title":"从旧房到智能住宅",
+"rp.aria":"我们的四步流程：旧房、规划设计、主体施工、交钥匙",
+"rp.t1":"旧房",
+"rp.s1":"具有潜力的物业",
+"rp.t2":"规划设计",
+"rp.s2":"与建筑师合作",
+"rp.t3":"主体施工",
+"rp.s3":"由建筑承包商完成",
+"rp.t4":"交钥匙",
+"rp.s4":"现代 & 智能",
+"bx.title":"比特币——数字黄金",
+"bx.sub":"以软件形式存在的稀缺货币，而这一切才刚刚开始。",
+"bx.asof":"截至2026年11月19日",
+"bx.f1t":"总量有限",
+"bx.f1d":"最多2100万枚——永不增发",
+"bx.f2t":"封闭系统",
+"bx.f2d":"规则写入代码，挖矿保障安全",
+"bx.f3t":"独立于银行",
+"bx.f3d":"直接、全球、全天候",
+"bx.f4t":"价值尺度",
+"bx.f4d":"不会被稀释的计量单位",
+"bx.c1t":"美元不断被印出",
+"bx.c1m2":"美国M2货币供应量（万亿美元）",
+"bx.c1since":"1971年以来货币供应量",
+"bx.c1pp":"1美元购买力",
+"bx.c1ppv":"−87%",
+"bx.c1btc":"比特币，永远",
+"bx.c1btcv":"2100万",
+"bx.c2t":"真正的稀缺",
+"bx.c2max":"每人最多",
+"bx.c2maxs":"约160美元 · 全球82亿人",
+"bx.c2share":"1枚比特币由",
+"bx.c2people":"人共享（见下方圆点）",
+"bx.c3t":"以比特币为尺度",
+"bx.c3h":"以比特币计价",
+"bx.c3r1":"美国住房",
+"bx.c3r2":"1盎司黄金",
+"bx.c3r3":"1000美元",
+"bx.c3note":"以美元计价，一切都在上涨；以比特币衡量，一切都在变便宜。",
+"bx.c4t":"新资产类别的典型周期",
+"bx.c4now":"比特币目前：约4%",
+"bx.c4cmp":"≈ 1999年的互联网",
+"bx.seg1":"创新者 2.5%",
+"bx.seg2":"早期采用者",
+"bx.seg3":"早期大众",
+"bx.seg4":"后期大众",
+"bx.seg5":"落后者",
+"bx.t1t":"个人",
+"bx.t1d":"科技先驱",
+"bx.t2t":"交易所与钱包",
+"bx.t2d":"Coinbase、Kraken",
+"bx.t3t":"企业",
+"bx.t3d":"Strategy：84.6万枚BTC",
+"bx.t4t":"机构投资者",
+"bx.t4d":"现货ETF",
+"bx.t5t":"国家",
+"bx.t5d":"美国储备",
+"bx.t6t":"央行",
+"bx.t6d":"捷克正在测试",
+"bx.c5t":"新资产类别",
+"bx.s1l":"日交易量",
+"bx.s1v":"约220亿美元",
+"bx.s1s":"全球现货",
+"bx.s2l":"美国现货ETF",
+"bx.s2v":"125万枚BTC",
+"bx.s2s":"约780亿美元",
+"bx.s3l":"Coinbase · 第一",
+"bx.s3v":"12亿美元",
+"bx.s3s":"2026年第三季度营收",
+"bx.s4l":"Kraken · 第二",
+"bx.s4v":"1300万",
+"bx.s4s":"客户",
+"bx.s5l":"企业",
+"bx.s5v":"超过100万枚BTC",
+"bx.s5s":"持有量",
+"bx.s6l":"国家",
+"bx.s6v":"超过59万枚",
+"bx.s6s":"BTC持有量",
+"bx.banner":"固定供应 + 持续增长的需求 = 数字黄金。",
+"bx.src":"来源：BTC约63,000美元，黄金约3,690美元/盎司（AOL、TheDailyCoins），住房价格中位数（NAR），M2（FRED），ETF（Cointelegraph），Coinbase（第三季度报告），Kraken（QuantLogix），持有量（SoFi），交易量（Coinotag）。S曲线参照罗杰斯理论。数据为约数。比特币波动性极高。不构成投资建议。"}
+};
+const X={
+de:{"x.skip":"Zum Inhalt springen","x.nav":"Hauptmenü","x.lang":"Sprache","x.cta":"BPE kontaktieren","x.toRe":"Mehr zu Immobilien","x.toDa":"Mehr zu Digital Assets","x.toIt":"Mehr zum Handel","x.phil":"Chancen erkennen. Werte schaffen. Langfristig Vermögen aufbauen.","x.s1":"Wertorientiert investieren","x.s2":"Aktive Wertschöpfung","x.s3":"Cashflow & Kapitalwachstum","x.s4":"Risikomanagement","x.acq":"Erwerb","x.ren":"Sanierung & Modernisierung","x.am":"Asset Management","x.alt":"Zwei Personen besprechen die Arbeiten vor einem sanierungsbedürftigen Haus","x.workT":"Was wir erneuern","x.sell":"Kaufen. Sanieren. Verkaufen.","x.hold":"Kaufen. Sanieren. Halten.","x.cap":"Wertsteigerung","x.rent":"Laufende Mieteinnahmen","x.units":"Wohneinheiten in einem Entwicklungsprojekt","x.t1":"Tokenisierung von Vermögenswerten","x.t2":"Regulierung","x.t3":"Technologie & Sicherheit","x.mining":"Bitcoin-Mining","x.altBtc":"Marcus Boehm vor einem Bitcoin-Mining-Container","x.m1":"Mining-Erträge","x.m2":"Betriebskosten","x.m3":"Kapitalrendite","x.m4":"Technologie & Effizienz","x.m5":"Marktrisiko","x.dots":"390 Punkte, jeder steht für einen Menschen","x.sid":"Beschaffen. Importieren. Vertreiben.","x.role":"Gründer, Eigentümer und Geschäftsführer","x.say":"Investieren in reale Werte, Innovation und nachhaltige Wertschöpfung.","x.mailBtn":"Als E-Mail öffnen","x.mailNote":"Öffnet Ihr E-Mail-Programm mit der fertigen Nachricht. Sie senden sie selbst ab; diese Website speichert nichts.","x.mailDone":"Ihr E-Mail-Programm sollte sich jetzt öffnen. Falls nicht, schreiben Sie an ","x.priv":"Diese Website setzt keine Cookies, nutzt keine Analyse-Werkzeuge und lädt nichts von Dritten. Ihr Browser merkt sich nur die gewählte Sprache. Unser Hosting-Anbieter Vercel verarbeitet technische Zugriffsdaten wie die IP-Adresse, um die Seite auszuliefern. Verantwortlich: BPE Lda., Anschrift unter Kontakt. Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Widerspruch sowie auf Beschwerde bei der portugiesischen Datenschutzbehörde CNPD."},
+pt:{"x.skip":"Saltar para o conteúdo","x.nav":"Menu principal","x.lang":"Idioma","x.cta":"Contactar a BPE","x.toRe":"Mais sobre imobiliário","x.toDa":"Mais sobre ativos digitais","x.toIt":"Mais sobre comércio","x.phil":"Identificar oportunidades. Criar valor. Construir património a longo prazo.","x.s1":"Investimento em valor","x.s2":"Criação ativa de valor","x.s3":"Cash flow e crescimento do capital","x.s4":"Gestão de risco","x.acq":"Aquisição","x.ren":"Reabilitação e modernização","x.am":"Gestão de ativos","x.alt":"Duas pessoas a discutir a obra em frente de uma casa por reabilitar","x.workT":"O que renovamos","x.sell":"Comprar. Reabilitar. Vender.","x.hold":"Comprar. Reabilitar. Manter.","x.cap":"Valorização do capital","x.rent":"Rendas recorrentes","x.units":"frações habitacionais num projeto de desenvolvimento","x.t1":"Tokenização de ativos","x.t2":"Regulação","x.t3":"Tecnologia e segurança","x.mining":"Mineração de Bitcoin","x.altBtc":"Marcus Boehm em frente de um contentor de mineração de Bitcoin","x.m1":"Receitas de mineração","x.m2":"Custos operacionais","x.m3":"Retorno do investimento","x.m4":"Tecnologia e eficiência","x.m5":"Risco de mercado","x.dots":"390 pontos, cada um representa uma pessoa","x.sid":"Adquirir. Importar. Distribuir.","x.role":"Fundador, proprietário e gerente","x.say":"Investir em ativos reais, inovação e criação de valor sustentável.","x.mailBtn":"Abrir como e-mail","x.mailNote":"Abre o seu programa de e-mail com a mensagem pronta. O envio é feito por si; este website não guarda nada.","x.mailDone":"O seu programa de e-mail deverá abrir agora. Caso contrário, escreva para ","x.priv":"Este website não utiliza cookies nem ferramentas de análise e não carrega nada de terceiros. O seu navegador guarda apenas o idioma escolhido. O nosso fornecedor de alojamento, a Vercel, trata dados técnicos de acesso, como o endereço IP, para disponibilizar a página. Responsável: BPE Lda., morada em Contacto. Tem direito de acesso, retificação, apagamento e oposição, bem como de reclamação junto da CNPD."},
+ja:{"x.skip":"本文へ移動","x.nav":"メインメニュー","x.lang":"言語","x.cta":"BPEに問い合わせる","x.toRe":"不動産について","x.toDa":"デジタル資産について","x.toIt":"貿易について","x.phil":"機会を見いだし、価値を創造し、長期的な資産を築く。","x.s1":"バリュー投資","x.s2":"能動的な価値創造","x.s3":"キャッシュフローと資本成長","x.s4":"リスク管理","x.acq":"取得","x.ren":"改修・近代化","x.am":"アセットマネジメント","x.alt":"改修前の住宅の前で工事について話し合う二人","x.workT":"改修の内容","x.sell":"購入・改修・売却","x.hold":"購入・改修・保有","x.cap":"資産価値の上昇","x.rent":"継続的な賃料収入","x.units":"戸の住宅からなる開発プロジェクト","x.t1":"資産のトークン化","x.t2":"規制","x.t3":"技術とセキュリティ","x.mining":"ビットコイン・マイニング","x.altBtc":"ビットコイン・マイニング用コンテナの前に立つMarcus Boehm","x.m1":"マイニング収益","x.m2":"運営コスト","x.m3":"投資収益率","x.m4":"技術と効率","x.m5":"市場リスク","x.dots":"390個の点、それぞれが一人を表します","x.sid":"調達・輸入・販売。","x.role":"創業者・オーナー・代表取締役","x.say":"実物資産、イノベーション、持続的な価値創造への投資。","x.mailBtn":"メールで開く","x.mailNote":"作成したメッセージがお使いのメールソフトで開きます。送信はご自身で行ってください。当サイトは何も保存しません。","x.mailDone":"メールソフトが開きます。開かない場合はこちらへご連絡ください：","x.priv":"当サイトはCookieや解析ツールを使用せず、第三者からの読み込みも行いません。ブラウザには選択した言語のみが保存されます。ホスティング事業者Vercelは、ページ配信のためIPアドレスなどの技術的なアクセスデータを処理します。管理者：BPE Lda.（住所はお問い合わせ欄に記載）。アクセス、訂正、削除、異議申立ての権利、およびポルトガルのデータ保護機関CNPDへの苦情申立ての権利があります。"},
+zh:{"x.skip":"跳到正文","x.nav":"主菜单","x.lang":"语言","x.cta":"联系 BPE","x.toRe":"了解房地产","x.toDa":"了解数字资产","x.toIt":"了解贸易","x.phil":"发现机遇，创造价值，积累长期财富。","x.s1":"价值投资","x.s2":"主动创造价值","x.s3":"现金流与资本增长","x.s4":"风险管理","x.acq":"收购","x.ren":"翻新与现代化改造","x.am":"资产管理","x.alt":"两人在待翻新的房屋前讨论工程","x.workT":"我们改造的内容","x.sell":"收购、翻新、出售","x.hold":"收购、翻新、持有","x.cap":"资本增值","x.rent":"持续租金收入","x.units":"套住宅单元的开发项目","x.t1":"资产代币化","x.t2":"监管","x.t3":"技术与安全","x.mining":"比特币挖矿","x.altBtc":"Marcus Boehm 站在比特币挖矿集装箱前","x.m1":"挖矿收益","x.m2":"运营成本","x.m3":"投资回报","x.m4":"技术与效率","x.m5":"市场风险","x.dots":"390 个圆点，每个代表一个人","x.sid":"采购、进口、分销。","x.role":"创始人、所有者兼董事总经理","x.say":"投资于实物资产、创新与可持续的价值创造。","x.mailBtn":"以邮件打开","x.mailNote":"将在您的邮件程序中打开已写好的邮件，由您自行发送；本网站不保存任何内容。","x.mailDone":"您的邮件程序应已打开。如未打开，请写信至 ","x.priv":"本网站不使用 Cookie 或分析工具，也不从第三方加载任何内容。您的浏览器仅保存所选语言。托管服务商 Vercel 会处理 IP 地址等技术访问数据以提供页面。责任方：BPE Lda.，地址见“联系我们”。您有权查阅、更正、删除和提出异议，并可向葡萄牙数据保护机构 CNPD 投诉。"}
 };
 
-// bitcoin infographic: 390 dots = 390 people sharing one bitcoin
-(()=>{const box=document.getElementById('bxDots');if(!box)return;box.innerHTML='<i></i>'.repeat(390);})();
+// 390 dots = 390 people sharing one bitcoin
+document.getElementById('bxDots').innerHTML='<i></i>'.repeat(390);
 
-// capture English defaults from the markup
-const nodes=[...document.querySelectorAll('[data-i18n]')];
-const EN={}; nodes.forEach(n=>{EN[n.dataset.i18n] ??= n.textContent;});
-I18N.en=EN;
-const ariaNodes=[...document.querySelectorAll('[data-i18n-aria]')];
-const EN_ARIA={}; ariaNodes.forEach(n=>{EN_ARIA[n.dataset.i18nAria]=n.getAttribute('aria-label');});
-
+const $$=s=>[...document.querySelectorAll(s)];
+const bind=[
+  [$$('[data-i18n]'),'i18n',n=>n.textContent,(n,v)=>n.textContent='lines' in n.dataset?v.replace(/\. /g,'.\n'):v],
+  [$$('[data-i18n-aria]'),'i18nAria',n=>n.getAttribute('aria-label'),(n,v)=>n.setAttribute('aria-label',v)],
+  [$$('[data-i18n-alt]'),'i18nAlt',n=>n.alt,(n,v)=>n.alt=v]
+];
+const EN={}; bind.forEach(([ns,k,get])=>ns.forEach(n=>EN[n.dataset[k]]??=get(n)));
+EN['x.mailDone']='Your e-mail program should open now. If it does not, write to ';
+const langBtns=$$('.langs button');
+let texts=EN;
 function setLang(l){
-  const d=I18N[l]||EN;
-  nodes.forEach(n=>{const k=n.dataset.i18n; n.textContent=d[k]??EN[k];});
+  texts={...EN,...I18N[l],...X[l]};
+  bind.forEach(([ns,k,,set])=>ns.forEach(n=>set(n,texts[n.dataset[k]])));
   document.documentElement.lang=l;
   const nf=d=>new Intl.NumberFormat(l==='zh'?'zh-CN':l,{minimumFractionDigits:d,maximumFractionDigits:d});
-  document.querySelectorAll('[data-num]').forEach(e=>{e.textContent=nf(+(e.dataset.dec||0)).format(+e.dataset.num)});
-  ariaNodes.forEach(n=>{const k=n.dataset.i18nAria; n.setAttribute('aria-label',d[k]??EN_ARIA[k]);});
+  $$('[data-num]').forEach(e=>e.textContent=nf(+(e.dataset.dec||0)).format(+e.dataset.num));
   langBtns.forEach(b=>b.setAttribute('aria-pressed',b.dataset.lang===l));
+  document.getElementById('formMsg').textContent='';
   try{localStorage.setItem('bpe-lang',l)}catch(e){}
 }
-const langBtns=[...document.querySelectorAll('.lang-switch button')];
 langBtns.forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 let saved='en'; try{saved=localStorage.getItem('bpe-lang')||(navigator.language||'en').slice(0,2)}catch(e){}
-setLang(I18N[saved]?saved:'en');
+setLang(X[saved]?saved:'en');
 
-// mobile menu
-const side=document.getElementById('side'),scrim=document.getElementById('scrim'),burger=document.getElementById('burger');
-function toggle(open){side.classList.toggle('open',open);scrim.classList.toggle('show',open);burger.setAttribute('aria-expanded',open)}
-burger.addEventListener('click',()=>toggle(!side.classList.contains('open')));
-scrim.addEventListener('click',()=>toggle(false));
-document.querySelectorAll('.nav a').forEach(a=>a.addEventListener('click',()=>toggle(false)));
+// menu on small screens
+const nav=document.getElementById('nav'),menu=document.getElementById('menu');
+function openMenu(o){nav.classList.toggle('open',o);menu.setAttribute('aria-expanded',o)}
+menu.addEventListener('click',()=>openMenu(!nav.classList.contains('open')));
+nav.addEventListener('click',e=>{if(e.target.closest('a'))openMenu(false)});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&nav.classList.contains('open')){openMenu(false);menu.focus()}});
 
-// active nav on scroll
-const links=[...document.querySelectorAll('.nav a')];
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}})},{rootMargin:'-40% 0px -55% 0px'});
-document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+// current section in the menu
+const links=$$('.nav a');
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)links.forEach(a=>a.getAttribute('href')==='#'+e.target.id?a.setAttribute('aria-current','true'):a.removeAttribute('aria-current'))}),{rootMargin:'-40% 0px -55% 0px'});
+$$('main section[id]').forEach(s=>io.observe(s));
 
-// reveal
-const rv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rv.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.reveal').forEach(el=>rv.observe(el));
-
-// contact form (front-end only – connect to your mail service / backend)
-document.getElementById('contactForm').addEventListener('submit',e=>{
-  e.preventDefault();
-  const f=e.target;
-  if(!f.checkValidity()){f.reportValidity();return;}
-  document.getElementById('formMsg').style.display='block';
-  f.reset();
+// four steps
+const tabs=$$('.steps [role=tab]'),panes=$$('.stage .pane');
+function pick(i,focus){
+  tabs.forEach((t,n)=>{t.setAttribute('aria-selected',n===i);t.tabIndex=n===i?0:-1});
+  panes.forEach((p,n)=>p.classList.toggle('on',n===i));
+  if(focus)tabs[i].focus();
+}
+tabs.forEach((t,i)=>{
+  t.addEventListener('click',()=>pick(i));
+  t.addEventListener('keydown',e=>{
+    const to={ArrowRight:(i+1)%4,ArrowLeft:(i+3)%4,Home:0,End:3}[e.key];
+    if(to!==undefined){e.preventDefault();pick(to,true)}
+  });
 });
+
+// contact: builds an e-mail in the visitor's own mail program
+if(CONTACT_EMAIL){
+  const f=document.getElementById('contactForm'),a=document.getElementById('mailLink');
+  f.hidden=false; document.getElementById('mailRow').hidden=false;
+  document.getElementById('contactGrid').classList.remove('solo');
+  a.href='mailto:'+CONTACT_EMAIL; a.textContent=CONTACT_EMAIL;
+  f.addEventListener('submit',e=>{
+    e.preventDefault();
+    const d=new FormData(f),by=[d.get('name'),d.get('company')].filter(Boolean).join(', ');
+    location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(d.get('topic')+' – '+by)+'&body='+encodeURIComponent(d.get('message')+'\n\n'+by);
+    document.getElementById('formMsg').textContent=texts['x.mailDone']+CONTACT_EMAIL;
+  });
+}
 document.getElementById('yr').textContent=new Date().getFullYear();
 </script>
 </body>
